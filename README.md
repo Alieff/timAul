@@ -1,6 +1,6 @@
 # README #
 
-timAul is an open source that is <b>PLANNED</b> for crawling websites to obtain some inspiration quote. The result of crawling can be put into database or a raw text file. 
+timAul is an open source that is <b>PLANNED</b> for crawling websites to obtain some inspiration quote. The result of the crawler can be put into database or a raw text file. 
 
 ### What is this repository for? ###
 
