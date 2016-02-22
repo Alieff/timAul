@@ -25,6 +25,10 @@ Route::get('/hello/{name}', 'Hello@show');
 
 Route::get('hello', 'Hello@index');
 
+//TODO: apus ini klo ga dipake lagi
+Route::group(array('prefix' => 'api'), function(){
+		Route::resource('json', 'JsonController');
+	});
 
 
 /*
