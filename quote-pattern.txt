@@ -1,0 +1,69 @@
+########################################################################
+#           														   #						
+#				 			QUOTE PATTERN							   #
+#																	   #	
+########################################################################
+Bantuin penuhin polanya plis T_T, jadi bisa bikin regexnya. Regexnya
+bisa aja ditemuin ga cuma di teksnya, bisa aja di dalam <head> HTMLnya.
+intinya  quote sama author harus tercantum.
+##############################TAG#######################################
+
+[Q] = Quote
+[A] = Pembuat Quote
+[TAB] = TAB
+[\n] = NEWLINE (abis itu pindah ke baris bawahnya, tag ini buat penjelas
+		aja)
+[/TipeKata] = kata tersebut terdapat di dalam suatu tipe kata 
+			(contoh KataKerja, KataSifat, NamaOrang, dll)
+[#]			= END OF STRING
+Note : untuk satu simbol/kata yang statik (tidak berubah katanya untuk 
+		setiap quote di website tersebut), 
+		tolong ditulis seperti simbol/kata asalnya. misal 
+		dalam quotenya seperti "Hehe" @aul, (misal aul author)
+		maka format penulisan kata menjadi "[Q]" @[A]
+
+##########################CUSTOM TAG####################################
+
+NOTE : Isi di bagian ini kalau ada TAG yang ga didefinisiin di atas
+
+[S] = Sumber referensi quote di website tersebut (misal nama buku)
+
+
+#############################FORMAT PENGISIAN###########################
+
+FORMAT:
+No
+(Contoh format quote)
+**
+(TAG format penulisan quote)
+**
+(Website)
+---
+
+CONTOH:
+1
+"Dilarang merokok" -[A] di Jakarta[/Tempat]
+**
+"[Q]" -[A] di Jakarta
+**
+aulch@tumblr.com
+---
+
+
+##############################QUOTE#####################################
+1
+“We can have peace if we let go of wanting to change the past and wanting to control the future.” Lester Levinson
+**
+“[Q]” [A][#]
+**
+http://www.startofhappiness.com/best-motivational-inspirational-quotes/#happiness
+---
+
+2 
+“The way out of the dehumanizing effects of modern capitalism and industrialism is not to change the system but to read good books.” ~ Thomas Moore, Original Self
+**
+“[Q]” ~[A],[S]
+**
+http://www.movemequotes.com/tag/change/
+---
+
