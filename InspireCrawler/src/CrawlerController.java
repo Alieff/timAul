@@ -1,5 +1,16 @@
 /**
- * Created by haryoaw on 09/03/16.
+ *
+ *
+ *
  */
+
 public class CrawlerController {
+
+    /**
+     *
+     * @param argv
+     */
+    public static void main(String argv[]){
+        //TODO Initiate Crawler
+    }
 }
