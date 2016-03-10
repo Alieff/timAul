@@ -1,5 +1,17 @@
 /**
- * Created by haryoaw on 09/03/16.
+ *
+ *
+ *
  */
+
+
 public class CrawlerController {
+
+    /**
+     * Memulai crawler dengan aturan yang sudah ditentukan.
+     * @param argv parameter config, file, dll TODO: FIX INI
+     */
+    public static void main(String argv[]){
+        //TODO: Initiate Crawler
+    }
 }
