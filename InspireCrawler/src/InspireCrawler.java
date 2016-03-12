@@ -15,7 +15,8 @@ public class InspireCrawler extends WebCrawler {
 
     /**
      * Disini adalah aturan dari crawler untuk dapat mengakses web yang akan dijelajahi.
-     *
+     * Baca config dengan menginisialisasi class config yang dibuat EGA
+     * Buat batasan konten yang crawler bisa baca
      * @param referringPage page halaman yang merefer ke url
      * @param url page halaman yang akan dikunjungi
      * @return apakah boleh menuju halaman
