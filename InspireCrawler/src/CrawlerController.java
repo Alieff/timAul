@@ -13,5 +13,9 @@ public class CrawlerController {
      */
     public static void main(String argv[]){
         //TODO: Initiate Crawler
+
+        QuoteFilter quoteFilter = new QuoteFilter();
+        quoteFilter.quote("Hehe");
+
     }
 }
