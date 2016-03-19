@@ -25,5 +25,14 @@ public class CrawlerController {
 
         Page test = new Page(new WebURL());
         testCraw.shouldVisit(test,coba);
+
+        Quote contohQuote = new Quote("Jangan lupa berdoa","anon","www.google.com");
+        Quote contoh2 = new Quote("Jangan lupa ya","anon","www.google.com");
+        LogCrawl logCrawl = new LogCrawl(contohQuote);
+        LogCrawl logCrawl2 = new LogCrawl(contoh2);
+        logCrawl2.getLogFile();
+        logCrawl.getLogFile();
+
+
     }
 }

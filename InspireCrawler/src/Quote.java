@@ -1,5 +1,5 @@
 /**
- * Created by pflarasati on 3/19/16.
+ * Class ini adalah class Quote yang digunakan untuk merepresentasikan Quote yang sudah di crawl
  */
 public class Quote {
 
@@ -12,11 +12,13 @@ public class Quote {
     private int language;
 
 
+    // Contructor yang harus ada isinya
     public Quote(String quote, String author, String source) {
         this.quote = quote;
         this.author = author;
         this.source = source;
     }
+
 
     public Quote(int ID, String quote, String author, int category, String source, boolean isManual, int language) {
         this.ID = ID;
