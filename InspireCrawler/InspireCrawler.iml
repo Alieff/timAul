@@ -8,7 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="edu.uci.ics:crawler4j:4.2" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="org.apache.clerezza.ext:org.json.simple:0.4" level="project" />
+    <orderEntry type="library" name="edu.stanford.nlp:stanford-corenlp:3.6.0" level="project" />
   </component>
 </module>

@@ -5,7 +5,6 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 import org.apache.http.Header;
 import de.l3s.boilerpipe.extractors.KeepEverythingExtractor;
-
 import java.awt.datatransfer.SystemFlavorMap;
 import java.util.ArrayList;
 import java.util.Set;
