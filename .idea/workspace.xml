@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a44bd13-dc08-4e09-bb87-1037fabb8b6c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/InspireCrawler/CrawlerController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/InspireCrawler/Database.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/InspireCrawler/InspireCrawler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/InspireCrawler/Quote.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/InspireCrawler/QuoteFilter.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InspireCrawler/InspireCrawler.iml" afterPath="$PROJECT_DIR$/InspireCrawler/InspireCrawler.iml" />
-    </list>
+    <list default="true" id="3a44bd13-dc08-4e09-bb87-1037fabb8b6c" name="Default" comment="" />
     <ignored path="timAul.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
