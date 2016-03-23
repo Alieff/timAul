@@ -1,9 +1,14 @@
+import de.l3s.boilerpipe.BoilerpipeProcessingException;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
+import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
+import org.apache.http.Header;
+import de.l3s.boilerpipe.extractors.KeepEverythingExtractor;
 
 import java.awt.datatransfer.SystemFlavorMap;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class InspireCrawler extends WebCrawler {
@@ -55,7 +60,6 @@ public class InspireCrawler extends WebCrawler {
 
         System.out.println("Jadiii " + href + " boleh dicrawl = " + yesVisit);
         return yesVisit;
-
     }
 
     /**
@@ -65,7 +69,56 @@ public class InspireCrawler extends WebCrawler {
      */
     @Override
     public void visit(Page page) {
-        //TODO Buat suruh ngapain
+        //TODO : menggunakan crawler4J untuk mendapatkan html yang dicrawl
+        int docid = page.getWebURL().getDocid();
+        String url = page.getWebURL().getURL();
+        String domain = page.getWebURL().getDomain();
+        String path = page.getWebURL().getPath();
+        String subDomain = page.getWebURL().getSubDomain();
+        String parentUrl = page.getWebURL().getParentUrl();
+        String anchor = page.getWebURL().getAnchor();
+
+        logger.debug("Docid: {}", docid);
+        logger.info("URL: {}", url);
+        logger.debug("Domain: '{}'", domain);
+        logger.debug("Sub-domain: '{}'", subDomain);
+        logger.debug("Path: '{}'", path);
+        logger.debug("Parent page: {}", parentUrl);
+        logger.debug("Anchor text: {}", anchor);
+
+        if (page.getParseData() instanceof HtmlParseData) {
+            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
+            String text = htmlParseData.getText();
+            String html = htmlParseData.getHtml();
+            Set<WebURL> links = htmlParseData.getOutgoingUrls();
+
+            try {
+                String extractResult = KeepEverythingExtractor.INSTANCE.getText(html);
+            } catch (BoilerpipeProcessingException e) {
+                e.printStackTrace();
+            }
+
+            /**
+             * TODO : 1. Panggil method filter dari class QuoteFIlter sehingga mendapatkan list of quotes
+             * TODO : 2. kemudian akan dimasukkan ke database dengan memanggil class database
+             *
+             *
+             */
+
+            logger.debug("Text length: {}", text.length());
+            logger.debug("Html length: {}", html.length());
+            logger.debug("Number of outgoing links: {}", links.size());
+        }
+
+        Header[] responseHeaders = page.getFetchResponseHeaders();
+        if (responseHeaders != null) {
+            logger.debug("Response headers:");
+            for (Header header : responseHeaders) {
+                logger.debug("\t{}: {}", header.getName(), header.getValue());
+            }
+        }
+
+        logger.debug("=============");
     }
 }
 
