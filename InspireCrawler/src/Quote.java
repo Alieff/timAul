@@ -13,6 +13,7 @@ public class Quote {
     private String language;
 
 
+
     public Quote(String quote, String author, String source) {
         this.quote = quote;
         this.author = author;
@@ -68,6 +69,7 @@ public class Quote {
     public void setAuthor(String author) {
         this.author = author;
     }
+
     
     public void setCategory(String category) {
         this.category = category;
@@ -80,7 +82,7 @@ public class Quote {
     public void setManual(boolean manual) {
         isManual = manual;
     }
-
+    
     public void setLanguage(String language) {
         this.language = language;
     }
