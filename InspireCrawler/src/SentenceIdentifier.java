@@ -1,27 +1,18 @@
 import java.io.*;
 import java.util.*;
+import java.util.regex.Pattern;
+
+import edu.stanford.nlp.ie.AbstractSequenceClassifier;
+import edu.stanford.nlp.ie.crf.CRFClassifier;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import edu.stanford.nlp.dcoref.CorefChain;
-import edu.stanford.nlp.dcoref.CorefCoreAnnotations;
-import edu.stanford.nlp.io.*;
-import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.semgraph.SemanticGraph;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
-import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
-import edu.stanford.nlp.trees.*;
-import edu.stanford.nlp.util.*;
 
 
-/**
- *
- * TODO STIL BUGGEDDDDDDDDDDDD CANNOT BE DEPLOYED
- */
 public class SentenceIdentifier{
 
     String tempFilename = "lele.txt";
@@ -30,7 +21,8 @@ public class SentenceIdentifier{
     // Writer w ;
     Properties props;
     StanfordCoreNLP pipeline;
-
+    final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
+    AbstractSequenceClassifier classifier ;
     public SentenceIdentifier(){
         File statText = new File("lala2.txt");
         try{
@@ -39,6 +31,7 @@ public class SentenceIdentifier{
             // this.w = new BufferedWriter(osw);
             this.out = new PrintWriter(System.out);
             this.toFile = new PrintWriter(tempFilename,"UTF-8");
+            classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         }catch(Exception e){
             System.out.println("IO Error");
         }
@@ -51,6 +44,7 @@ public class SentenceIdentifier{
         SentenceIdentifier sen = new SentenceIdentifier();
         String result = sen.identify("Kosgi Santosh sent an email to Stanford University. He didn't get a reply. - Alief");
         System.out.println(result);
+        System.out.println(sen.addNer(result));
     }
 
 
@@ -91,11 +85,41 @@ public class SentenceIdentifier{
     }
 
 
+    public String addNer(String sentences){
+        List<List<CoreLabel>> out = classifier.classify(sentences);
+        final  Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'m|VP|NP|S)");
+        for (List<CoreLabel> sentence : out){
+            for(int i = 0; i < sentence.size(); i++) {
+                CoreLabel word = sentence.get(i);
+
+                String tagNer = word.get(CoreAnnotations.AnswerAnnotation.class);
+                if (tagNer.equalsIgnoreCase("PERSON"))
+                    System.out.print(word.originalText() + '/' + tagNer);
+                else
+                    System.out.print(word.originalText());
+
+                //Klo berikutnya bukan {, \\ n't, 'm pake spasi
+                if(i < sentence.size()-1) {
+                    String nextWord = sentence.get(i + 1).originalText();
+                    if (!FILTERS.matcher(nextWord).matches() && !word.originalText().equals("{")) {
+                        System.out.print(" ");
+                    }
+                }
+            }
+            System.out.println();
+        }
+        return classifier.classifyWithInlineXML(sentences);
+    }
+
 
     private void loadModels(){
 
         // Add in sentiment
-        this.props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, sentiment");
+
+        this.props.setProperty("ner.useSUTime","0");
+        this.props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
+        this.props.put("ner.model","model/english.all.3class.distsim.crf.ser.gz");
+        this.props.put("pos.model", "model/english-left3words-distsim.tagger");
     }
 
 
@@ -138,6 +162,6 @@ public class SentenceIdentifier{
                 break;
             }
         }
-        return "("+head+" "+result+") ";
+        return "{"+result+"}\\"+head;
     }
 }
