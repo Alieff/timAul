@@ -12,5 +12,6 @@
     <orderEntry type="library" name="org.apache.clerezza.ext:org.json.simple:0.4" level="project" />
     <orderEntry type="library" name="edu.stanford.nlp:stanford-corenlp:3.6.0" level="project" />
     <orderEntry type="library" name="javax.json-api-1.0-sources" level="project" />
+    <orderEntry type="library" name="stanford-corenlp-3.6.0-models" level="project" />
   </component>
 </module>

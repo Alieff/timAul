@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,24 +12,32 @@ import java.util.regex.Pattern;
 
 public class QuoteFilter {
 
+    private SentenceIdentifier sentenceIdentifier;
+
+    public QuoteFilter(){
+        this.sentenceIdentifier = new SentenceIdentifier();
+    }
     /**
      * Filter the stirng
      * @return
      */
-    public List<Quote> quote(String textDariWebsite){
-
+    public List<Quote> getListQuote(String textDariWebsite, String sourceWebsite){
+        List<Quote> hasilFilter = new ArrayList<>();
         //	System.out.println(tagger(textDariWebsite));
 
         //FOR unix
         String pattern = "(\"\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP\"|\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP)(\\n(-|~|)(.*\\\\People)*|\\s*(-|~)(.*\\\\People)*)";
 
         //FOR windows
-        String pattern2 = "(\"\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP\"|\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP)(\\r\\n(-|~|)(.*\\\\People)*|\\s*(-|~)(.*\\\\People)*)";
+        String pattern2 = "(\".*\"|.*|)(\\n(-|—|~)(\\s([a-zA-Z]*\\/PERSON\\s*)*)|(-|—|~)(.*\\\\PERSON)+)";
+
+        //Regex For only NER
+        String pattern3 = "(\".*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s*)+)|(-|—|~)(.*\\\\PERSON)+)";
 
         //Filter these out...
-        Pattern p = Pattern.compile(pattern2);
+        Pattern p = Pattern.compile(pattern3);
 
-        //System.out.println(tagger(textDariWebsite));
+        System.out.println(tagger(textDariWebsite));
         Matcher m = p.matcher(tagger(textDariWebsite));
 
         while(m.find()){
@@ -44,6 +53,8 @@ public class QuoteFilter {
             String quote = m.group(1);
             String author = m.group(4); //TODO differ for each...
 
+
+            /*
             //TODO MASIH BOROS
             quote = quote.replace("{", "");
             quote = quote.replace("}", "");
@@ -52,11 +63,16 @@ public class QuoteFilter {
 
 
             //TODO BOROS JUGA
-            author = author.replace("\\People","");
+
             System.out.println("Clear Quote : " + quote);
             System.out.println("Clear Author : " + author);
+            */
+            author = author.replace("/PERSON","");
+            Quote quoteModel = new Quote(quote,author,sourceWebsite);
+            hasilFilter.add(quoteModel);
         }
-        return null;
+
+        return hasilFilter;
     }
 
 
@@ -71,7 +87,7 @@ public class QuoteFilter {
 		}
 		catch (Exception e){}
 		return webText;*/
-        String str = "jh";
+        /*String str = "jh";
         try{
             File file = new File("test.txt");
             FileInputStream fis = new FileInputStream(file);
@@ -81,8 +97,9 @@ public class QuoteFilter {
 
             str = new String(data, "UTF-8");
         }
-        catch(Exception e){}
-        return str;
+        catch(Exception e){}*/
+
+        return sentenceIdentifier.addNer(textDariWebsite);
         //return "\"{Heheheheheh}\\NP {Shahahaahah}\\VP\"\nHaha\\People Hehe\\People";
     }
 }

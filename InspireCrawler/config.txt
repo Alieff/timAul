@@ -3,9 +3,7 @@ crawlDepth=-1
 proxy=-1,-1
 isResumable=false
 webAddress:
-http://www.facebook.com
-http://www.youtube.com
-http://www.google.com
+http://quotelicious.com/
 
 
 

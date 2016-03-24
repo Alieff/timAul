@@ -22,8 +22,9 @@ public class CrawlerController {
      * Memulai crawler dengan aturan yang sudah ditentukan.
      * @param argv parameter config, file, dll TODO: FIX INI
      */
+    static QuoteFilter quoteFilter;
     public static void main(String argv[]) throws Exception {
-        String crawlStorageFolder = "/data/crawl/root";
+        String crawlStorageFolder = "data/crawl/root";
         int numberOfCrawlers = 4;
 
         CrawlConfig config = new CrawlConfig();
@@ -36,7 +37,7 @@ public class CrawlerController {
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
         RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
         CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
-
+        config.setPolitenessDelay(3000);
         /*
          * For each crawl, you need to add some seed urls. These are the first
          * URLs that are fetched and then the crawler starts following links
@@ -47,10 +48,13 @@ public class CrawlerController {
 
         for(int i = 0; i < listWeb.size(); i++){
             controller.addSeed(listWeb.get(i));
+            System.out.println(listWeb.get(i));
         }
 
         config.setResumableCrawling(configReader.isResumable());
 
+        quoteFilter = new QuoteFilter();
+        //TODO Set the config here.
         /*
          * Start the crawl. This is a blocking operation, meaning that your code
          * will reach the line after this only when crawling is finished.
