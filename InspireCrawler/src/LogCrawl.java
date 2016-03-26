@@ -12,37 +12,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class LogCrawl {
-    private Quote hasilCrawl;
 
     /**
-     * Constructor dari class LogCrawl
-     * @param hasilCrawl
+     * Constructor dari class LogCrawls
      */
-    public LogCrawl(Quote hasilCrawl) {
-        this.hasilCrawl = hasilCrawl;
+    public LogCrawl() {
+
     }
 
-    /**
-     * Method untuk mengambil quote hasil crawl
-     * @param hasilCrawl
-     */
-    public void setHasilCrawl(Quote hasilCrawl) {
-        this.hasilCrawl = hasilCrawl;
-    }
-
-    /**
-     * Method untuk mengupdate quote hasil crawl
-     * @return Quote hasilCrawl
-     */
-    public Quote getHasilCrawl() {
-        return hasilCrawl;
-    }
 
     /**
      * Method ini digunakan untuk membuat log_results.txt berisi log aktivitas crawler
      * @return void
      */
-    public void getLogFile(){
+    public void getLogFile(Quote hasilCrawler){
+        Quote hasilCrawl = hasilCrawler;
         try{
             File file =new File("../log_results.txt");
             if(!file.exists()){

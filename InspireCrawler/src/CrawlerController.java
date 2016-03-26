@@ -1,6 +1,13 @@
+import edu.uci.ics.crawler4j.crawler.CrawlConfig;
+import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
+import edu.uci.ics.crawler4j.fetcher.PageFetcher;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import edu.uci.ics.crawler4j.url.WebURL;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -15,24 +22,43 @@ public class CrawlerController {
      * Memulai crawler dengan aturan yang sudah ditentukan.
      * @param argv parameter config, file, dll TODO: FIX INI
      */
-    public static void main(String argv[]){
-        //TODO: Initiate Crawler
-        InspireCrawler testCraw = new InspireCrawler();
+    static QuoteFilter quoteFilter;
+    public static void main(String argv[]) throws Exception {
+        String crawlStorageFolder = "data/crawl/root";
+        int numberOfCrawlers = 4;
 
+        CrawlConfig config = new CrawlConfig();
+        config.setCrawlStorageFolder(crawlStorageFolder);
 
-        WebURL coba = new WebURL();
-        coba.setURL("http://www.dftft.com/dfsafs.html");
+        /*
+         * Instantiate the controller for this crawl.
+         */
+        PageFetcher pageFetcher = new PageFetcher(config);
+        RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
+        CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
+        config.setPolitenessDelay(3000);
+        /*
+         * For each crawl, you need to add some seed urls. These are the first
+         * URLs that are fetched and then the crawler starts following links
+         * which are found in these pages
+         */
+        ConfigReader configReader = new ConfigReader();
+        ArrayList<String> listWeb = configReader.getWebAddress();
 
-        Page test = new Page(new WebURL());
-        testCraw.shouldVisit(test,coba);
+        for(int i = 0; i < listWeb.size(); i++){
+            controller.addSeed(listWeb.get(i));
+            System.out.println(listWeb.get(i));
+        }
 
-        Quote contohQuote = new Quote("Jangan lupa berdoa","anon","www.google.com");
-        Quote contoh2 = new Quote("Jangan lupa ya","anon","www.google.com");
-        LogCrawl logCrawl = new LogCrawl(contohQuote);
-        LogCrawl logCrawl2 = new LogCrawl(contoh2);
-        logCrawl2.getLogFile();
-        logCrawl.getLogFile();
+        config.setResumableCrawling(configReader.isResumable());
 
-
+        quoteFilter = new QuoteFilter();
+        //TODO Set the config here.
+        /*
+         * Start the crawl. This is a blocking operation, meaning that your code
+         * will reach the line after this only when crawling is finished.
+         */
+        controller.start(InspireCrawler.class, numberOfCrawlers);
     }
 }

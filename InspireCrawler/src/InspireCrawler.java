@@ -1,23 +1,44 @@
-import com.sun.tools.internal.jxc.ConfigReader;
+import de.l3s.boilerpipe.BoilerpipeProcessingException;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
+import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
+import org.apache.commons.logging.Log;
+import org.apache.http.Header;
+import de.l3s.boilerpipe.extractors.KeepEverythingExtractor;
+import org.apache.xpath.operations.Quo;
 
-
+import java.awt.datatransfer.SystemFlavorMap;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class InspireCrawler extends WebCrawler {
 
     /**
      * FILTER untuk mencegah crawler masuk ke alamat url yang mempunyai extensi yang disebut dibawah
+     * Dibawah ini contoh
      * Konten website yang tidak mungkin di kunjungi
      */
     private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
             + "|png|mp3|mp4|zip|gz|pdf))$");
 
-    // Ambil arraylist dari class ConfigReader
-    ConfigReader config = new ConfigReader();
+
+     private LogCrawl logCrawl;
+     private DBConnect dbConnect;
+     private ConfigReader configReader;
+     private QuoteFilter quoteFilter;
+
+    /**
+     * Constructor
+     */
+    public InspireCrawler (){
+        this.quoteFilter =  CrawlerController.quoteFilter;
+        this.logCrawl = new LogCrawl();
+        this.dbConnect = new DBConnect();
+        this.configReader = new ConfigReader();
+    }
 
     /**
      * Disini adalah aturan dari crawler untuk dapat mengakses web yang akan dijelajahi.
@@ -32,8 +53,12 @@ public class InspireCrawler extends WebCrawler {
         //TODO: Buat Aturannya
         //Class yang ega buat akan ada banyak list website
 
+
+
+
+
         //arraylist daftar web yang boleh di crawl
-        ArrayList<String> daftarWeb = config.getWebAddress();
+        ArrayList<String> daftarWeb = configReader.getWebAddress();
 
         //web yang akan dikunjungi
         String href = url.getURL().toLowerCase();
@@ -51,7 +76,6 @@ public class InspireCrawler extends WebCrawler {
         }
 
         return yesVisit;
-
     }
 
     /**
@@ -60,9 +84,33 @@ public class InspireCrawler extends WebCrawler {
      */
     @Override
     public void visit(Page page) {
-        //TODO Buat suruh ngapain
 
+        if (page.getParseData() instanceof HtmlParseData) {
+            String url = page.getWebURL().getURL();
+            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
+            String text = htmlParseData.getText();
+            String html = htmlParseData.getHtml();
+            Set<WebURL> links = htmlParseData.getOutgoingUrls();
+            String textExtracted = "";
+            try {
+                textExtracted = KeepEverythingExtractor.INSTANCE.getText(html);
+                System.out.println(textExtracted);
+            } catch (BoilerpipeProcessingException e) {
+                e.printStackTrace();
+            }
 
+            List<Quote> listQuote = quoteFilter.getListQuote(textExtracted,url);
+
+            System.out.println("Terdapat " + listQuote.size() + " Quote disini");
+            //Add to database & put log
+            for(int i = 0; i < listQuote.size(); i++){
+                Quote tempQuote = listQuote.get(i);
+                System.out.println("Masuk " + tempQuote.getAuthor());
+                dbConnect.putData(tempQuote);
+                logCrawl.getLogFile(tempQuote);
+            }
+        }
+
+        logger.debug("=============");
     }
 }
-

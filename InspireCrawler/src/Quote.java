@@ -1,3 +1,4 @@
+
 /**
  * Class ini adalah class Quote yang digunakan untuk merepresentasikan Quote yang sudah di crawl
  */
@@ -6,10 +7,11 @@ public class Quote {
     private int ID;
     private String quote;
     private String author;
-    private int category;
+    private String category;
     private String source;
     private boolean isManual;
-    private int language;
+    private String language;
+
 
 
     // Contructor yang harus ada isinya
@@ -19,8 +21,7 @@ public class Quote {
         this.source = source;
     }
 
-
-    public Quote(int ID, String quote, String author, int category, String source, boolean isManual, int language) {
+    public Quote(int ID, String quote, String author, String category, String source, boolean isManual, String language) {
         this.ID = ID;
         this.quote = quote;
         this.author = author;
@@ -42,7 +43,7 @@ public class Quote {
         return author;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -54,7 +55,7 @@ public class Quote {
         return isManual;
     }
 
-    public int getLanguage() {
+    public String getLanguage() {
         return language;
     }
 
@@ -70,7 +71,8 @@ public class Quote {
         this.author = author;
     }
 
-    public void setCategory(int category) {
+
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -82,7 +84,7 @@ public class Quote {
         isManual = manual;
     }
 
-    public void setLanguage(int language) {
+    public void setLanguage(String language) {
         this.language = language;
     }
 }
