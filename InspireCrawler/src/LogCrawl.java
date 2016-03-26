@@ -2,6 +2,17 @@
  * Class LogCrawl yang akan digunakan untuk men-generate log crawler
  * Created by pflarasati on 3/19/16.
  */
+
+/**
+ * @author pflarasati
+ * Created on 3/19/16.
+ * Updated on 26/03/2016
+ *
+ * Class LogCrawl
+ * Class ini adalah class untuk merepresentasikan log hasil kerja crawler
+ * Class ini bertujuan untuk mengenerate log dari hasil kerja crawler
+ *
+ */
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -16,12 +27,10 @@ public class LogCrawl {
     /**
      * Constructor dari class LogCrawls
      */
-    public LogCrawl() {
-
-    }
-
+    public LogCrawl() {}
 
     /**
+     * Methof getLogFile()
      * Method ini digunakan untuk membuat log_results.txt berisi log aktivitas crawler
      * @return void
      */

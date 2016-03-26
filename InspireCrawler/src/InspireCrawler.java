@@ -18,8 +18,7 @@ public class InspireCrawler extends WebCrawler {
 
     /**
      * FILTER untuk mencegah crawler masuk ke alamat url yang mempunyai extensi yang disebut dibawah
-     * Dibawah ini contoh
-     * Konten website yang tidak mungkin di kunjungi
+     * Dibawah ini contoh konten website yang tidak mungkin di kunjungi
      */
     private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
             + "|png|mp3|mp4|zip|gz|pdf))$");
@@ -31,7 +30,7 @@ public class InspireCrawler extends WebCrawler {
      private QuoteFilter quoteFilter;
 
     /**
-     * Constructor
+     * Constructor dari class InspireCrawler
      */
     public InspireCrawler (){
         this.quoteFilter =  CrawlerController.quoteFilter;
@@ -41,9 +40,9 @@ public class InspireCrawler extends WebCrawler {
     }
 
     /**
-     * Disini adalah aturan dari crawler untuk dapat mengakses web yang akan dijelajahi.
-     * Baca config dengan menginisialisasi class config yang dibuat EGA
-     * Buat batasan konten yang crawler bisa baca untuk Pattern FILTERS
+     * Method shouldVisit
+     * Method ini berisi batasan apakah crawler boleh meng-crawl sebuah website atau tidak
+     * Method ini bertujuan untuk mengecek apakah halaman web yang akan di-crawl valid atau tidak
      * @param referringPage page halaman yang merefer ke url
      * @param url page halaman yang akan dikunjungi
      * @return apakah boleh menuju halaman
@@ -52,8 +51,6 @@ public class InspireCrawler extends WebCrawler {
     public boolean shouldVisit(Page referringPage, WebURL url) {
         //TODO: Buat Aturannya
         //Class yang ega buat akan ada banyak list website
-
-
 
 
 
@@ -66,7 +63,7 @@ public class InspireCrawler extends WebCrawler {
         //flag
         boolean yesVisit = false;
 
-        //cek apakah web yang akan dikunjungi ada di list daftar web
+        //cek apakah web yang akan dikunjungi ada di list daftar web dan merupakan halaman yang valid
         for(int i=0; i<daftarWeb.size(); i++) {
             yesVisit = !FILTERS.matcher(href).matches() && href.startsWith(daftarWeb.get(i));
 
