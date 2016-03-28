@@ -32,8 +32,11 @@ public class QuoteFilter {
         //Regex For only NER
         String pattern3 = "(\".*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s*)+)|(-|—|~)(.*\\\\PERSON)+)";
 
+        //Regex For only NER v2.0
+        String pattern4 = "(\"([a-zA-Z]+(\\.|,|;)*\\s*)*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s *)+)|(-|—|~)(.*\\\\PERSON)+)";
+
         //Filter these out...
-        Pattern p = Pattern.compile(pattern3);
+        Pattern p = Pattern.compile(pattern4);
 
         //System.out.println(tagger(textDariWebsite));
         //REAL
@@ -48,7 +51,7 @@ public class QuoteFilter {
 
         while(m.find()){
             String quote = m.group(1);
-            String author = m.group(4); //TODO differ for each...
+            String author = m.group(6); //TODO differ for each...
             /*
             //TODO MASIH BOROS
             quote = quote.replace("{", "");

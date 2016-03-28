@@ -48,7 +48,7 @@ public class CrawlerController {
          */
         ConfigReader configReader = new ConfigReader();
         ArrayList<String> listWeb = configReader.getWebAddress();
-        
+
         for(int i = 0; i < listWeb.size(); i++){
             controller.addSeed(listWeb.get(i));
         }
