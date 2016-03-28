@@ -3,12 +3,8 @@ import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
-import org.apache.commons.logging.Log;
-import org.apache.http.Header;
 import de.l3s.boilerpipe.extractors.KeepEverythingExtractor;
-import org.apache.xpath.operations.Quo;
 
-import java.awt.datatransfer.SystemFlavorMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -26,7 +22,7 @@ public class InspireCrawler extends WebCrawler {
 
 
      private LogCrawl logCrawl;
-     private DBConnect dbConnect;
+     private Database database;
      private ConfigReader configReader;
      private QuoteFilter quoteFilter;
 
@@ -36,7 +32,7 @@ public class InspireCrawler extends WebCrawler {
     public InspireCrawler (){
         this.quoteFilter =  CrawlerController.quoteFilter;
         this.logCrawl = new LogCrawl();
-        this.dbConnect = new DBConnect();
+        this.database = new Database();
         this.configReader = new ConfigReader();
     }
     /**
@@ -103,7 +99,7 @@ public class InspireCrawler extends WebCrawler {
             for(int i = 0; i < listQuote.size(); i++){
                 Quote tempQuote = listQuote.get(i);
                 //System.out.println("Masuk " + tempQuote.getAuthor());
-                dbConnect.putData(tempQuote);
+                database.putData(tempQuote);
                 logCrawl.getLogFile(tempQuote);
 
 

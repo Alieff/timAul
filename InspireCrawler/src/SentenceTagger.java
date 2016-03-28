@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 import edu.stanford.nlp.pipeline.*;
 
-public class SentenceIdentifier{
+public class SentenceTagger {
 
     String tempFilename = "lele.txt";
     PrintWriter out;
@@ -23,14 +23,13 @@ public class SentenceIdentifier{
     final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
     AbstractSequenceClassifier classifier;
 
-    public SentenceIdentifier(){
-        File statText = new File("lala2.txt");
+    public SentenceTagger(){
+
         try{
             // FileOutputStream is = new FileOutputStream(statText);
             // OutputStreamWriter osw = new OutputStreamWriter(is);
             // this.w = new BufferedWriter(osw);
-            this.out = new PrintWriter(System.out);
-            this.toFile = new PrintWriter(tempFilename,"UTF-8");
+
 
             //FOR NER
             classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
@@ -40,13 +39,6 @@ public class SentenceIdentifier{
         this.props =  new Properties();
         loadModels();
         this.pipeline = new StanfordCoreNLP(props);
-    }
-
-    public static void main(String[] args)throws Exception{
-        SentenceIdentifier sen = new SentenceIdentifier();
-        String result = sen.identify("Kosgi Santosh sent an email to Stanford University. He didn't get a reply. - Alief");
-      //  System.out.println(result);
-       // System.out.println(sen.addNer("You have to expect things of yourself before you can do them. — Michael Jordan"));
     }
 
 
@@ -146,8 +138,7 @@ public class SentenceIdentifier{
         for(int ii = firstIndex ; ii<pool.length() ; ii++){
             char currentChar = pool.charAt(ii);
 
-//			System.out.println(currentChar+" "+recordState+" "+result);
-//			System.out.println(recordState);
+
             if(currentChar=='(' ){
                 paranthesesCount++;
                 recordState = 1;
