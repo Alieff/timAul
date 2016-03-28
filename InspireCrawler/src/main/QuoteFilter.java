@@ -1,5 +1,7 @@
 package main;
 
+import test.SentenceSplitter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -9,10 +11,10 @@ import java.util.regex.Pattern;
 
 public class QuoteFilter {
 
-    private SentenceIdentifier sentenceIdentifier;
+    private SentenceTagger sentenceTagger;
 
     public QuoteFilter(){
-        this.sentenceIdentifier = new SentenceIdentifier();
+        this.sentenceTagger = new SentenceTagger();
     }
     /**
      * Filter the stirng
@@ -20,7 +22,6 @@ public class QuoteFilter {
      */
     public List<Quote> getListQuote(String textDariWebsite, String sourceWebsite){
         List<Quote> hasilFilter = new ArrayList<>();
-        //	System.out.println(tagger(textDariWebsite));
 
         //FOR unix
         String pattern = "(\"\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP\"|\\{.*\\}\\\\NP .*\\{.*\\}\\\\VP)(\\n(-|~|)(.*\\\\People)*|\\s*(-|~)(.*\\\\People)*)";
@@ -35,22 +36,19 @@ public class QuoteFilter {
         Pattern p = Pattern.compile(pattern3);
 
         //System.out.println(tagger(textDariWebsite));
-        Matcher m = p.matcher(tagger(textDariWebsite));
+        //REAL
+        String hasilTag = tagger(textDariWebsite);
+        //UNTUK TEST
+        //SentenceSplitter kunyuk = new SentenceSplitter(sentenceTagger);
+        //String hasilTag = kunyuk.kunyuk(textDariWebsite);
+
+
+        Matcher m = p.matcher(hasilTag);
+
 
         while(m.find()){
-      //      System.out.println("Found a quote sentence :\n " + m.group(0));
-            //	System.out.println("Total Group : " + m.groupCount());
-            for(int i = 0 ; i < m.groupCount(); i++){
-                //	System.out.println("Group " + i + " : \n" + m.group(i) );
-            }
-            //System.out.println("Quote : " + m.group(1));
-            //System.out.println("Author : " + m.group(4));
-
-           // System.out.println("--Delete These Tagger!!--");
             String quote = m.group(1);
             String author = m.group(4); //TODO differ for each...
-
-
             /*
             //TODO MASIH BOROS
             quote = quote.replace("{", "");
@@ -64,39 +62,39 @@ public class QuoteFilter {
             System.out.println("Clear Quote : " + quote);
             System.out.println("Clear Author : " + author);
             */
+            quote = quote.replace("/PERSON","");
             author = author.replace("/PERSON","");
-            Quote quoteModel = new Quote(quote,author,sourceWebsite);
-            hasilFilter.add(quoteModel);
+
+            //Avoid blank
+            quote = quote.trim();
+            author = author.trim();
+            if(!quote.isEmpty() && !author.isEmpty()) {
+                Quote quoteModel = new Quote(quote, author, sourceWebsite);
+                hasilFilter.add(quoteModel);
+            }
         }
 
         return hasilFilter;
     }
 
 
+    /**
+     * Tag the text with structural Tag and PERSON.
+     *
+     * @param textDariWebsite teks yang berasal dari website
+     * @return teks yang sudah di tag
+     */
     public String tagger(String textDariWebsite){
-		/*String webText = textDariWebsite;
-		String ambil = "";
-		try{
-			BufferedReader reader = new BufferedReader(new FileReader("test.txt"));
-			while(( ambil = reader.readLine()) != null){
-				webText += ambil;
-			}
-		}
-		catch (Exception e){}
-		return webText;*/
-        /*String str = "jh";
-        try{
-            File file = new File("test.txt");
-            FileInputStream fis = new FileInputStream(file);
-            byte[] data = new byte[(int) file.length()];
-            fis.read(data);
-            fis.close();
+        String[] splitter = textDariWebsite.split("\n");
 
-            str = new String(data, "UTF-8");
+
+        String textWithTag = "";
+        for(int i = 0; i < splitter.length; i++){
+            String hasilNer = sentenceTagger.addNer(splitter[i]);
+            textWithTag += hasilNer;
+            textWithTag += "\n";
         }
-        catch(Exception e){}*/
 
-        return sentenceIdentifier.addNer(textDariWebsite);
-        //return "\"{Heheheheheh}\\NP {Shahahaahah}\\VP\"\nHaha\\People Hehe\\People";
+        return textWithTag;
     }
 }

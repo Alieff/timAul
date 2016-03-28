@@ -88,7 +88,7 @@ public class SentenceTagger {
     public String addNer(String sentences){
         List<List<CoreLabel>> out = classifier.classify(sentences);
         String wordReturned = "";
-        final  Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'m|VP|NP|S|.)");
+        final  Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'re|’re|n’t|’m|’s|'s|’ve|'ve|'m|VP|NP|S|\\.|,)");
 
         for (List<CoreLabel> sentence : out){
             for(int i = 0; i < sentence.size(); i++) {

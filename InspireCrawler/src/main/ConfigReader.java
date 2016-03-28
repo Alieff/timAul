@@ -21,7 +21,7 @@ public class ConfigReader {
     private ArrayList<String> result; 
     private ArrayList<String> webAddress;
     String line;
-    final String CONFIG = "main/config.txt";
+    final String CONFIG = "config.txt";
     
     //Read CONFIG with parameter CONFIG
 	
@@ -51,7 +51,7 @@ public class ConfigReader {
             webAddress = new ArrayList();
             
             for (int i = 5;i<result.size();i++){
-                webAddress.add((String)(result.get(i)));
+                webAddress.add((result.get(i)));
             }
             bufferedReader.close();     
 

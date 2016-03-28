@@ -5,13 +5,15 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
+import test.TestCrawler;
 
 import java.util.ArrayList;
 
 /**
+ * Class ini adalah class untuk memulai crawlernya dan melakukan setting
+ * config pada crawler.
  *
- *
- *
+ * @author haryoaw
  */
 
 
@@ -19,9 +21,10 @@ public class CrawlerController {
 
     /**
      * Memulai crawler dengan aturan yang sudah ditentukan.
-     * @param argv parameter config, file, dll TODO: FIX INI
+     * @param argv parameter config, file, dll
      */
-    static QuoteFilter quoteFilter;
+    public static QuoteFilter quoteFilter;
+
     public static void main(String argv[]) throws Exception {
         String crawlStorageFolder = "data/crawl/root";
         int numberOfCrawlers = 4;
@@ -36,7 +39,8 @@ public class CrawlerController {
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
         RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
         CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
-        config.setPolitenessDelay(3000);
+        config.setPolitenessDelay(1000);
+
         /*
          * For each crawl, you need to add some seed urls. These are the first
          * URLs that are fetched and then the crawler starts following links
@@ -44,20 +48,21 @@ public class CrawlerController {
          */
         ConfigReader configReader = new ConfigReader();
         ArrayList<String> listWeb = configReader.getWebAddress();
-
+        
         for(int i = 0; i < listWeb.size(); i++){
             controller.addSeed(listWeb.get(i));
-      //      System.out.println(listWeb.get(i));
         }
 
         config.setResumableCrawling(configReader.isResumable());
 
         quoteFilter = new QuoteFilter();
-        //TODO Set the config here.
         /*
          * Start the crawl. This is a blocking operation, meaning that your code
          * will reach the line after this only when crawling is finished.
          */
         controller.start(InspireCrawler.class, numberOfCrawlers);
+
+        //TESTING
+        //controller.start(TestCrawler.class, numberOfCrawlers);
     }
 }
