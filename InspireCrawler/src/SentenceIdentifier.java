@@ -45,8 +45,8 @@ public class SentenceIdentifier{
     public static void main(String[] args)throws Exception{
         SentenceIdentifier sen = new SentenceIdentifier();
         String result = sen.identify("Kosgi Santosh sent an email to Stanford University. He didn't get a reply. - Alief");
-        System.out.println(result);
-        System.out.println(sen.addNer("You have to expect things of yourself before you can do them. — Michael Jordan"));
+      //  System.out.println(result);
+       // System.out.println(sen.addNer("You have to expect things of yourself before you can do them. — Michael Jordan"));
     }
 
 

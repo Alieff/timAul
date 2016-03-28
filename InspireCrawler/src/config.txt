@@ -1,0 +1,9 @@
+pageNumber=-1
+crawlDepth=-1
+proxy=-1,-1
+isResumable=false
+webAddress:
+http://quotelicious.com/
+
+
+

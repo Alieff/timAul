@@ -37,19 +37,19 @@ public class QuoteFilter {
         //Filter these out...
         Pattern p = Pattern.compile(pattern3);
 
-        System.out.println(tagger(textDariWebsite));
+        //System.out.println(tagger(textDariWebsite));
         Matcher m = p.matcher(tagger(textDariWebsite));
 
         while(m.find()){
-            System.out.println("Found a quote sentence :\n " + m.group(0));
+      //      System.out.println("Found a quote sentence :\n " + m.group(0));
             //	System.out.println("Total Group : " + m.groupCount());
             for(int i = 0 ; i < m.groupCount(); i++){
                 //	System.out.println("Group " + i + " : \n" + m.group(i) );
             }
-            System.out.println("Quote : " + m.group(1));
-            System.out.println("Author : " + m.group(4));
+            //System.out.println("Quote : " + m.group(1));
+            //System.out.println("Author : " + m.group(4));
 
-            System.out.println("--Delete These Tagger!!--");
+           // System.out.println("--Delete These Tagger!!--");
             String quote = m.group(1);
             String author = m.group(4); //TODO differ for each...
 

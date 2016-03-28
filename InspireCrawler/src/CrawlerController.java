@@ -48,7 +48,7 @@ public class CrawlerController {
 
         for(int i = 0; i < listWeb.size(); i++){
             controller.addSeed(listWeb.get(i));
-            System.out.println(listWeb.get(i));
+      //      System.out.println(listWeb.get(i));
         }
 
         config.setResumableCrawling(configReader.isResumable());

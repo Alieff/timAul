@@ -45,6 +45,14 @@ public class LogCrawl {
             pw.println("Quotes : " + hasilCrawl.getQuote());
             pw.println("Author : " + hasilCrawl.getAuthor());
             pw.println("Source : " + hasilCrawl.getSource());
+
+            System.out.println(cal.getTime()); //2014/08/06 16:00:22
+            System.out.println("Quotes : " + hasilCrawl.getQuote());
+            System.out.println("Author : " + hasilCrawl.getAuthor());
+            System.out.println("Source : " + hasilCrawl.getSource());
+
+            System.out.println();
+
             pw.close();
 
         } catch(IOException ioe){

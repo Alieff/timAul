@@ -35,14 +35,14 @@ public class myReader {
             for (int i = 4;i<result.size();i++){
                 webAddress.add((String)(result.get(i)));
             }
-            System.out.println(pageToCrawl);
-            System.out.println(crawlDepth);
-            System.out.println(proxyUser);
-            System.out.println(proxyPass);
-            System.out.println(resumable);
+          //  System.out.println(pageToCrawl);
+            //System.out.println(crawlDepth);
+            //System.out.println(proxyUser);
+            //System.out.println(proxyPass);
+            //System.out.println(resumable);
             for(int i = 0; i < webAddress.size();i++){
 
-                System.out.println(webAddress.get(i));            
+              //  System.out.println(webAddress.get(i));
             }
             
             bufferedReader.close();         

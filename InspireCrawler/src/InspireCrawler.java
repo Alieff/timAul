@@ -90,24 +90,29 @@ public class InspireCrawler extends WebCrawler {
             String textExtracted = "";
             try {
                 textExtracted = KeepEverythingExtractor.INSTANCE.getText(html);
-                System.out.println(textExtracted);
+                //System.out.println(textExtracted);
             } catch (BoilerpipeProcessingException e) {
                 e.printStackTrace();
             }
 
             List<Quote> listQuote = quoteFilter.getListQuote(textExtracted,url);
 
-            System.out.println("Terdapat " + listQuote.size() + " Quote disini");
+
+            //System.out.println("Terdapat " + listQuote.size() + " Quote disini");
             //Add to database & put log
             for(int i = 0; i < listQuote.size(); i++){
                 Quote tempQuote = listQuote.get(i);
-                System.out.println("Masuk " + tempQuote.getAuthor());
+                //System.out.println("Masuk " + tempQuote.getAuthor());
                 dbConnect.putData(tempQuote);
                 logCrawl.getLogFile(tempQuote);
+
+
+                System.out.println("The crawler is still running...CTRL + C to STOP");
             }
+
+            System.out.println("The crawler is still running...CTRL + C to STOP");
         }
 
         logger.debug("=============");
     }
 }
-

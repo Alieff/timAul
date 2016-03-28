@@ -46,7 +46,7 @@ public class DBConnect {
             String source = fullQuote.getSource();
             Boolean isManual = fullQuote.isManual();
             String language = fullQuote.getLanguage();
-            System.out.println(quote +","+author + "," + source + "," + category + "," + isManual + "," + language);
+            //System.out.println(quote +","+author + "," + source + "," + category + "," + isManual + "," + language);
             pw.println(quote +";"+author + ";" + source + ";" + category + ";" + isManual + ";" + language);
             pw.close();
             //  PreparedStatement putToTable = con.prepareStatement("INSERT INTO quote (quote, isManual, language, author, category, source) VALUES ('"+quote+"', '"+isManual+"', '"+language+"', '"+author+"', '"+category+"', '"+source+"')");
