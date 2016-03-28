@@ -1,4 +1,4 @@
-/**
+package main; /**
  *
  * @author Aulia Chairunisa
  */
@@ -7,10 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Database {

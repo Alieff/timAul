@@ -1,4 +1,4 @@
-/*
+package main;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,7 +6,7 @@
 import java.io.*;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 /**
  *
  * @author kevin.ega
@@ -21,7 +21,7 @@ public class ConfigReader {
     private ArrayList<String> result; 
     private ArrayList<String> webAddress;
     String line;
-    final String CONFIG = "config.txt";
+    final String CONFIG = "main/config.txt";
     
     //Read CONFIG with parameter CONFIG
 	

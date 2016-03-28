@@ -1,3 +1,5 @@
+package main;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -14,7 +16,7 @@ import edu.stanford.nlp.pipeline.*;
 
 public class SentenceTagger {
 
-    String tempFilename = "lele.txt";
+    String tempFilename = "main/lele.txt";
     PrintWriter out;
     PrintWriter toFile;
     // Writer w ;

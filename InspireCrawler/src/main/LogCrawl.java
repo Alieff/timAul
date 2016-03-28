@@ -1,4 +1,4 @@
-/**
+package main; /**
  * Class LogCrawl yang akan digunakan untuk men-generate log crawler
  * Created by pflarasati on 3/19/16.
  */
