@@ -4,3 +4,6 @@ lib/
 ../log_results.txt
 .idea/*
 ../DatabaseTemporary.csv
+out/*
+inspirecrawler.xml
+inspirecrawler.properties
