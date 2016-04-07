@@ -47,36 +47,7 @@ public class SentenceTagger {
     public String identify(String sentences){
 
         String result = "";
-        Annotation annotation = new Annotation(sentences);
-        // run all the selected Annotators on this text
-        pipeline.annotate(annotation);
-        try{
-            pipeline.jsonPrint(annotation,toFile);
-            JSONParser parser = new JSONParser();
-
-            Object obj = parser.parse(new FileReader(tempFilename));
-
-            JSONObject jsonObject = (JSONObject) obj;
-
-            JSONArray companyList = (JSONArray) jsonObject.get("sentences");
-            Iterator<JSONObject> iterator = companyList.iterator();
-            while (iterator.hasNext()) {
-                String parseTree = (String) iterator.next().get("parse");
-                // System.out.println(parseTree);
-                String np = extractTree(parseTree,"NP");
-                String vp = extractTree(parseTree,"VP");
-                String nn = extractTree(parseTree,"NN");
-                // w.write(np);
-                //      	w.write(vp);
-                //      	w.write(nn);
-                //      	w.write("\n");
-                result+= np+vp+nn+"\n";
-            }
-            // w.close();
-        }catch(Exception e){
-            System.out.println("Error");
-            System.out.println(e.getMessage());
-        }
+		
         return result;
     }
 
