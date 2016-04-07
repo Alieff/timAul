@@ -2,10 +2,10 @@ out/production/InspireCrawler/*
 data/crawl/root/frontier/*
 lib/
 ../log_results.txt
-.idea/*
+.idea/
 ../DatabaseTemporary.csv
-out/*
+out/
 inspirecrawler.xml
 inspirecrawler.properties
 module_inspirecrawler.xml
-src/model/*	
+src/model/
