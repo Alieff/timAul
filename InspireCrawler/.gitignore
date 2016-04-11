@@ -1,3 +1,4 @@
+.classpath
 out/production/InspireCrawler/*
 data/crawl/root/frontier/*
 lib/
