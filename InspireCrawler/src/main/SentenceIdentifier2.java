@@ -1,3 +1,5 @@
+package main;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -12,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 
 import edu.stanford.nlp.pipeline.*;
 
-public class SentenceIdentifier{
+public class SentenceIdentifier2{
 
     String tempFilename = "lele.txt";
     PrintWriter out;
@@ -23,7 +25,7 @@ public class SentenceIdentifier{
     final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
     AbstractSequenceClassifier classifier;
 
-    public SentenceIdentifier(){
+    public SentenceIdentifier2(){
         File statText = new File("lala2.txt");
         try{
             // FileOutputStream is = new FileOutputStream(statText);
