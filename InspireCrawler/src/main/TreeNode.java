@@ -23,6 +23,8 @@ public class TreeNode {
 	
 	public static void main(String[] args) {
 		TreeNode node = new TreeNode();
+		String text = "(ROOT\n  (NP     (NNP Privacy) (NNP Policy)))";
+		System.out.println(text.trim());
 		System.out.println(node.getChildrenOfLv2());
 	}
 
@@ -39,6 +41,7 @@ public class TreeNode {
 	}
 
 	public void construct(String parseTree) {
+		// contoh input (ROOT\n  (NP (NNP Privacy) (NNP Policy)))
 		String tag = "";
 		TreeNode head = this;
 		for (int i = 0; i < parseTree.length(); i++) {
@@ -69,9 +72,11 @@ public class TreeNode {
 				tag += currentChar;
 			}
 		}
+		
 	}
 	
-	public void levelOrder(){
+	
+	private void levelOrder(){
 		Queue queue = new LinkedList<TreeNode>();
 		queue.add(this);
 		while(!queue.isEmpty()){
@@ -79,7 +84,7 @@ public class TreeNode {
 			for (TreeNode node : thisNode.childs) {
 				queue.add(node);
 			}
-			System.out.println(thisNode);
+//			System.out.println(thisNode);
 		}
 	}
 	
@@ -92,8 +97,16 @@ public class TreeNode {
 			for (TreeNode node : thisNode.childs) {
 				if(node.level==2){
 					result += "{";
-					result += node.getLeaves(node);
-					result += "}/"+node.label+" ";
+					String nodeVal = node.getLeaves(node);
+					
+					if(nodeVal.contains("/PERSON")){
+						nodeVal = nodeVal.replace("/PERSON", "");
+						result += nodeVal;
+						result += "}/PERSON ";
+					}else{
+						result += nodeVal;
+						result += "}/"+node.label+" ";
+					}
 				}
 				queue.add(node);
 			}
