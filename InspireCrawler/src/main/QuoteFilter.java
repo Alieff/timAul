@@ -21,6 +21,8 @@ public class QuoteFilter {
      * @return
      */
     public List<Quote> getListQuote(String textDariWebsite, String sourceWebsite){
+        System.out.println("Before Filter-------");
+    	System.out.println(textDariWebsite);
         List<Quote> hasilFilter = new ArrayList<>();
 
         //FOR unix
@@ -38,7 +40,12 @@ public class QuoteFilter {
         //Filter these out...
         Pattern p = Pattern.compile(pattern4);
 
-        //System.out.println(tagger(textDariWebsite));
+        System.out.println(tagger(textDariWebsite));
+
+        SentenceIdentifier sen = new SentenceIdentifier();
+        String result = sen.identify(textDariWebsite);
+        System.out.println(result);
+        
         //REAL
         String hasilTag = tagger(textDariWebsite);
         //UNTUK TEST
@@ -76,7 +83,10 @@ public class QuoteFilter {
                 hasilFilter.add(quoteModel);
             }
         }
-
+        
+        System.out.println("After Filter-------");
+        System.out.println(hasilFilter);
+        System.exit(0);
         return hasilFilter;
     }
 
