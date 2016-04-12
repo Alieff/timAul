@@ -2,21 +2,21 @@
   "sentences": [
     {
       "index": 0,
-      "parse": "(ROOT\n  (NP (NN privacy) (NN policy)))",
+      "parse": "(ROOT\n  (NP (NNP Privacy) (NNP Policy)))",
       "basic-dependencies": [
         {
           "dep": "ROOT",
           "governor": 0,
           "governorGloss": "ROOT",
           "dependent": 2,
-          "dependentGloss": "policy"
+          "dependentGloss": "Policy"
         },
         {
           "dep": "compound",
           "governor": 2,
-          "governorGloss": "policy",
+          "governorGloss": "Policy",
           "dependent": 1,
-          "dependentGloss": "privacy"
+          "dependentGloss": "Privacy"
         }
       ],
       "collapsed-dependencies": [
@@ -25,14 +25,14 @@
           "governor": 0,
           "governorGloss": "ROOT",
           "dependent": 2,
-          "dependentGloss": "policy"
+          "dependentGloss": "Policy"
         },
         {
           "dep": "compound",
           "governor": 2,
-          "governorGloss": "policy",
+          "governorGloss": "Policy",
           "dependent": 1,
-          "dependentGloss": "privacy"
+          "dependentGloss": "Privacy"
         }
       ],
       "collapsed-ccprocessed-dependencies": [
@@ -41,36 +41,36 @@
           "governor": 0,
           "governorGloss": "ROOT",
           "dependent": 2,
-          "dependentGloss": "policy"
+          "dependentGloss": "Policy"
         },
         {
           "dep": "compound",
           "governor": 2,
-          "governorGloss": "policy",
+          "governorGloss": "Policy",
           "dependent": 1,
-          "dependentGloss": "privacy"
+          "dependentGloss": "Privacy"
         }
       ],
       "tokens": [
         {
           "index": 1,
-          "word": "privacy",
-          "originalText": "privacy",
-          "lemma": "privacy",
+          "word": "Privacy",
+          "originalText": "Privacy",
+          "lemma": "Privacy",
           "characterOffsetBegin": 0,
           "characterOffsetEnd": 7,
-          "pos": "NN",
+          "pos": "NNP",
           "before": "",
           "after": " "
         },
         {
           "index": 2,
-          "word": "policy",
-          "originalText": "policy",
-          "lemma": "policy",
+          "word": "Policy",
+          "originalText": "Policy",
+          "lemma": "Policy",
           "characterOffsetBegin": 8,
           "characterOffsetEnd": 14,
-          "pos": "NN",
+          "pos": "NNP",
           "before": " ",
           "after": ""
         }

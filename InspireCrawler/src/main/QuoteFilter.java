@@ -43,15 +43,17 @@ public class QuoteFilter {
         System.out.println(tagger(textDariWebsite));
         System.out.println("Tagging  Done ");
 
-        SentenceIdentifier sen = new SentenceIdentifier();
-        String result = sen.partialIdentify(textDariWebsite);
-//        System.out.println(result);
         
         //REAL
         String hasilTag = tagger(textDariWebsite);
         //UNTUK TEST
         //SentenceSplitter kunyuk = new SentenceSplitter(sentenceTagger);
         //String hasilTag = kunyuk.kunyuk(textDariWebsite);
+        
+
+        // akan memberikan tag VP NP ke textDariWebsite
+        SentenceIdentifier sen = new SentenceIdentifier();
+        String result = sen.partialIdentify(hasilTag);
 
 
         Matcher m = p.matcher(hasilTag);

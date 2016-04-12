@@ -54,7 +54,10 @@ public class SentenceIdentifier{
     	// loop
     	for(int ii = 0 ; ii < partOfSentences.length ; ii++){
     		sentences = partOfSentences[ii];
-    		result += identify(sentences);
+    		String temp = identify(sentences);
+//    		if(temp.split(" ").length>5){
+    			result += temp;
+//    		}
     	}
     	System.out.println(result);
     	// save result
@@ -86,8 +89,9 @@ public class SentenceIdentifier{
         		TreeNode node = new TreeNode();
         		node.construct(parseTree);
         		result += node.getChildrenOfLv2();
-                result+= "\n";
+                result += "\r";
             }
+            result += "\n";
             // w.close();
         }catch(Exception e){
             System.out.println("Error");
