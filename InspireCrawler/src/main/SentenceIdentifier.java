@@ -19,7 +19,7 @@ import edu.stanford.nlp.pipeline.*;
  */
 public class SentenceIdentifier{
 
-    String tempFilename = "lele.txt";
+    String tempFilename = "json.txt";
     PrintWriter out;
     PrintWriter toFile;
     // Writer w ;
@@ -31,37 +31,46 @@ public class SentenceIdentifier{
     public SentenceIdentifier(){
         File statText = new File("lala2.txt");
         try{
-            // FileOutputStream is = new FileOutputStream(statText);
-            // OutputStreamWriter osw = new OutputStreamWriter(is);
-            // this.w = new BufferedWriter(osw);
             this.out = new PrintWriter(System.out);
             this.toFile = new PrintWriter(tempFilename,"UTF-8");
-
-            //FOR NER
-            classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         }catch(Exception e){
             System.out.println("IO Error");
         }
-        this.props =  new Properties();
         loadModels();
-        this.pipeline = new StanfordCoreNLP(props);
     }
 
     public static void main(String[] args)throws Exception{
+    	System.out.println("Test Sentence Identifier");
         SentenceIdentifier sen = new SentenceIdentifier();
         String result = sen.identify("Kosgi Santosh sent an email to Stanford University. He didn't get a reply. - Alief");
         System.out.println(result);
         System.out.println(sen.addNer("You have to expect things of yourself before you can do them. — Michael Jordan"));
     }
 
+    public String partialIdentify(String sentences){
+    	// save sentences to file
+    	String[] partOfSentences = sentences.split("\n");
+    	String result = "";
+    	// loop
+    	for(int ii = 0 ; ii < partOfSentences.length ; ii++){
+    		sentences = partOfSentences[ii];
+    		result += identify(sentences);
+    	}
+    	System.out.println(result);
+    	// save result
+    	return result;
+    }
 
-    public String identify(String sentences){
-
+    private String identify(String sentences){
+    	
         String result = "";
         Annotation annotation = new Annotation(sentences);
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
         try{
+        	toFile = new PrintWriter(tempFilename);
+        	toFile.print("");
+        	
             pipeline.jsonPrint(annotation,toFile);
             JSONParser parser = new JSONParser();
 
@@ -74,20 +83,17 @@ public class SentenceIdentifier{
             while (iterator.hasNext()) {
                 String parseTree = (String) iterator.next().get("parse");
                 // System.out.println(parseTree);
-                String np = extractTree(parseTree,"NP");
-                String vp = extractTree(parseTree,"VP");
-                String nn = extractTree(parseTree,"NN");
-                // w.write(np);
-                //      	w.write(vp);
-                //      	w.write(nn);
-                //      	w.write("\n");
-                result+= np+vp+nn+"\n";
+        		TreeNode node = new TreeNode();
+        		node.construct(parseTree);
+        		result += node.getChildrenOfLv2();
+                result+= "\n";
             }
             // w.close();
         }catch(Exception e){
             System.out.println("Error");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
+
         return result;
     }
 
@@ -128,52 +134,14 @@ public class SentenceIdentifier{
     private void loadModels(){
 
         // Add in sentiment
-
+    	this.props =  new Properties();
         this.props.setProperty("ner.useSUTime","0");
         this.props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
         this.props.put("pos.model", "model/english-left3words-distsim.tagger");
+        this.pipeline = new StanfordCoreNLP(props);
+        System.err.println("Loading Model Done");
     }
 
 
-    private static String extractTree(String pool, String head){
-        int firstIndex = pool.indexOf("("+head);
-        int paranthesesCount = 0;
-        int lastIndex = 0;
-        String result = "";
-        int recordState = 0;
-        // kalau ketemu "(" state jadi 1, record off
-        // kalau ketemu " " state jadi 3, ready to record
-        // kalau ketemu ")" jadi 1, record off
-        // dari 3 kalau ketemu selain "(" atau ")" jadi 2, record on
-        if(firstIndex<0){
-            return head+" not found ";
-        }
-        for(int ii = firstIndex ; ii<pool.length() ; ii++){
-            char currentChar = pool.charAt(ii);
-
-//			System.out.println(currentChar+" "+recordState+" "+result);
-//			System.out.println(recordState);
-            if(currentChar=='(' ){
-                paranthesesCount++;
-                recordState = 1;
-            }else if(currentChar==' '){
-                if(result.length()>0 && result.charAt(result.length()-1) != ' ')
-                    result += " ";
-                recordState = 3;
-            }else if(currentChar==')'){
-                paranthesesCount--;
-                recordState = 1;
-            }else if(recordState != 1){
-                recordState = 2;
-            }
-            if(recordState==2){
-                result+=currentChar;
-            }
-            if(paranthesesCount==0){
-                lastIndex=ii;
-                break;
-            }
-        }
-        return "{"+result+"}\\"+head;
-    }
+   
 }

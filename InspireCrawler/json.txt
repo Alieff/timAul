@@ -1,0 +1,80 @@
+{
+  "sentences": [
+    {
+      "index": 0,
+      "parse": "(ROOT\n  (NP (NN privacy) (NN policy)))",
+      "basic-dependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 2,
+          "dependentGloss": "policy"
+        },
+        {
+          "dep": "compound",
+          "governor": 2,
+          "governorGloss": "policy",
+          "dependent": 1,
+          "dependentGloss": "privacy"
+        }
+      ],
+      "collapsed-dependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 2,
+          "dependentGloss": "policy"
+        },
+        {
+          "dep": "compound",
+          "governor": 2,
+          "governorGloss": "policy",
+          "dependent": 1,
+          "dependentGloss": "privacy"
+        }
+      ],
+      "collapsed-ccprocessed-dependencies": [
+        {
+          "dep": "ROOT",
+          "governor": 0,
+          "governorGloss": "ROOT",
+          "dependent": 2,
+          "dependentGloss": "policy"
+        },
+        {
+          "dep": "compound",
+          "governor": 2,
+          "governorGloss": "policy",
+          "dependent": 1,
+          "dependentGloss": "privacy"
+        }
+      ],
+      "tokens": [
+        {
+          "index": 1,
+          "word": "privacy",
+          "originalText": "privacy",
+          "lemma": "privacy",
+          "characterOffsetBegin": 0,
+          "characterOffsetEnd": 7,
+          "pos": "NN",
+          "before": "",
+          "after": " "
+        },
+        {
+          "index": 2,
+          "word": "policy",
+          "originalText": "policy",
+          "lemma": "policy",
+          "characterOffsetBegin": 8,
+          "characterOffsetEnd": 14,
+          "pos": "NN",
+          "before": " ",
+          "after": ""
+        }
+      ]
+    }
+  ]
+}
