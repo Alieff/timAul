@@ -1,5 +1,5 @@
 <?php
-
+use App\Quotes;
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -11,9 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
-	echo 'welcome';
-    return view('welcome');
+	echo 'sa';
+	
+    $user = Quotes::all();
+    echo $user[0];	
+    echo Quotes::count();
+	
 });
 
 Route::get('/hello/{name}', 'Hello@show');
@@ -30,7 +35,14 @@ Route::group(array('prefix' => 'api'), function(){
 		Route::resource('json', 'JsonController');
 	});
 
+Route::get('/hfafa',function(){
 
+	echo 'welcome';
+});
+
+Route::get('api/getQuote/{jumlah}', 'JsonController@getQuote');
+Route::get('api/getQuoteByAuthor/{jumlah}/{author}', 'JsonController@getQuoteByAuthor');
+Route::get('api/getQuoteBySource/{jumlah}/{source}', 'JsonController@getQuoteBySource');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
