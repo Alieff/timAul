@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function () {
-	echo 'welcome';
-    return view('welcome');
+  return view('index');
+});
+
+Route::get('/contact', function () {
+  return view('contact');
 });
 
 Route::get('/hello/{name}', 'Hello@show');
