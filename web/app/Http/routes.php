@@ -19,6 +19,10 @@ Route::get('/contact', function () {
   return view('contact');
 });
 
+Route::get('/faq', function () {
+  return view('faq');
+});
+
 Route::get('/hello/{name}', 'Hello@show');
 
 // Route::get('/hello',function(){
