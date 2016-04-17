@@ -87,6 +87,15 @@ h2{
   padding-bottom :6%;
 }
 
+#faq-wrapper{
+  padding: 5%;
+}
+
+.panel-title, .panel-body{
+  font-family: 'Open Sans';
+  color: black;
+}
+
 .form-control{
   width: 100%;
   margin-top: 3%;
