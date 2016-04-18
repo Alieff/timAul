@@ -24,7 +24,7 @@ public class InspireCrawler extends WebCrawler {
 
 
      private LogCrawl logCrawl;
-     private Database database;
+     private DBConnect dbConnect;
      private ConfigReader configReader;
      private QuoteFilter quoteFilter;
 
@@ -34,7 +34,7 @@ public class InspireCrawler extends WebCrawler {
     public InspireCrawler (){
         this.quoteFilter =  CrawlerController.quoteFilter;
         this.logCrawl = new LogCrawl();
-        this.database = new Database();
+        this.dbConnect = new DBConnect();
         this.configReader = new ConfigReader();
     }
     /**
@@ -101,7 +101,7 @@ public class InspireCrawler extends WebCrawler {
             for(int i = 0; i < listQuote.size(); i++){
                 Quote tempQuote = listQuote.get(i);
                 //System.out.println("Masuk " + tempQuote.getAuthor());
-                database.putData(tempQuote);
+                dbConnect.putData(tempQuote);
                 logCrawl.getLogFile(tempQuote);
 
 

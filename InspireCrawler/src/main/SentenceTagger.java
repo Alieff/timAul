@@ -13,43 +13,35 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import edu.stanford.nlp.pipeline.*;
-
+//TODO: REFACTOR INI DLL
+/**
+ * This class is used to parse the text and tag NER
+ * @author haryoaw and alief
+ */
 public class SentenceTagger {
 
-    String tempFilename = "main/lele.txt";
-    PrintWriter out;
-    PrintWriter toFile;
-    // Writer w ;
-    Properties props;
-    StanfordCoreNLP pipeline;
-    final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
-    AbstractSequenceClassifier classifier;
-
+    private Properties props;
+    private StanfordCoreNLP pipeline;
+    private final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
+    private AbstractSequenceClassifier classifier;
+    String tempFilename = "json.txt";
+    /**
+     *
+     */
     public SentenceTagger(){
 
         try{
-            // FileOutputStream is = new FileOutputStream(statText);
-            // OutputStreamWriter osw = new OutputStreamWriter(is);
-            // this.w = new BufferedWriter(osw);
-
-
             //FOR NER
             classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         }catch(Exception e){
             System.out.println("IO Error");
         }
+
         this.props =  new Properties();
         loadModels();
         this.pipeline = new StanfordCoreNLP(props);
     }
 
-
-    public String identify(String sentences){
-
-        String result = "";
-		
-        return result;
-    }
 
     /**
      * Method ini akan mengembalikan tag PEOPLE untuk kata yang berupa nama orang
@@ -85,54 +77,64 @@ public class SentenceTagger {
     }
 
 
+    /**
+     * Load semua model yang diperlukan
+     */
     private void loadModels(){
-
-        // Add in sentiment
-
         this.props.setProperty("ner.useSUTime","0");
         this.props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
         this.props.put("pos.model", "model/english-left3words-distsim.tagger");
     }
 
-
-    private static String extractTree(String pool, String head){
-        int firstIndex = pool.indexOf("("+head);
-        int paranthesesCount = 0;
-        int lastIndex = 0;
+    public String partialIdentify(String sentences){
+        // save sentences to file
+        String[] partOfSentences = sentences.split("\n");
         String result = "";
-        int recordState = 0;
-        // kalau ketemu "(" state jadi 1, record off
-        // kalau ketemu " " state jadi 3, ready to record
-        // kalau ketemu ")" jadi 1, record off
-        // dari 3 kalau ketemu selain "(" atau ")" jadi 2, record on
-        if(firstIndex<0){
-            return head+" not found ";
+        // loop
+        for(int ii = 0 ; ii < partOfSentences.length ; ii++){
+            sentences = partOfSentences[ii];
+            String temp = identify(sentences);
+//    		if(temp.split(" ").length>5){
+            result += temp;
+//    		}
         }
-        for(int ii = firstIndex ; ii<pool.length() ; ii++){
-            char currentChar = pool.charAt(ii);
-
-
-            if(currentChar=='(' ){
-                paranthesesCount++;
-                recordState = 1;
-            }else if(currentChar==' '){
-                if(result.length()>0 && result.charAt(result.length()-1) != ' ')
-                    result += " ";
-                recordState = 3;
-            }else if(currentChar==')'){
-                paranthesesCount--;
-                recordState = 1;
-            }else if(recordState != 1){
-                recordState = 2;
-            }
-            if(recordState==2){
-                result+=currentChar;
-            }
-            if(paranthesesCount==0){
-                lastIndex=ii;
-                break;
-            }
-        }
-        return "{"+result+"}\\"+head;
+        System.out.println(result);
+        // save result
+        return result;
     }
+
+    private String identify(String sentences){
+
+        String result = "";
+        Annotation annotation = new Annotation(sentences);
+        // run all the selected Annotators on this text
+        pipeline.annotate(annotation);
+        try{
+
+            JSONParser parser = new JSONParser();
+
+            Object obj = parser.parse(new FileReader(tempFilename));
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONArray companyList = (JSONArray) jsonObject.get("sentences");
+            Iterator<JSONObject> iterator = companyList.iterator();
+            while (iterator.hasNext()) {
+                String parseTree = (String) iterator.next().get("parse");
+                // System.out.println(parseTree);
+                TreeNode node = new TreeNode();
+                node.construct(parseTree);
+                result += node.getChildrenOfLv2();
+                result += "\r";
+            }
+            result += "\n";
+            // w.close();
+        }catch(Exception e){
+            System.out.println("Error");
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
 }

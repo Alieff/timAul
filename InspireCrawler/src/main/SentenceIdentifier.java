@@ -25,7 +25,6 @@ public class SentenceIdentifier{
     // Writer w ;
     Properties props;
     StanfordCoreNLP pipeline;
-    final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
     AbstractSequenceClassifier classifier;
 
     public SentenceIdentifier(){

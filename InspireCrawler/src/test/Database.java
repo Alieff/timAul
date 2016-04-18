@@ -1,7 +1,7 @@
-package main; /**
- *
- * @author Aulia Chairunisa
- */
+package test
+
+import main.Quote;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +9,11 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+/**
+ *
+ * @author Aulia Chairunisa
+ */
 
 public class Database {
     
