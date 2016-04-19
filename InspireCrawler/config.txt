@@ -1,9 +1,8 @@
 pageNumber=-1
 crawlDepth=-1
 proxy=-1,-1
-isResumable=false
+isResumable=true
 webAddress:
+http://www.motivatingquotes.com/
 http://quotelicious.com/
-
-
-
+http://www.brainyquote.com/
