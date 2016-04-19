@@ -46,8 +46,7 @@ public class QuoteFilter {
         String hasilTag = tagger(textDariWebsite);
 
         // akan memberikan tag VP NP ke textDariWebsite
-        SentenceIdentifier sen = new SentenceIdentifier();
-        String result = sen.partialIdentify(hasilTag);
+        String result = sentenceTagger.partialIdentify(hasilTag);
 
         Matcher m = p.matcher(hasilTag);
 

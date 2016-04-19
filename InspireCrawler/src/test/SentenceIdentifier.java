@@ -1,13 +1,13 @@
-package main;
+package test;
 
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
-import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
+import main.TreeNode;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -46,6 +46,7 @@ public class SentenceIdentifier{
         System.out.println(sen.addNer("You have to expect things of yourself before you can do them. — Michael Jordan"));
     }
 
+
     public String partialIdentify(String sentences){
     	// save sentences to file
     	String[] partOfSentences = sentences.split("\n");
@@ -63,10 +64,16 @@ public class SentenceIdentifier{
     	return result;
     }
 
+    /**
+     * Identify the phrase tag
+     * @param sentences the sentence
+     * @return phrase with tag
+     */
     private String identify(String sentences){
     	
         String result = "";
         Annotation annotation = new Annotation(sentences);
+
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
         try{
@@ -82,16 +89,17 @@ public class SentenceIdentifier{
 
             JSONArray companyList = (JSONArray) jsonObject.get("sentences");
             Iterator<JSONObject> iterator = companyList.iterator();
+
             while (iterator.hasNext()) {
                 String parseTree = (String) iterator.next().get("parse");
-                // System.out.println(parseTree);
+
         		TreeNode node = new TreeNode();
         		node.construct(parseTree);
         		result += node.getChildrenOfLv2();
                 result += "\r";
             }
+
             result += "\n";
-            // w.close();
         }catch(Exception e){
             System.out.println("Error");
             e.printStackTrace();
