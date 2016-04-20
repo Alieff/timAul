@@ -42,7 +42,6 @@ class JsonController extends Controller
 			$response = [];
 			$totalQuote = Quotes::count();
 			$doneRandom = [];
-			
 			//EXCEPTION FOR JUMLAH > TOTALQUOTE
 			if($jumlah > $totalQuote){
 				throw Exception;
@@ -78,6 +77,7 @@ class JsonController extends Controller
 	  * */
 	 public function getQuoteByAuthor($jumlah,$author){
 		 try{
+			 echo $author;
 			$statusCode = 200;
 			$response = [];
 			$authorQuote = Quotes::where('author', $author)->get();
