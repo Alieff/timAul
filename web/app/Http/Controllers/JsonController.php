@@ -97,10 +97,41 @@ class JsonController extends Controller
 		 }
 	 }
 
-	 /**
+   /**
+	  * @api {get} /api/getQuoteByAuthor/:jumlah/:author Mendapatkan quote sesuai jumlah
+	  * @apiName GetQuoteByAuthor
+	  * @apiGroup Quote
 	  *
+	  * @apiParam {Jumlah} jumlah Banyak quote yang ingin didapatkan
+	  * @apiParam {Author} author Quote yang dicari akan berdasarkan author yang dicantumkan. Note: Tidak harus full nama authornya, yang akan dicari nantinya adalah author yang mengandung kata tersebut
 	  *
-	  * */
+	  *	@apiSuccess {String} _id  id dari quotenya
+	  * @apiSuccess {String} quote Isi dari quotenya
+	  * @apiSuccess {String} author Pencetus quotenya
+	  * @apiSuccess {String} category Kategori dari authornya, jika belum dikategorisasi, maka null
+	  * @apiSuccess {String} language Bahasa dari quote tersebut
+	  * @apiSuccess {String} source Sumber website quote tersebut
+	  *
+	  * @apiSuccessExample Success-Response:
+	  * HTTP/1.1 200 OK
+		*	{
+		*    "_id": {
+		*	        "$oid": "57164739be1b0517794090ec"
+		*	    },
+		*	    "quote": "The best way to predict the future is to invent it.",
+		*	    "author": "Alan Kay",
+		*	    "category": null,
+		*	    "language": null,
+		*	    "source": "http://quotelicious.com/quotes/past-present-future-quotes"
+		*	}
+		*
+		* @apiError QuoteNotFound Quote tidak ditemukan
+	 	* @apiErrorExample Error-Response:
+	 	*     HTTP/1.1 404 Not Found
+		*     {
+		*       "error": "QuoteNotFound"
+ 		*     }
+	  */
 	 public function getQuoteByAuthor($jumlah,$author){
 		 try{
 			$statusCode = 200;
@@ -137,10 +168,41 @@ class JsonController extends Controller
 		 }
 	 }
 
-	  /**
-	  *
-	  *
-	  * */
+   /**
+	 * @api {get} getQuoteBySource/:jumlah/:source
+	 * @apiName getQuoteBySource
+	 * @apiGroup Quote
+	 *
+	 * @apiParam {jumlah} jumlah Users unique ID.
+	 * @apiParam {source} source sourcenya
+	 *
+   * @apiSuccess {String} _id  id dari quotenya
+   * @apiSuccess {String} quote Isi dari quotenya
+   * @apiSuccess {String} author Pencetus quotenya
+   * @apiSuccess {String} category Kategori dari authornya, jika belum dikategorisasi, maka null
+   * @apiSuccess {String} language Bahasa dari quote tersebut
+   * @apiSuccess {String} source Sumber website quote tersebut
+	 *
+   * @apiSuccessExample Success-Response:
+   * HTTP/1.1 200 OK
+   *	{
+   *    "_id": {
+   *	        "$oid": "57164739be1b0517794090ec"
+   *	    },
+   *	    "quote": "The best way to predict the future is to invent it.",
+   *	    "author": "Alan Kay",
+   *	    "category": null,
+   *	    "language": null,
+   *	    "source": "http://quotelicious.com/quotes/past-present-future-quotes"
+   *	}
+   *
+   * @apiError QuoteNotFound Quote tidak ditemukan
+   * @apiErrorExample Error-Response:
+   *     HTTP/1.1 404 Not Found
+   *     {
+   *       "error": "QuoteNotFound"
+   *     }
+   */
 	 public function getQuoteBySource($jumlah,$source){
 		 try{
 			$statusCode = 200;
