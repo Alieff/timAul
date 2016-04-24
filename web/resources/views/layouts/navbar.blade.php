@@ -13,9 +13,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul id="test" class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">API</a></li> 
+                <li class="active"><a href="home">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="termofuse">API</a></li> 
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">FAQ</a></li>
             </ul>
