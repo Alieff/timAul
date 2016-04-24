@@ -19,15 +19,15 @@
 
 @font-face {
     font-family: bebasReg;
-    src: url(/InspWeb/resources/assets/fonts/BebasNeueRegular.ttf);
+    src: url(../fonts/BebasNeueRegular.ttf);
 }
 @font-face{
 	font-family: bebasBold;
-	src: url(/InspWeb/resources/assets/fonts/BebasNeueBold.ttf);
+	src: url(../fonts/BebasNeueBold.ttf);
 }
 @font-face {
     font-family: pacifico;
-	src: url(/InspWeb/resources/assets/fonts/Pacifico.ttf);
+	src: url(../fonts/Pacifico.ttf);
 }
 @font-face{
 	font-family: 'Open Sans';

@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+<!--This is a blade template that goes in email message to site administrator-->
+<?php
+//get the first name
+$first_name = Input::get('first_name');
+$last_name = Input::get ('last_name');
+$phone_number = Input::get('phone_number');
+$email = Input::get ('email');
+$subject = Input::get ('subject');
+$message = Input::get ('message');
+$date_time = date("F j, Y, g:i a");
+$userIpAddress = Request::getClientIp();
+?>
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+<h1>We been contacted by.... </h1>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+<p>
+First name: <?php echo ($first_name); ?> <br>
+Last name: <?php echo($last_name);?> <br>
+Phone number: <?php echo($phone_number);?><br>
+Email address: <?php echo ($email);?> <br>
+Subject: <?php echo ($subject); ?><br>
+Message: <?php echo ($message);?><br>
+Date: <?php echo($date_time);?><br>
+User IP address: <?php echo($userIpAddress);?><br>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Hello {{$name}}, welcome to Laraland! : )</div>
-            </div>
-        </div>
-    </body>
-</html>
+</p>

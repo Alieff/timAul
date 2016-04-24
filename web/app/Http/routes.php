@@ -12,15 +12,14 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-  return view('index');
+  return view('welcome');
 });
 
-Route::get('/contact', function () {
+Route::get('contact', function () {
   return view('contact');
 });
 
-Route::get('/faq', function () {
+Route::get('faq', function () {
   return view('faq');
 });
 
