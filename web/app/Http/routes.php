@@ -23,12 +23,12 @@ Route::get('blade', function () {
  	return view('termofuse');
  });
  
- Route::get('sourcecode', function(){
- 	return View::make('pages.sourcecode');
- });
  Route::get('home', function(){
  	return View::make('home');
  });
  Route::get('api', function(){
  	return View::make('pages.apitutorial');
+ });
+ Route::get('sourcecode', function(){
+ 	return View::make('pages.sourcecode');
  });
