@@ -1,9 +1,9 @@
 {
-  "name": "Contoh",
+  "name": "Inspire Crawler",
   "version": "0.1.0",
-  "description": "apiDoc basic example",
-  "title": "Custom apiDoc browser title",
-  "url" : "http://localhost/timAul/timAul/web/public/api/",
-  "sampleUrl" : "http://localhost/timAul/timAul/web/public/api/",
+  "description": "API to extract quotes form web",
+  "title": "Inspire Crawler Doc",
+  "url" : "http://localhost/timAul/web/public/api/",
+  "sampleUrl" : "http://localhost/timAul/web/public/api/",
   "withGenerator" : "true"
 }
