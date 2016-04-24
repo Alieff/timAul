@@ -1,0 +1,9 @@
+[2016-04-24 00:41:00] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'HTML' not found' in /opt/lampp/htdocs/cobaaa/web/storage/framework/views/a76f448b2d3b6bd2484bfa9db4517adbc8ed61e4.php:24
+Stack trace:
+#0 {main}  
+[2016-04-24 00:41:28] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'HTML' not found' in /opt/lampp/htdocs/cobaaa/web/storage/framework/views/a76f448b2d3b6bd2484bfa9db4517adbc8ed61e4.php:24
+Stack trace:
+#0 {main}  
+[2016-04-24 00:41:56] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '?>'' in /opt/lampp/htdocs/cobaaa/web/storage/framework/views/a76f448b2d3b6bd2484bfa9db4517adbc8ed61e4.php:24
+Stack trace:
+#0 {main}  

@@ -117,6 +117,14 @@ public class TreeNode {
 		return result;
 	}
 	
+	/** 
+     * Method ini akan mendapatkan semua leaf dari sebuah tree.
+     *
+     * @param startNode Root node yang akan dicari nilai-nilai leafnya
+     * @return          <code>String</code> dari nilai-nilai leaf yang di append
+     * @see             SentenceTagger
+     * @since           1.0
+     */
 	public String getLeaves(TreeNode startNode){
 		String result = "";
 		Queue queue = new LinkedList<TreeNode>();

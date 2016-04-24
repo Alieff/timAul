@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-   	//return view('welcome');
-	return view('home');
+	return View::make('hello');
 });
 
 Route::get('blade', function () {
@@ -22,4 +21,11 @@ Route::get('blade', function () {
  
  Route::get('termofuse', function(){
  	return view('termofuse');
+ });
+ 
+ Route::get('sourcecode', function(){
+ 	return View::make('pages.sourcecode');
+ });
+ Route::get('home', function(){
+ 	return View::make('home');
  });

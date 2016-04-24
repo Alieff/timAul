@@ -17,7 +17,8 @@ class Hello extends Controller
 	public function show($name)
 	{
 		// die($name);
-	    return view('hello',array('name' => $name));
+	    // return view('hello',array('name' => $name));
+	    return View::make('hello');
 	}
 
 
