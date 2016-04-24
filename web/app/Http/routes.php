@@ -29,3 +29,6 @@ Route::get('blade', function () {
  Route::get('home', function(){
  	return View::make('home');
  });
+ Route::get('api', function(){
+ 	return View::make('pages.apitutorial');
+ });

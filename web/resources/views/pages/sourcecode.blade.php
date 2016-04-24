@@ -7,11 +7,23 @@
 
 
 @section('bodycontent')
-<h1>lalalal</h1>
+<?php 
+$chunks = explode("/", Request::root());
+$url = Config::get('app.url')."/".$chunks[3]."/InspireCrawler/doc/index.html";	
+?>
 
-<h1>lalalal</h1>
-<h1>lalalal</h1>
- <embed width=300 height=600 src="doc/	index.html"> 
+ <iframe class="documentation" align=center src="<?php $url ?>"></iframe>
 
- 
-@endsection
+<?php 
+//udah dicoba
+// echo "//localhost/cobaaa/InspireCrawler/doc/index.html";
+// echo "localhost/cobaaa/InspireCrawler/doc/index.html";
+// Redirect::to();
+// Redirect::away();
+// echo Request::root()."/InspireCrawler/doc";
+// WORK by edit directly http://localhost/cobaaa/InspireCrawler/doc/index.html
+// echo $url;
+// echo "<br>";
+?>
+
+ @endsection
