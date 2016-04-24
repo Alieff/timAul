@@ -2,7 +2,6 @@
 @section('bodycontent')
 <div>
   <img style="width:100%;padding-top:50px;" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
-  <h1>Frequently Asked Question</h1>
 </div>
 
 
