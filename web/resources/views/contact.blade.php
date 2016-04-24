@@ -7,7 +7,7 @@
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
 
-      {!! Form::open(array('url' => 'contact_request')) !!}
+      {!! Form::open(array('url' => 'contact')) !!}
 
       <div class="form-group">
           {!! Form::label('name', 'Name:', ['class' => 'control-label']) !!}

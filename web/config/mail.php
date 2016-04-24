@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'mail'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', ''),
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => env('MAIL_FROM'), 'name' => env('MAIL_NAME')],
+    'from' => ['address' => 'test@aja.com', 'name' => 'Tester'],
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('postmaster@sandboxdfb3b6be4a0f447cb9e98fa0418ab998.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('sandboxputi1'),
 
     /*
     |--------------------------------------------------------------------------
@@ -107,5 +107,7 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    'pretend'    => false,
 
 ];
