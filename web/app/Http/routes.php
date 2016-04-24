@@ -15,12 +15,9 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-//Contact Page
-Route::get('contact', 'ContactController@getContact');
-
-//Form request:: POST action will trigger to controller
-Route::post('contact_request','ContactController@getContactUsForm');
-
+Route::get('contact', function () {
+  return view('contact');
+});
 Route::get('faq', function () {
   return view('faq');
 });
