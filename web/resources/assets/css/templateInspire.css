@@ -32,6 +32,11 @@
 @font-face{
 	font-family: 'Open Sans';
 }
+
+body{
+  font-family: 'Open Sans';
+}
+
 #test{
 	font-family: bebasReg;
 	letter-spacing: 5px;
