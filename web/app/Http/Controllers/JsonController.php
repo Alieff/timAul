@@ -173,8 +173,8 @@ class JsonController extends Controller
 	 * @apiName getQuoteBySource
 	 * @apiGroup Quote
 	 *
-	 * @apiParam {jumlah} jumlah Users unique ID.
-	 * @apiParam {source} source sourcenya
+	 * @apiParam {jumlah} jumlah Banyak quote yang ingin didapatkan
+	 * @apiParam {source} source quotes yang diinginkan
 	 *
    * @apiSuccess {String} _id  id dari quotenya
    * @apiSuccess {String} quote Isi dari quotenya
