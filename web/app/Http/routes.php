@@ -13,12 +13,7 @@ use App\Quotes;
 
 
 Route::get('/', function () {
-	echo 'sa';
-	
-    $user = Quotes::all();
-    echo $user[0];	
-    echo Quotes::count();
-	
+	echo 'sa';	
 });
 
 Route::get('/hello/{name}', 'Hello@show');

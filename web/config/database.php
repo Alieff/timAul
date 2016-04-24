@@ -75,7 +75,7 @@ return [
             'prefix'   => '',
             'schema'   => 'public',
         ],
-	
+			/*
 		'mongodb' => [
 			'driver'   => 'mongodb',
 			'host'     => env('DB_HOST', 'localhost'),
@@ -87,7 +87,20 @@ return [
 				'db' => 'admin' // sets the authentication database required by mongo 3
 			]
 		],
-			
+		*/
+		
+		'mongodb' => [
+			'driver'   => 'mongodb',
+			'host'     => env('DB_HOST', 'ds023520.mlab.com'),
+			'port'     => env('DB_PORT', 23520),
+			'database' => env('DB_DATABASE','inspirecrawlerdb'),
+			'username' => env('DB_USERNAME','admin'),
+			'password' => env('DB_PASSWORD','admin'),
+			'options' => [
+				'db' => 'admin' // sets the authentication database required by mongo 3
+			]
+		],
+		
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
             'host'     => env('DB_HOST', 'localhost'),

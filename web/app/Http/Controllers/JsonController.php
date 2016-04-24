@@ -104,7 +104,7 @@ class JsonController extends Controller
 	  *
 	  * @apiParam {Jumlah} jumlah Banyak quote yang ingin didapatkan
 	  * @apiParam {Author} author Quote yang dicari akan berdasarkan author yang dicantumkan. Note: Tidak harus full nama authornya, yang akan dicari nantinya adalah author yang mengandung kata tersebut
-	  *
+    *
 	  *	@apiSuccess {String} _id  id dari quotenya
 	  * @apiSuccess {String} quote Isi dari quotenya
 	  * @apiSuccess {String} author Pencetus quotenya
@@ -134,6 +134,7 @@ class JsonController extends Controller
 	  */
 	 public function getQuoteByAuthor($jumlah,$author){
 		 try{
+			 echo $author;
 			$statusCode = 200;
 			$response = [];
 			$authorQuote = Quotes::where('author', $author)->get();
@@ -203,6 +204,7 @@ class JsonController extends Controller
    *       "error": "QuoteNotFound"
    *     }
    */
+
 	 public function getQuoteBySource($jumlah,$source){
 		 try{
 			$statusCode = 200;
