@@ -23,3 +23,7 @@ Route::get('blade', function () {
  Route::get('termofuse', function(){
  	return view('termofuse');
  });
+ 
+ Route::get('about', function () {
+    return view('about');
+});

@@ -1,19 +1,23 @@
 package main;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileReader;
+import java.io.IOException;
+
+import java.util.List;
+import java.util.Properties;
 import java.util.regex.Pattern;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
+import org.json.simple.parser.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import edu.stanford.nlp.pipeline.*;
-//TODO: REFACTOR INI DLL
+
 /**
  * This class is used to parse the text and tag NER
  * @author haryoaw and alief
@@ -22,21 +26,23 @@ public class SentenceTagger {
 
     private Properties props;
     private StanfordCoreNLP pipeline;
-    private final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
     private AbstractSequenceClassifier classifier;
-    String tempFilename = "json.txt";
+
     /**
-     *
+     * model that is used for NER
+     */
+    private static final String serializedClassifier = "model/english.all.3class.distsim.crf.ser.gz";
+    /**
+     * Temporary file to save parsed properties
+     */
+    private static final String TEMPFILENAME = "json.txt";
+
+    /**
+     *  Set several model and properties for parsing the data and do NER
      */
     public SentenceTagger(){
-
-        try{
-            //FOR NER
-            classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
-        }catch(Exception e){
-            System.out.println("IO Error");
-        }
-
+        classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
+        System.out.println("IO Error");
         this.props =  new Properties();
         loadModels();
         this.pipeline = new StanfordCoreNLP(props);
@@ -51,7 +57,7 @@ public class SentenceTagger {
     public String addNer(String sentences){
         List<List<CoreLabel>> out = classifier.classify(sentences);
         String wordReturned = "";
-        final  Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'re|’re|n’t|’m|’s|'s|’ve|’ll|'ll|'ve|'m|VP|NP|S|\\.|,)");
+        final Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'re|’re|n’t|’m|’s|'s|’ve|’ll|'ll|'ve|'m|VP|NP|S|\\.|,)");
 
         for (List<CoreLabel> sentence : out){
             for(int i = 0; i < sentence.size(); i++) {
@@ -86,51 +92,64 @@ public class SentenceTagger {
         this.props.put("pos.model", "model/english-left3words-distsim.tagger");
     }
 
+    /**
+     * Parse the sentences
+     * @param sentences the sentence
+     * @return parsed
+     */
     public String partialIdentify(String sentences){
+
         // save sentences to file
         String[] partOfSentences = sentences.split("\n");
         String result = "";
+
         // loop
         for(int ii = 0 ; ii < partOfSentences.length ; ii++){
             sentences = partOfSentences[ii];
             String temp = identify(sentences);
-//    		if(temp.split(" ").length>5){
             result += temp;
-//    		}
+
         }
         System.out.println(result);
+
         // save result
         return result;
     }
 
+    /**
+     * Parse the phrase
+     * @param sentences the phrase
+     * @return phrase that is known by its label
+     */
     private String identify(String sentences){
 
         String result = "";
         Annotation annotation = new Annotation(sentences);
+
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
         try{
 
             JSONParser parser = new JSONParser();
-
-            Object obj = parser.parse(new FileReader(tempFilename));
-
+            Object obj = parser.parse(new FileReader(TEMPFILENAME));
             JSONObject jsonObject = (JSONObject) obj;
-
             JSONArray companyList = (JSONArray) jsonObject.get("sentences");
-            Iterator<JSONObject> iterator = companyList.iterator();
-            while (iterator.hasNext()) {
-                String parseTree = (String) iterator.next().get("parse");
-                // System.out.println(parseTree);
+
+            for (JSONObject aCompanyList : (Iterable<JSONObject>) companyList) {
+                String parseTree = (String) aCompanyList.get("parse");
+
                 TreeNode node = new TreeNode();
                 node.construct(parseTree);
                 result += node.getChildrenOfLv2();
                 result += "\r";
             }
             result += "\n";
-            // w.close();
-        }catch(Exception e){
-            System.out.println("Error");
+
+        }catch(IOException e){
+            System.out.println("IO Error");
+            e.printStackTrace();
+        }catch(ParseException e){
+            System.out.println("Error on parse");
             e.printStackTrace();
         }
 
