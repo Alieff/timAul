@@ -34,7 +34,7 @@ class JsonController extends Controller
 	 }
 
    /**
-    * @api {get} /api/getQuote/:jumlah Mendapatkan quote dari database secara acak sesuai jumlah
+    * @api {get} getQuote/:jumlah Mendapatkan quote dari database secara acak sesuai jumlah
     * @apiName GetQuote
     * @apiGroup Quote
     *
@@ -98,7 +98,7 @@ class JsonController extends Controller
 	 }
 
    /**
-	  * @api {get} /api/getQuoteByAuthor/:jumlah/:author Mendapatkan quote sesuai jumlah
+	  * @api {get} getQuoteByAuthor/:jumlah/:author Mendapatkan quote sesuai jumlah yang diminta dan berdasarkan Author yang diminta
 	  * @apiName GetQuoteByAuthor
 	  * @apiGroup Quote
 	  *
@@ -127,10 +127,10 @@ class JsonController extends Controller
 		*
 		* @apiError QuoteNotFound Quote tidak ditemukan
 	 	* @apiErrorExample Error-Response:
-	 	*     HTTP/1.1 404 Not Found
-		*     {
-		*       "error": "QuoteNotFound"
- 		*     }
+	 	* HTTP/1.1 404 Not Found
+		* {
+		*   "error": "QuoteNotFound"
+ 		* }
 	  */
 	 public function getQuoteByAuthor($jumlah,$author){
 		 try{
@@ -170,7 +170,7 @@ class JsonController extends Controller
 	 }
 
    /**
-	 * @api {get} getQuoteBySource/:jumlah/:source
+	 * @api {get} getQuoteBySource/:jumlah/:source Mendapatkan quote sesuai jumlah yang diminta dan berdasarkan Source yang diminta
 	 * @apiName getQuoteBySource
 	 * @apiGroup Quote
 	 *
@@ -199,12 +199,11 @@ class JsonController extends Controller
    *
    * @apiError QuoteNotFound Quote tidak ditemukan
    * @apiErrorExample Error-Response:
-   *     HTTP/1.1 404 Not Found
-   *     {
-   *       "error": "QuoteNotFound"
-   *     }
+   * HTTP/1.1 404 Not Found
+   * {
+   *   "error": "QuoteNotFound"
+   * }
    */
-
 	 public function getQuoteBySource($jumlah,$source){
 		 try{
 			$statusCode = 200;
