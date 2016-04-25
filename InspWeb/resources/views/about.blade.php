@@ -15,11 +15,11 @@
     <div id="team">
 		<div class="col-lg-10 col-lg-offset-1">
 			<h2 class="h" style="padding-bottom: 20px; padding-top: 25px;">Developer Team</h2>
-			<div>
+			<div class="col-lg-13">
 
 				<div id="foto">
 				  <a target="_blank" href="http://auliachair.tumblr.com">
-					<img class="img" src="../resources/assets/images/aul.jpg" width="200" height="200">
+					<img class="img" src="../resources/assets/images/aul.jpg" class="img-responsive" alt="Responsive image" width="200" height="200">
 				  </a>
 				  <div id="desc">
 					  <div class="desc">Aulia</div>
@@ -29,7 +29,7 @@
 
 				<div id="foto" style="margin-left: 229px">
 				  <a target="_blank" href="#">
-					<img class="img" src="../resources/assets/images/puti.jpg" width="200" height="200">
+					<img class="img" src="../resources/assets/images/puti.jpg" class="img-responsive" alt="Responsive image" width="200" height="200">
 				  </a>
 				  <div id="desc">
 					<div class="desc">Puti</div>
@@ -39,7 +39,7 @@
 				
 				<div id="foto"style="margin-left: 458px">
 				  <a target="_blank" href="#">
-					<img class="img" src="../resources/assets/images/ega.jpg" width="200" height="200">
+					<img class="img" src="../resources/assets/images/ega.jpg" class="img-responsive" alt="Responsive image" width="200" height="200">
 				  </a>
 				  <div id="desc">
 					<div class="desc">Ega</div>
@@ -50,7 +50,7 @@
 				
 				<div id="foto" style="margin-left: 687px">
 				  <a target="_blank" href="#">
-					<img class="img" src="../resources/assets/images/haryo.jpg" width="200" height="200">
+					<img class="img" src="../resources/assets/images/haryo.jpg" class="img-responsive" alt="Responsive image" width="200" height="200">
 				  </a>
 				  <div id="desc">
 					<div class="desc">Haryo</div>
@@ -60,7 +60,7 @@
 				
 				<div id="foto" style="margin-left: 916px">
 				  <a target="_blank" href="#">
-					<img class="img" src="../resources/assets/images/alief.jpg" width="200" height="200">
+					<img class="img" src="../resources/assets/images/alief.jpg" class="img-responsive" alt="Responsive image" width="200" height="200">
 				  </a>
 				  <div id="desc">
 					<div class="desc">Alief</div>
@@ -68,7 +68,7 @@
 				  </div>
 				</div>
       
-	</div>
+			</div>
 	</div>
         
     </div>
