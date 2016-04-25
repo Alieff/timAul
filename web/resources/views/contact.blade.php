@@ -7,24 +7,18 @@
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
 
-      {!! Form::open(array('url' => 'contact')) !!}
+      {!! Form::open(array('url' => 'contact_request')) !!}
 
-      <div class="form-group">
-          {!! Form::label('name', 'Name:', ['class' => 'control-label']) !!}
-          {!! Form::text('name', null, ['class' => 'form-control']) !!}
-      </div>
+      <label for="inputEmail" class="sr-only">Name</label>
+      <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
 
-      <div class="form-group">
-          {!! Form::label('email', 'Email:', ['class' => 'control-label']) !!}
-          {!! Form::text('email', null, ['class' => 'form-control']) !!}
-      </div>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
-      <div class="form-group">
-          {!! Form::label('message', 'Message:', ['class' => 'control-label']) !!}
-          {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-      </div>
+      <label for="inputMessage" class="sr-only">Message</label>
+      <textarea id="inputMessage" class="form-control" placeholder="Message" required></textarea>
 
-      {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+      <button class="btn btn-primary" type="submit">Submit</button>
 
       {!! Form::close() !!}
     </div>

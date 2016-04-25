@@ -23,6 +23,7 @@ Route::get('faq', function () {
   return view('faq');
 });
 
+
 Route::get('mail', function () {
   return view('test');
 });
