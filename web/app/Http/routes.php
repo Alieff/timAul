@@ -59,7 +59,6 @@ Route::group(['middleware' => ['web']], function () {
  Route::get('termofuse', function(){
  	return view('termofuse');
  });
-
  Route::get('home', function(){
  	return View::make('home');
  });
@@ -68,4 +67,8 @@ Route::group(['middleware' => ['web']], function () {
  });
  Route::get('sourcecode', function(){
  	return View::make('pages.sourcecode');
+ });
+
+ Route::get('login', function(){
+ 	return view('login');
  });
