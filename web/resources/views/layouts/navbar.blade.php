@@ -14,10 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul id="test" class="nav navbar-nav navbar-right">
                 <li class=@yield('homeact')><a href="home">Home</a></li>
-                <li class=@yield('aboutact')><a href="">About</a></li>
+                <li class=@yield('aboutact')><a href="about">About</a></li>
                 <li class=@yield('termact')><a href="termofuse">API</a></li> 
-                <li class=@yield('contacact')><a href="#">Contact</a></li>
-                <li class=@yield('faqact')><a href="#">FAQ</a></li>
+                <li class=@yield('contactact') ><a href="contact">Contact</a></li>
+                <li class=@yield('faqact') ><a href="faq">FAQ</a></li>
             </ul>
         </div>
     </div>
