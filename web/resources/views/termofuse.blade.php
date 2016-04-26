@@ -20,7 +20,7 @@
                     <a href="#">Source Code</a>
                 </li>
                 <li>
-                    <a class="active" href="#">Term of Use</a>
+                    <a class="active" href="termofuse">Term of Use</a>
                 </li>
             </ul>
         </div>

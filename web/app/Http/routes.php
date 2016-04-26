@@ -61,9 +61,6 @@ Route::group(['middleware' => ['web']], function () {
  Route::get('home', function(){
  	return View::make('home');
  });
- Route::get('api', function(){
- 	return View::make('api');
- });
 
  Route::get('sourcecode', function(){
  	return View::make('sourcecode');
@@ -81,3 +78,6 @@ Route::group(['middleware' => ['web']], function () {
     return view('contact');
  });
 
+Route::get('apidoc',function(){
+	return view('apidoc.apidocs');
+});
