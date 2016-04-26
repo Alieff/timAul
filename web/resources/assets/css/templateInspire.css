@@ -54,6 +54,35 @@ h2{
     border-color: #B3E5FC;
     background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
 }
+
+}.teamku{
+	height: 265px;
+	font-size: large;
+}
+.h{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 40px;
+}
+#team{
+	background-color: #f0fff0;
+	height: 444px;
+}
+#foto{
+	position: absolute;
+}
+#desc{
+	padding-top: 20px;
+}
+.desc{
+	text-align: center;
+	font-family: initial;
+	font-size: large;
+	font-weight: bold;
+}
+.img{
+	max-width: 100%;
+	border-radius: 50%;
+}
 .footer{
     background: #000000;
     padding: 10px 0;

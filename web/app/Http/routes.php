@@ -27,3 +27,7 @@ Route::get('blade', function () {
  Route::get('about', function () {
     return view('about');
 });
+
+Route::get('documentation', function () {
+    return view('documentation');
+});
