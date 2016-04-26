@@ -1,11 +1,14 @@
 package main;
 
+<<<<<<< HEAD
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+=======
+>>>>>>> branch-alief
 /**
  * Connect the Mongo DB with this class
  * @author Aulia Chairunisa
