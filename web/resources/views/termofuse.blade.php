@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('termact')
+'active'
+@endsection
 @section('bodycontent')
 <div id="wrapper"><!-- Sidebar -->
         <div id="sidebar-wrapper">

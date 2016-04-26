@@ -13,11 +13,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul id="test" class="nav navbar-nav navbar-right">
-                <li class="active"><a href="home">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="termofuse">API</a></li> 
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li class=@yield('homeact')><a href="home">Home</a></li>
+                <li class=@yield('aboutact')><a href="">About</a></li>
+                <li class=@yield('termact')><a href="termofuse">API</a></li> 
+                <li class=@yield('contacact')><a href="#">Contact</a></li>
+                <li class=@yield('faqact')><a href="#">FAQ</a></li>
             </ul>
         </div>
     </div>

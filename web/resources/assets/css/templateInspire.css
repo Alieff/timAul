@@ -90,6 +90,9 @@ h2{
 .footer a:first-child {
     border-left: 1px solid #70726F;
 }
+.footer a:last-child {
+    border-right: 1px solid #70726F;
+}
 .footer a:hover {
     color: white;
     -webkit-transition: all .5s ease;

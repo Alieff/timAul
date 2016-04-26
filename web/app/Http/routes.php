@@ -25,3 +25,6 @@ Route::get('/', function () {
  Route::get('login', function(){
  	return view('login');
  });
+  Route::get('api', function(){
+ 	return view('api');
+ });
