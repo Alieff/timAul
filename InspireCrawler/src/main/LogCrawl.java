@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-package main;
-
-=======
-package main; /**
- * Class LogCrawl yang akan digunakan untuk men-generate log crawler
- * Created by pflarasati on 3/19/16.
- */
-
+package main; 
 /**
  * @author pflarasati
  * Created on 3/19/16.
@@ -17,7 +9,6 @@ package main; /**
  * Class ini bertujuan untuk mengenerate log dari hasil kerja crawler
  *
  */
->>>>>>> branch-alief
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -34,15 +25,12 @@ import java.util.Calendar;
 public class LogCrawl {
 
     /**
-<<<<<<< HEAD
-=======
      * Constructor dari class LogCrawls
      */
     public LogCrawl() {}
 
     /**
      * Methof getLogFile()
->>>>>>> branch-alief
      * Method ini digunakan untuk membuat log_results.txt berisi log aktivitas crawler
      * @param hasilCrawler quote yang akan dimasukan ke database
      */
