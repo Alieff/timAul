@@ -16,6 +16,19 @@ Route::get('/', function () {
 	return view('home');
 });
 
+Route::get('contact', 'ContactController@getContact');
+
+Route::post('contact_request','ContactController@getContactUsForm');
+
+Route::get('faq', function () {
+  return view('faq');
+});
+
+
+Route::get('mail', function () {
+  return view('test');
+});
+
 Route::get('/hello/{name}', 'Hello@show');
 
 // Route::get('/hello',function(){

@@ -9,6 +9,7 @@ package main;
  * Class ini adalah class yang merepresentasikan bentuk quote yang di-crawl
  * Class ini bertujuan untuk mempermudah pengolah quote yang akan disimpan di database
  *
+>>>>>>> master
  */
 public class Quote {
 
@@ -145,6 +146,7 @@ public class Quote {
         this.author = author;
     }
 
+
     /**
      * Method setCategory()
      * Method ini digunakan untuk mengubah  kategori dari sebuah quote
@@ -171,6 +173,7 @@ public class Quote {
     public void setManual(boolean manual) {
         isManual = manual;
     }
+
 
     /**
      * Method setID()

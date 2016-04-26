@@ -1,18 +1,38 @@
+.wrapper{
+  padding-bottom :6%;
+}
+
+#faq-wrapper{
+  padding: 5%;
+}
+
+.panel-title, .panel-body{
+  font-family: 'Open Sans';
+  color: black;
+}
+
+.form-control{
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
 @font-face {
     font-family: bebasReg;
-    src: url(/InspWeb/resources/assets/fonts/BebasNeueRegular.ttf);
+    src: url(../fonts/BebasNeueRegular.ttf);
 }
 @font-face{
 	font-family: bebasBold;
-	src: url(/InspWeb/resources/assets/fonts/BebasNeueBold.ttf);
+	src: url(../fonts/BebasNeueBold.ttf);
 }
 @font-face {
     font-family: pacifico;
-	src: url(/InspWeb/resources/assets/fonts/Pacifico.ttf);
+	src: url(../fonts/Pacifico.ttf);
 }
 @font-face{
 	font-family: 'Open Sans';
 }
+
 
 html {
   position: relative;
@@ -21,6 +41,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: 'Open Sans';
 }
 
 #test{

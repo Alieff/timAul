@@ -104,7 +104,6 @@ class JsonController extends Controller
 	  *
 	  * @apiParam {Jumlah} jumlah Banyak quote yang ingin didapatkan
 	  * @apiParam {Author} author Quote yang dicari akan berdasarkan author yang dicantumkan. Note: Tidak harus full nama authornya, yang akan dicari nantinya adalah author yang mengandung kata tersebut
-    *
 	  *	@apiSuccess {String} _id  id dari quotenya
 	  * @apiSuccess {String} quote Isi dari quotenya
 	  * @apiSuccess {String} author Pencetus quotenya
