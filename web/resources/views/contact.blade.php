@@ -1,13 +1,18 @@
 @extends('layouts.page')
+@section('contantact')
+'active'
+@endsection
 @section('bodycontent')
-<img style="width:100%;padding-top:50px;" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
-<br />
+<img style="width:100%" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
+<br>
 <div class="container">
   <div class="row">
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
 
+
       {!! Form:: open(array('url' => 'contact_request')) !!}
+
 
       <label for="name" class="sr-only">Name</label>
       <input type="text" id="name" class="form-control" placeholder="Name" required autofocus>
@@ -20,7 +25,9 @@
 
       <button class="btn btn-primary" type="submit">Submit</button>
 
+
       {!! Form::close() !!}
+
     </div>
 
     <div class="col-md-6 .col-xs-6">

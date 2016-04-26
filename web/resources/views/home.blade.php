@@ -1,4 +1,7 @@
 @extends('layouts.page')
+@section('homeact')
+'active'
+@endsection
 @section('bodycontent')
 <img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
 <div style="text-align:center;padding-bottom:100px;height: 350px" class="jumbotron">

@@ -167,3 +167,31 @@ body{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+}.teamku{
+  height: 265px;
+  font-size: large;
+}
+.h{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 40px;
+}
+#team{
+  background-color: #f0fff0;
+  height: 444px;
+}
+#foto{
+  position: absolute;
+}
+#desc{
+  padding-top: 20px;
+}
+.desc{
+  text-align: center;
+  font-family: initial;
+  font-size: large;
+  font-weight: bold;
+}
+.img{
+  max-width: 100%;
+  border-radius: 50%;
+}

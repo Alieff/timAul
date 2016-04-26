@@ -24,12 +24,9 @@ Route::get('faq', function () {
   return view('faq');
 });
 
-
 Route::get('mail', function () {
   return view('test');
 });
-
-Route::get('/hello/{name}', 'Hello@show');
 
 // Route::get('/hello',function(){
 //     return 'Hello World!';
@@ -37,18 +34,6 @@ Route::get('/hello/{name}', 'Hello@show');
 
 Route::get('login', function(){
  return view('login');
-});
-
-Route::get('hello', 'Hello@index');
-
-//TODO: apus ini klo ga dipake lagi
-Route::group(array('prefix' => 'api'), function(){
-		Route::resource('json', 'JsonController');
-	});
-
-Route::get('/hfafa',function(){
-
-	echo 'welcome';
 });
 
 Route::get('api/getQuote/{jumlah}', 'JsonController@getQuote');
@@ -77,10 +62,11 @@ Route::group(['middleware' => ['web']], function () {
  	return View::make('home');
  });
  Route::get('api', function(){
- 	return View::make('pages.apitutorial');
+ 	return View::make('api');
  });
+
  Route::get('sourcecode', function(){
- 	return View::make('pages.sourcecode');
+ 	return View::make('sourcecode');
  });
 
  Route::get('login', function(){
@@ -90,3 +76,8 @@ Route::group(['middleware' => ['web']], function () {
  Route::get('about', function () {
     return view('about');
  });
+
+ Route::get('contact', function () {
+    return view('contact');
+ });
+

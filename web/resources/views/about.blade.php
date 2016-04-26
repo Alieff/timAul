@@ -1,6 +1,9 @@
 @extends('layouts.page')
+@section('aboutact')
+'active'
+@endsection
 @section('bodycontent')
-<img style="width:100%;padding-top:50px;" src="landing.jpg" class="img-responsive" alt="Responsive image">
+<img style="width:100%" src="landing.jpg" class="img-responsive" alt="Responsive image">
 <div class="teamku" style="text-align:left;padding-bottom:50px;">
 	<div class="col-lg-10 col-lg-offset-1">
 	  <h2 class="h">ABOUT API</h2>
