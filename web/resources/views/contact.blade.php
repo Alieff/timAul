@@ -7,16 +7,16 @@
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
 
-      {!! Form::open(array('url' => 'contact_request')) !!}
+      {!! Form:: open(array('url' => 'contact_request')) !!}
 
-      <label for="inputEmail" class="sr-only">Name</label>
-      <input type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+      <label for="name" class="sr-only">Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Name" required autofocus>
 
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
 
-      <label for="inputMessage" class="sr-only">Message</label>
-      <textarea id="inputMessage" class="form-control" placeholder="Message" required></textarea>
+      <label for="message" class="sr-only">Message</label>
+      <textarea id="message" class="form-control" placeholder="Message" required></textarea>
 
       <button class="btn btn-primary" type="submit">Submit</button>
 
