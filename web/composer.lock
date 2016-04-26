@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "207524946c7520eba2f500eeb298636b",
+    "hash": "fe4bd0f5b867eb926901c8b330513b8c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2057,6 +2057,59 @@
             "time": "2016-03-10 10:34:12"
         },
         {
+            "name": "teepluss/explore",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teepluss/laravel-explore.git",
+                "reference": "f02b4f054a3f5c1d6668453e034b40cb1215d7d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teepluss/laravel-explore/zipball/f02b4f054a3f5c1d6668453e034b40cb1215d7d3",
+                "reference": "f02b4f054a3f5c1d6668453e034b40cb1215d7d3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/controllers",
+                    "src/Exceptions.php"
+                ],
+                "psr-4": {
+                    "Teepluss\\Explore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Teepluss",
+                    "email": "teepluss@gmail.com",
+                    "homepage": "https://github.com/teepluss",
+                    "role": "Developer"
+                }
+            ],
+            "description": "apidocjs explorer for Laravel",
+            "homepage": "https://github.com/teepluss/laravel-explore",
+            "keywords": [
+                "apidoc",
+                "apidocjs",
+                "console",
+                "explorer",
+                "laravel",
+                "restful"
+            ],
+            "time": "2016-02-24 07:52:31"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.2.1",
             "source": {
@@ -3335,7 +3388,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "teepluss/explore": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
