@@ -63,6 +63,7 @@ class JsonController extends Controller
 		 }
 		 catch (Exception $e){
 			 $statusCode = 404;
+			 echo "ttt";
 			 $response = "error coy";
 		 }
 		 finally{
@@ -114,31 +115,38 @@ class JsonController extends Controller
 			$response = [];
 
 			$authorQuote = Quotes::where('author', 'like',  "%$author%")->get();
-			echo 'test';
 			$totalQuote = count($authorQuote);
 			$doneRandom = [];
 			
+		
 			//EXCEPTION FOR JUMLAH > TOTALQUOTE
-			if($jumlah > $totalQuote){
-				throw Exception;
+			if($totalQuote == 0){
+				$statusCode = 404;
+			 	$response = array('error' => 'QuoteNotFound');
+			}
+
+			else if($jumlah > $totalQuote){
+				$statusCode = 404;
+			 	$response = array('error' => "QuoteExceededDbLimit");
 			}
 			
-			for($i=$jumlah; $i > 0; $i=$i-1){
-				$randQuote = rand(1,$totalQuote);
-				while(in_array($randQuote, $doneRandom)){
+			else{
+				for($i=$jumlah; $i > 0; $i=$i-1){
 					$randQuote = rand(1,$totalQuote);
+					while(in_array($randQuote, $doneRandom)){
+						$randQuote = rand(1,$totalQuote);
+					}
+					
+					$quotes = $authorQuote[$randQuote-1];
+					
+					array_push($doneRandom,$randQuote);
+					array_push($response,$quotes);
 				}
-				
-				$quotes = $authorQuote[$randQuote-1];
-				
-				array_push($doneRandom,$randQuote);
-				array_push($response,$quotes);
-			}
-		 
+		 	}
 		 }
 		 catch (Exception $e){
-			 $statusCode = 404;
-			 $response = "error coy";
+			$statusCode = 404;
+			$response = array('error' => 'QuoteExceededDbLimit');
 		 }
 		 finally{
 			 return Response::json($response, $statusCode);
@@ -185,31 +193,39 @@ class JsonController extends Controller
 			$totalQuote = count($sourceQuote);
 			$doneRandom = [];
 			
+
 			//EXCEPTION FOR JUMLAH > TOTALQUOTE
-			if($jumlah > $totalQuote){
-				throw Exception;
+			if($totalQuote == 0){
+				$statusCode = 404;
+			 	$response = array('error' => 'QuoteNotFound');
+			}
+
+			else if($jumlah > $totalQuote){
+				$statusCode = 404;
+			 	$response = array('error' => "QuoteExceededDbLimit");
 			}
 			
-			for($i=$jumlah; $i > 0; $i=$i-1){
-				$randQuote = rand(1,$totalQuote);
-				while(in_array($randQuote, $doneRandom)){
+			else{
+				for($i=$jumlah; $i > 0; $i=$i-1){
 					$randQuote = rand(1,$totalQuote);
+					while(in_array($randQuote, $doneRandom)){
+						$randQuote = rand(1,$totalQuote);
+					}
+					
+					$quotes = $sourceQuote[$randQuote-1];
+					
+					array_push($doneRandom,$randQuote);
+					array_push($response,$quotes);
 				}
-				
-				$quotes = $sourceQuote[$randQuote-1];
-				
-				array_push($doneRandom,$randQuote);
-				array_push($response,$quotes);
-			}
-		 
+		 	}
 		 }
 		 catch (Exception $e){
 			 $statusCode = 404;
-			 $response = "error coy";
+			 $response = array('error' => "$e");
 		 }
+
 		 finally{
 			 return Response::json($response, $statusCode);
-			 //return 'hehe';
 		 }
 	 }
 }

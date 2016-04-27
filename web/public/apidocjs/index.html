@@ -12,8 +12,8 @@
   <script src="vendor/polyfill.js"></script>
 </head>
 <body>
-
 <script id="template-sidenav" type="text/x-handlebars-template">
+
 <nav id="scrollingNav">
   <ul class="sidenav nav nav-list">
   {{#each nav}}
@@ -37,6 +37,7 @@
 
 <script id="template-project" type="text/x-handlebars-template">
   <div class="pull-left">
+  <a href="../apioverview" class="btn btn-large">Back</a>
     <h1>{{name}}</h1>
     {{#if description}}<h2>{{{nl2br description}}}</h2>{{/if}}
   </div>

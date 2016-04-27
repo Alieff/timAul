@@ -13,6 +13,7 @@ use App\Quotes;
 
 
 Route::get('/', function () {
+
 	return view('home');
 });
 
@@ -81,3 +82,11 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('apidoc',function(){
 	return view('apidoc.apidocs');
 });
+
+Route::get('apioverview',function(){
+	return view('apioverview');
+});
+
+ Route::get('javadocs', function(){
+ 	return view('pages.javadocs');
+ });
