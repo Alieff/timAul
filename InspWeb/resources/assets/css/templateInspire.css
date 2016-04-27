@@ -13,6 +13,14 @@
 @font-face{
 	font-family: 'Open Sans';
 }
+html {		
+	position: relative;		
+	min-height: 100%;		
+}		
+body {		
+	/* Margin bottom by footer height */		
+	margin-bottom: 60px;		
+}
 #test{
 	font-family: bebasReg;
 	letter-spacing: 5px;
@@ -30,6 +38,7 @@
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 50px;
+  position: absolute;
   background-color: #000;
 }
 h2{
@@ -54,8 +63,14 @@ h2{
     border-color: #B3E5FC;
     background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
 }
-
-}.teamku{
+.footer {		
+	/*bottom: 0;*/
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 50px;		
+	background-color: #000;
+}
+.teamku{
 	height: 265px;
 	font-size: large;
 }
@@ -85,7 +100,9 @@ h2{
 }
 .footer{
     background: #000000;
-    padding: 10px 0;
+    padding: 11px 0;
+	z-index: 11;		
+	bottom:0;
 }
 .footer a {
     color: #70726F;
@@ -97,9 +114,53 @@ h2{
 }
 .footer a:first-child {
     border-left: 1px solid #70726F;
+}		
+.footer a:last-child {		
+	border-right: 1px solid #70726F;
 }
 .footer a:hover {
     color: white;
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
+}
+html {		
+  position: relative;		
+  min-height: 100%;		
+}		
+body{		
+	margin-top: 50px;		
+}				
+.form-signin {		
+  max-width: 330px;		
+  padding: 15px;		
+  margin: 0 auto;		
+}		
+.form-signin .form-signin-heading,		
+.form-signin .checkbox {		
+  margin-bottom: 10px;		
+}		
+.form-signin .checkbox {		
+  font-weight: normal;		
+}		
+.form-signin .form-control {		
+  position: relative;		
+  height: auto;		
+  -webkit-box-sizing: border-box;		
+	 -moz-box-sizing: border-box;		
+		  box-sizing: border-box;		
+  padding: 10px;		
+  font-size: 16px;		
+}		
+.form-signin .form-control:focus {		
+  z-index: 2;		
+}		
+.form-signin input[type="email"] {		
+  margin-bottom: -1px;		
+  border-bottom-right-radius: 0;		
+  border-bottom-left-radius: 0;		
+}		
+.form-signin input[type="password"] {		
+  margin-bottom: 10px;		
+  border-top-left-radius: 0;		
+  border-top-right-radius: 0;		
 }

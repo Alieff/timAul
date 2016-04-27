@@ -1,28 +1,52 @@
 @extends('layouts.page')
+@section('documentation')
+'active'
+@endsection
 @section('bodycontent')
-<img style="width:100%;padding-top:50px;" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
-<div class="teamku" style="text-align:left;padding-bottom:50%;padding-top: 30px">
-	<div class="col-lg-10 col-lg-offset-1">
-		<h2 class="h">DOCUMENTATION</h2>
-		<p style="padding-top: 1%; font-size: 20px">
-		Inilah dokumentasi yang dapat membantu Anda untuk menggunakan API kami. Terdapat beberapa penjelasan dari tiap bagian yang ada.
-		</p>
-	</div>
+<div id="wrapper"><!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Documentation</a>
+                </li>
+                <li>
+                    <a href="#">API Overview</a>
+                </li>
+                <li>
+                    <a href="#">Source Code</a>
+                </li>
+                <li>
+                    <a class="active" href="#">Term of Use</a>
+                </li>
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+			<div class="col-lg-12" style="text-align: left;padding-left: 20px;padding-right: 20px">
+                <h2 id="namaku">DOCUMENTATION</h2>                									
+				<p>
+				Inilah dokumentasi yang dapat membantu Anda untuk menggunakan API kami. Terdapat beberapa penjelasan dari tiap bagian yang ada.
+				</p>
+			
 
-	<div class="col-lg-10 col-lg-offset-1">
-		<h2 class="h">QUOTE</h2>
-		<p style="padding-top: 1%; font-size: 20px">
-		Anda dapat mencari berbagai macam kategori dari quote sesuai kebutuhan. Jika ingin mendapatkan quote secara acak berdasarkan jumlah yang diinginkan, Anda dapat melihat halaman Mendapatkan Quote Acak (di-link). Begitu juga jika Anda ingin mencari quote berdasarkan penulis (di-link) dan sumber 
-		</p>
-	</div>
+			
+				<h2 id="namaku">QUOTE</h2>                									
+				<p>
+				Anda dapat mencari berbagai macam kategori dari quote sesuai kebutuhan. Jika ingin mendapatkan quote secara acak berdasarkan jumlah yang diinginkan, Anda dapat melihat halaman Mendapatkan Quote Acak (di-link). Begitu juga jika Anda ingin mencari quote berdasarkan penulis (di-link) dan sumber 
+				</p>
+			
 
-	<div class="col-lg-10 col-lg-offset-1">
-		<h2 class="h">SOURCE CODE</h2>
-		<p style="padding-top: 1%; font-size: 20px">
-		Source Code dari program crawler kami dapat Anda nikmati dengan lisensi gratis. Produk open source ini dapat anda gunakan atau distribusikan kepada siapa saja. Pada halaman source code Anda dapat menemukan source code dari program dan API. 
-		</p>
-	</div>
-	
+			
+				<h2 id="namaku">SOURCE CODE</h2>                									
+				<p>
+				Source Code dari program crawler kami dapat Anda nikmati dengan lisensi gratis. Produk open source ini dapat anda gunakan atau distribusikan kepada siapa saja. Pada halaman source code Anda dapat menemukan source code dari program dan API.
+				</p>
+			</div>
+					
+		</div>
 </div>
 
 @endsection
