@@ -1,0 +1,105 @@
+@font-face {
+    font-family: bebasReg;
+    src: url(../../fonts/BebasNeueRegular.ttf);
+}
+@font-face{
+	font-family: bebasBold;
+	src: url(../../fonts/BebasNeueBold.ttf);
+}
+@font-face {
+    font-family: pacifico;
+	src: url(../../fonts/Pacifico.ttf);
+}
+@font-face{
+	font-family: 'Open Sans';
+}
+#test{
+	font-family: bebasReg;
+	letter-spacing: 5px;
+}
+#logo{
+	font-family: pacifico;
+	font-size: 24px;
+	color: #02A9F4;
+}
+#logo:hover{
+	color: #b3e5ff;
+}
+.footer {
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #000;
+}
+h2{
+	font-family: bebasBold;
+	font-size: 26pt;
+	letter-spacing: 3px;
+}
+#namaku{
+	font-size: 32pt;
+	color: #0188D1;
+}
+.jumbotron p {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 200;
+}
+.btn-success {
+	font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    background-color: #004BFF;
+    border-color: #B3E5FC;
+    background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
+}
+.teamku{
+   	padding-top: 68px;
+	height: 265px;
+	font-size: large;
+}
+.h{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: -moz-calc,25px;
+}
+#team{
+    background-color: #f0fff0;
+	height: 390px;
+}
+#foto{
+	position: absolute;
+}
+#desc{
+	padding-top: 20px;
+}
+.desc{
+	text-align: center;
+	font-family: initial;
+	font-size: large;
+	font-weight: bold;
+}
+.img{
+	max-width: 100%;
+	border-radius: 50%;
+}
+.footer{
+    background: #000000;
+    padding: 10px 0;
+}
+.footer a {
+    color: #70726F;
+    font-size: 20px;
+    padding: 10px;
+    border-right: 1px solid #70726F;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.footer a:first-child {
+    border-left: 1px solid #70726F;
+}
+.footer a:hover {
+    color: white;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
