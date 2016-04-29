@@ -1,5 +1,5 @@
 <?php
-
+use App\Quotes;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,20 +11,87 @@
 |
 */
 
+
 Route::get('/', function () {
+
 	return view('home');
 });
- 
- Route::get('home', function () {
-	return view('home');
+
+Route::get('contact', 'ContactController@getContact');
+
+Route::post('contact_request','ContactController@getContactUsForm');
+
+Route::get('faq', function () {
+  return view('faq');
 });
+
+Route::get('mail', function () {
+  return view('test');
+});
+
+// Route::get('/hello',function(){
+//     return 'Hello World!';
+// });
+
+Route::get('login', function(){
+ return view('login');
+});
+
+Route::get('api/getQuote/{jumlah}', 'JsonController@getQuote');
+Route::get('api/getQuoteByAuthor/{jumlah}/{author}', 'JsonController@getQuoteByAuthor');
+Route::get('api/getQuoteBySource/{jumlah}/{source}', 'JsonController@getQuoteBySource');
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| This route group applies the "web" middleware group to every route
+| it contains. The "web" middleware group is defined in your HTTP
+| kernel and includes session state, CSRF protection, and more.
+|
+*/
+
+Route::group(['middleware' => ['web']], function () {
+
+});
+
  Route::get('termofuse', function(){
  	return view('termofuse');
+ });
+
+ Route::get('home', function(){
+ 	return View::make('home');
+ });
+
+ Route::get('sourcecode', function(){
+ 	return View::make('sourcecode');
  });
 
  Route::get('login', function(){
  	return view('login');
  });
-  Route::get('api', function(){
- 	return view('api');
+
+ Route::get('about', function () {
+    return view('about');
+ });
+
+ Route::get('contact', function () {
+    return view('contact');
+ });
+
+Route::get('apidoc',function(){
+	return view('apidoc.apidocs');
+});
+
+Route::get('apioverview',function(){
+	return view('apioverview');
+});
+
+ Route::get('javadocs', function(){
+ 	return view('pages.javadocs');
+ });
+ 
+ 
+ Route::get('documentation', function(){
+ 	return view('documentation');
  });
