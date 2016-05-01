@@ -11,27 +11,37 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
+Route::group(['middleware' => 'web'], function() {
+    // Place all your web routes here...(Cut all `Route` which are define in `Route file`, paste here) 
+    Route::get('/', function () {
+  		return view('welcome');
+	});
+
+	Route::get('contact', 
+	  ['as' => 'contact', 'uses' => 'ContactController@create']
+	);
+
+	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
+
+	Route::post('contact', 
+	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
+	);
+
+	Route::get('faq', function () {
+	  return view('faq');
+	});
+
+
+	Route::get('mail', function () {
+	  return view('test');
+	});
+
+	Route::get('blade', function () {
+	    return view('page',array('name' => 'The Raven'));
+	});
+
+	Route::get('termofuse', function(){
+	 	return view('termofuse');
+	});
+
 });
-
-Route::get('contact', 'ContactController@getContact');
-
-Route::post('contact_request','ContactController@getContactUsForm');
-
-Route::get('faq', function () {
-  return view('faq');
-});
-
-
-Route::get('mail', function () {
-  return view('test');
-});
-
-Route::get('blade', function () {
-    return view('page',array('name' => 'The Raven'));
-});
-
- Route::get('termofuse', function(){
- 	return view('termofuse');
- });

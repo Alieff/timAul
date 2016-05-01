@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'test@aja.com', 'name' => 'Tester'],
+    'from' => ['address' => 'contact@owlteam.com', 'name' => 'owlteam'],
 
     /*
     |--------------------------------------------------------------------------
