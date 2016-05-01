@@ -1,4 +1,4 @@
-Contact Form for Inspire Crawler
+Question for Inspire Crawler
 
 <p>
 Name: {{ $name }}
