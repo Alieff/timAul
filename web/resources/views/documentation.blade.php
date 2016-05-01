@@ -1,5 +1,9 @@
 @extends('layouts.page')
+<<<<<<< HEAD
 @section('docact')
+=======
+@section('documentationact')
+>>>>>>> ce139a7c0f02fca96d6e44c4f33874e810f15b35
 'active'
 @endsection
 @section('bodycontent')

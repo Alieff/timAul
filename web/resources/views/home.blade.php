@@ -4,7 +4,7 @@
 @endsection
 @section('bodycontent')
 <img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
-<div style="text-align:center;padding-bottom:100px;height: 350px" class="jumbotron">
+<div class="jumbotron headline">
 <div class="col-lg-8 col-lg-offset-2" class="jumbotron">
       <h2 id="namaku">INSPIRE CRAWLER</h2>
       <p>
@@ -21,13 +21,13 @@
 <br>
 <br>
 <br>
-<div style="width:100%;padding-left:5%;padding-right:5%;padding-top:0px;padding-bottom: 100px" class="container">
+<div class="container feature">
     <div class="row">
-        <div style="text-align:center" class="col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2">
+        <div class="col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2 list-features">
             <h2>Get Quotes by Website</h2>
             <p>Morbi id nisi eu erat congue tempor. Nulla urna ipsum, lacinia in vestibulum at, laoreet eget mauris.Nam viverra convallis odio, nec egestas nisi vestibulum eu. In blandit, urna nec finibus ullamcorper</p>
         </div>
-        <div style="text-align:center" class="col-sm-6 col-md-4 col-lg-4">
+        <div class="col-sm-6 col-md-4 col-lg-4">
             <h2>Get Quotes by Author</h2>
             <p>Aliquam erat volutpat. Sed leo purus, pulvinar quis fermentum vel, pharetra efficitur lectus. Mauris a cursus urna. Aenean id velit eget quam mollis pellentesque. Sed massa nisi, venenatis sit amet dapibus quis, elementum in purus.</p>
         </div>

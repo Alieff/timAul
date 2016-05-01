@@ -94,3 +94,4 @@ Route::get('apioverview',function(){
  Route::get('documentation',function(){
  	return view('documentation');
  });
+
