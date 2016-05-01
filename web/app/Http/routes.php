@@ -90,3 +90,7 @@ Route::get('apioverview',function(){
  Route::get('javadocs', function(){
  	return view('pages.javadocs');
  });
+
+ Route::get('documentation',function(){
+ 	return view('documentation');
+ });

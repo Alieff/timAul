@@ -11,7 +11,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Documentation</a>
+                    <a href="documentation">Documentation</a>
                 </li>
                 <li>
                     <a href="apioverview">API Overview</a>
