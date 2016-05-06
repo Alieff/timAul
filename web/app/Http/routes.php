@@ -12,18 +12,23 @@ use App\Quotes;
 */
 
 
+
 Route::get('/', function () {
 
 	return view('home');
 });
 
-Route::get('contact', 'ContactController@getContact');
 
-Route::post('contact_request','ContactController@getContactUsForm');
+	Route::get('contact', 
+	  ['as' => 'contact', 'uses' => 'ContactController@create']
+	);
 
-Route::get('faq', function () {
-  return view('faq');
-});
+	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
+
+	Route::post('contact', 
+	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
+	);
+
 
 Route::get('mail', function () {
   return view('test');
@@ -75,10 +80,6 @@ Route::group(['middleware' => ['web']], function () {
     return view('about');
  });
 
- Route::get('contact', function () {
-    return view('contact');
- });
-
 Route::get('apidoc',function(){
 	return view('apidoc.apidocs');
 });
@@ -95,3 +96,10 @@ Route::get('apioverview',function(){
  	return view('documentation');
  });
 
+Route::get('faq', function () {
+	 return view('faq');
+});
+
+Route::resource('admin/quote', 'QuoteController', ['except' => [
+    'show', 'edit'
+]]);

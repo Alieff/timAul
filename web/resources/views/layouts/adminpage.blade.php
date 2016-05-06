@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	@include('layouts.head')
+    	@include('layouts.adminhead')
 	</head>
 	
 	<body>
 		<!--NAVBAR CODE HERE -->
-		@include('layouts.navbar')
-
 		<!--CONTENT OF BODY HERE -->
 		@yield('bodycontent')
-		
 	</body>
 
-	<footer class="footer">
+	<footer class="footer">	
 		@include('layouts.footer')
 	</footer>
 

@@ -1,5 +1,5 @@
 @extends('layouts.page')
-@section('contantact')
+@section('contact_storetact')
 'active'
 @endsection
 @section('bodycontent')
@@ -11,20 +11,50 @@
       <h2>Ask Us Anything</h2>
 
 
-      {!! Form:: open(array('url' => 'contact_request')) !!}
+      @if(Session::has('message'))
+        <div class="alert alert-info">
+          {{Session::get('message')}}
+        </div>
+      @endif
+
+      <ul>
+          @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
 
 
-      <label for="name" class="sr-only">Name</label>
-      <input type="text" id="name" class="form-control" placeholder="Name" required autofocus>
+      {!! Form::open(array('route' => 'contact_store', 'class' => 'form')) !!}
 
-      <label for="email" class="sr-only">Email address</label>
-      <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+      <div class="form-group">
+          {!! Form::label('Your Name') !!}
+          {!! Form::text('name', null, 
+              array('required', 
+                    'class'=>'form-control', 
+                    'placeholder'=>'Your name')) !!}
+      </div>
 
-      <label for="message" class="sr-only">Message</label>
-      <textarea id="message" class="form-control" placeholder="Message" required></textarea>
+      <div class="form-group">
+          {!! Form::label('Your E-mail Address') !!}
+          {!! Form::text('email', null, 
+              array('required', 
+                    'class'=>'form-control', 
+                    'placeholder'=>'Your e-mail address')) !!}
+      </div>
 
-      <button class="btn btn-primary" type="submit">Submit</button>
 
+      <div class="form-group">
+          {!! Form::label('Your Message') !!}
+          {!! Form::textarea('message', null, 
+              array('required', 
+                    'class'=>'form-control', 
+                    'placeholder'=>'Your message')) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::submit('Submit', 
+            array('class'=>'btn btn-primary')) !!}
+      </div>
 
       {!! Form::close() !!}
 
