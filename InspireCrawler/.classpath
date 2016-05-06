@@ -77,5 +77,6 @@
 	<classpathentry kind="lib" path="lib/xom.jar"/>
 	<classpathentry kind="lib" path="lib/xz-1.2.jar"/>
 	<classpathentry kind="lib" path="src/model/models.jar"/>
+	<classpathentry kind="lib" path="lib/mongodb-driver-3.2.2.jar"/>
 	<classpathentry kind="output" path="out/production/InspireCrawler"/>
 </classpath>

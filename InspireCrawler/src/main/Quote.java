@@ -145,6 +145,7 @@ public class Quote {
         this.author = author;
     }
 
+
     /**
      * Method setCategory()
      * Method ini digunakan untuk mengubah  kategori dari sebuah quote
@@ -171,6 +172,7 @@ public class Quote {
     public void setManual(boolean manual) {
         isManual = manual;
     }
+
 
     /**
      * Method setID()

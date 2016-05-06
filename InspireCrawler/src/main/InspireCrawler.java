@@ -23,7 +23,7 @@ public class InspireCrawler extends WebCrawler {
 
 
      private LogCrawl logCrawl;
-     private Database database;
+     private DBConnect dbConnect;
      private ConfigReader configReader;
      private QuoteFilter quoteFilter;
 
@@ -33,9 +33,10 @@ public class InspireCrawler extends WebCrawler {
     public InspireCrawler (){
         this.quoteFilter =  CrawlerController.quoteFilter;
         this.logCrawl = new LogCrawl();
-        this.database = new Database();
+        this.dbConnect = new DBConnect();
         this.configReader = new ConfigReader();
     }
+
     /**
      * Method shouldVisit
      * Method ini berisi batasan apakah crawler boleh meng-crawl sebuah website atau tidak
@@ -46,6 +47,10 @@ public class InspireCrawler extends WebCrawler {
      */
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
+        //TODO: Buat Aturannya
+        //Class yang ega buat akan ada banyak list website
+
+
 
         //arraylist daftar web yang boleh di crawl
         ArrayList<String> daftarWeb = configReader.getWebAddress();
@@ -70,7 +75,6 @@ public class InspireCrawler extends WebCrawler {
 
     /**
      * Method ini akan memproses halaman yang sedang dijelajahi
-     *
      * @param page halaman dari website yang sedang dijelajahi
      */
     @Override
@@ -98,7 +102,7 @@ public class InspireCrawler extends WebCrawler {
             for(int i = 0; i < listQuote.size(); i++){
                 Quote tempQuote = listQuote.get(i);
                 //System.out.println("Masuk " + tempQuote.getAuthor());
-                database.putData(tempQuote);
+                dbConnect.putData(tempQuote);
                 logCrawl.getLogFile(tempQuote);
 
 
