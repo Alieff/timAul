@@ -20,9 +20,9 @@ public class TreeNode {
 
   /**
    * add new node to the tree
-   * @return tree with node that's added
+   * @return node that was just added
    */
-  public TreeNode addNode() {
+  private TreeNode addNode() {
     TreeNode node = new TreeNode();
     childs.add(node);
     return node;
@@ -40,12 +40,11 @@ public class TreeNode {
     for (int i = 0; i < parseTree.length(); i++) {
       char currentChar = parseTree.charAt(i);
 
-      if (currentChar == '(') {
+      if (currentChar == '(') { 
         TreeNode node = head.addNode();
         node.parent = head;
         head = node;
         head.level = node.parent.level+1;
-
       } else if (currentChar == ' ' && tag.length() > 0 ) {
         if (head.label == null) {
           head.label = tag;
@@ -66,6 +65,7 @@ public class TreeNode {
 
   /**
    * Do level order and print the result
+   * @deprecated
    */
   public void getLevelOrder() {
     Queue queue = new LinkedList<TreeNode>();
@@ -87,23 +87,24 @@ public class TreeNode {
     String result = "";
     Queue queue = new LinkedList<TreeNode>();
     queue.add(this);
+
     while(!queue.isEmpty()) {
       TreeNode thisNode = (TreeNode) queue.poll();
+      
       for (TreeNode node : thisNode.childs) {
         if (node.level == 2) {
           result += "{";
           String nodeVal = node.getLeaves(node);
           if (nodeVal.contains("/PERSON")) {
             nodeVal = nodeVal.replace("/PERSON", "");
-            result += nodeVal;
-            result += "}/PERSON ";
+            result += nodeVal+"}/PERSON ";
           } else {
-            result += nodeVal;
-            result += "}/"+node.label+" ";
+            result += nodeVal+"}/"+node.label+" ";
           }
         }
         queue.add(node);
       }
+      
       if (thisNode.level > 2) {
         return result;
       }
@@ -118,7 +119,7 @@ public class TreeNode {
    * @see       SentenceTagger
    * @since      1.0
    */
-  public String getLeaves(TreeNode startNode) {
+  private String getLeaves(TreeNode startNode) {
     String result = "";
     Queue queue = new LinkedList<TreeNode>();
     queue.add(startNode);
