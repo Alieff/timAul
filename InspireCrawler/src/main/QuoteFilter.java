@@ -37,14 +37,13 @@ public class QuoteFilter {
         //String pattern3 = "(\".*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s*)+)|(-|—|~)(.*\\\\PERSON)+)";
 
         //Regex For only NER v2.0
-        String pattern4 = "(\"([a-zA-Z]+(\\.|,|;)*\\s*)*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s *)+)|(-|—|~)(.*\\\\PERSON)+)";
+        String pattern4 = "(\"([a-zA-Z]+(\\.|,|;)*\\s*)*\"|.*)(\\n(-|—|~|)\\s*(([a-zA-Z]*\\/PERSON\\s *)+)|(-|—|~)(.*\\/PERSON)+)";
 
         //Filter these out...
         Pattern p = Pattern.compile(pattern4);
 
         //REAL
         String hasilTag = tagger(textDariWebsite);
-
         // akan memberikan tag VP NP ke textDariWebsite
         String result = sentenceTagger.partialIdentify(hasilTag);
 
@@ -54,10 +53,15 @@ public class QuoteFilter {
 
         while(m.find()){
             String quote = m.group(1);
-            String author = m.group(6);
-
+            String author;
+            if(m.group(6) != null)
+                author = m.group(6);
+            else
+                author = m.group(9);
+            System.out.println(author);
             quote = quote.replace("/PERSON","");
             author = author.replace("/PERSON","");
+
 
             //Avoid blank
             quote = quote.trim();
@@ -67,7 +71,7 @@ public class QuoteFilter {
                 hasilFilter.add(quoteModel);
             }
         }
-
+        System.out.println(hasilFilter.size());
         return hasilFilter;
     }
 

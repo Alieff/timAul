@@ -42,7 +42,6 @@ public class SentenceTagger {
      */
     public SentenceTagger(){
         classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
-        System.out.println("IO Error");
         this.props =  new Properties();
         loadModels();
         this.pipeline = new StanfordCoreNLP(props);
@@ -110,8 +109,6 @@ public class SentenceTagger {
             result += temp;
 
         }
-        System.out.println(result);
-
         // save result
         return result;
     }
