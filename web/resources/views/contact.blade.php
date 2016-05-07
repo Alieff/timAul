@@ -22,7 +22,6 @@
       {!! Form::open(array('route' => 'contact_store', 'class' => 'form')) !!}
 
       <div class="form-group">
-          {!! Form::label('Your Name') !!}
           {!! Form::text('name', null, 
               array('required', 
                     'class'=>'form-control', 
@@ -30,7 +29,6 @@
       </div>
 
       <div class="form-group">
-          {!! Form::label('Your E-mail Address') !!}
           {!! Form::text('email', null, 
               array('required', 
                     'class'=>'form-control', 
@@ -38,7 +36,6 @@
       </div>
 
       <div class="form-group">
-          {!! Form::label('Your Message') !!}
           {!! Form::textarea('message', null, 
               array('required', 
                     'class'=>'form-control', 
