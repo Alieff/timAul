@@ -6,6 +6,7 @@
 	
 	<body>
 		<!--NAVBAR CODE HERE -->
+		@include('layouts.navbaradmin')
 		<!--CONTENT OF BODY HERE -->
 		@yield('bodycontent')
 	</body>
