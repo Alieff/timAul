@@ -4,13 +4,12 @@
 @extends('layouts.page')
 
 
-
-
 @section('bodycontent')
 
 <?php 
 $chunks = explode("/", Request::root());
-$url = Config::get('app.url')."/".$chunks[3]."/timAul/InspireCrawler/doc2/index.html";	
+
+$url = Config::get('app.url')."/".$chunks[3]."/InspireCrawler/doc2/index.html";	
 ?>
 
  <iframe class="documentation"  frameborder="0" width="100%" height="550vh" align=center src="<?php echo $url; ?>"></iframe>

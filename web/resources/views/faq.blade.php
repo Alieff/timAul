@@ -70,7 +70,7 @@
       </div>
       <div id="collapseSeven" class="panel-collapse collapse">
         <div class="panel-body">
-          Anda dapat melihat contoh dan dokumentasi API di halaman <a href="faq.blade.php">API Overview</a>
+          Anda dapat melihat contoh dan dokumentasi API di halaman <a href="#">API Overview</a>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
       </div>
       <div id="collapseHeight" class="panel-collapse collapse">
         <div class="panel-body">
-          Anda dapat menghubungi tim developer dengan mengisi form yang ada di halaman <a href='contact.blade.php'>contact</a>
+          Anda dapat menghubungi tim developer dengan mengisi form yang ada di halaman <a href="{{ URL::route('contact') }}">contact</a>
         </div>
       </div>
     </div>

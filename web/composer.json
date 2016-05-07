@@ -17,7 +17,8 @@
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "teepluss/explore": "dev-master",
-        "jlapp/swaggervel": "dev-laravel5"
+        "jlapp/swaggervel": "dev-laravel5",
+        "guzzlehttp/guzzle": "~4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -26,7 +27,6 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laravel/framework": "5.2.*"
-
     },
     "autoload": {
         "classmap": [
