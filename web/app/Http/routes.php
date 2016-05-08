@@ -102,4 +102,10 @@ Route::get('faq', function () {
 
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
-]]);
+],
+'names' => [
+	'store' => 'users.store'
+]
+]);
+
+Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteController@testing']);

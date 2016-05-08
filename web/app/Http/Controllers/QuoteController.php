@@ -16,17 +16,102 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $quotes =  Quotes::paginate(15);
-       // echo $test;
-        $i = 1;
-  //      foreach($test as $kucing){
-    //    	echo $i++ . " " . $kucing->_id;
-      //  }
-        
+    {   
+        return view('admin.quote');
+    }
+
+    public function testing(Request $request){
+
+        $sortSearch = $request->sort;
+        $sortBySearch = $request->sortby;
+        echo 'this is Author = ' . $request->author;
+        echo 'This is Quote = ' . $request->quote;
+        echo 'This is Source = ' . $request->source;
+        echo 'This is sort = ' . $request->sort;
+        echo 'This is sortby = ' .  $request->sortby .  '\n';
+
+        $allRequest = $request->only(['author', 'quote', 'source']  );
+
+        $ternyataKosong = TRUE;
+
+        $authorThere = FALSE;
+        $author = "";
+
+        $quoteThere = FALSE;
+        $quote = "";
+
+        $sourceThere = FALSE;
+        $source = "";
+
+        $whereQuery = [];
+        if ($request->has('author')) {
+            $authorThere = TRUE;
+            $ternyataKosong = FALSE;
+            $author = $request->author;
+            //$whereQuery['author'] = $request->author;
+        }
+
+
+        if ($request->has('quote')) {
+            $ternyataKosong = FALSE;
+
+            $quoteThere = TRUE;
+            $quote = $request->quote;
+           // $whereQuery['quote'] = $request->quote;
+        }
+
+
+        if ($request->has('source')) {
+            $ternyataKosong = FALSE;
+            $sourceThere = TRUE;
+            $source = $request->source;
+            echo "MASOOOOK DONNG";
+         //   $whereQuery['source'] = $request->source;
+        }
+
+        $quotes = [];
+        if($ternyataKosong){
+            echo "masuk ga aaasa ini?";   
+            $quotes =  Quotes::orderBy("$sortSearch","$sortBySearch")->paginate(15);
+        }
+
+        else{
+            if($authorThere){
+                echo "masuk ga ini?";   
+                $quotes = Quotes::where('author', 'like', "%$author%");
+                if($quoteThere){
+                    $quotes = $quotes->where('quote', 'like', "%$quote%");
+                }
+
+                if($sourceThere){
+                    $quotes = $quotes->where('source', 'like' , "$source%");
+                }
+            }
+            
+            else if ($quoteThere) {
+                echo "masuk quote";
+                $quotes = Quotes::where('quote', 'like', "%$quote%");
+                   if($sourceThere){
+                        $quotes = $quotes->where('source', 'like' , "$source%");
+                    }
+                }
+
+            else {
+                    echo "masa ini ga masuk?";
+                    $quotes = Quotes::where('source', 'like' , "$source%");
+                }
+            $quotes->orderBy("$sortSearch","$sortBySearch");
+            $quotes = $quotes->paginate(15);
+        }
+
+        $quotes->appends(\Input::except('page'))->links();
+
+       
         return view('admin.quote',[
                 'quotes' => $quotes
-            ]);
+        ]);
+   
+
     }
 
     /**
@@ -47,7 +132,8 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**
