@@ -2,7 +2,6 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/lib" />
-      <root url="jar://$USER_HOME$/Downloads/nekohtml-1.9.21/nekohtml.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
