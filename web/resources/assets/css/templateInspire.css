@@ -1,63 +1,141 @@
+/** EXTRA FONT **/
 @font-face {
     font-family: bebasReg;
-    src: url(/InspWeb/resources/assets/fonts/BebasNeueRegular.ttf);
+    src: url(../fonts/BebasNeueRegular.ttf);
 }
 @font-face{
-	font-family: bebasBold;
-	src: url(/InspWeb/resources/assets/fonts/BebasNeueBold.ttf);
+  font-family: bebasBold;
+  src: url(../fonts/BebasNeueBold.ttf);
 }
 @font-face {
     font-family: pacifico;
-	src: url(/InspWeb/resources/assets/fonts/Pacifico.ttf);
+  src: url(../fonts/Pacifico.ttf);
 }
 @font-face{
-	font-family: 'Open Sans';
+  font-family: 'Open Sans';
 }
-#test{
-	font-family: bebasReg;
-	letter-spacing: 5px;
+
+
+/** BASIC STYLING **/
+html {
+  position: relative;
+  min-height: 100%;
 }
+
+body {
+  /* Margin bottom by footer height */
+  margin-top: 50px;
+  margin-bottom: 60px;
+  font-family: 'Open Sans';
+}
+
+h2{
+  font-family: bebasBold;
+  font-size: 26pt;
+  letter-spacing: 3px;
+}
+
+
+/** STYLING FOR NAVBAR **/
 #logo{
-	font-family: pacifico;
-	font-size: 24px;
-	color: #02A9F4;
+  font-family: pacifico;
+  font-size: 24px;
+  color: #02A9F4;
 }
+
 #logo:hover{
-	color: #b3e5ff;
+  color: #b3e5ff;
 }
+
+#navbar-text{
+  font-family: bebasReg;
+  letter-spacing: 5px;
+}
+
+
+/** STYLING FOR HEADER IMAGE **/
+.header-image{
+  width:100%;
+}
+
+
+/** STYLING FOR TERM OF USE PAGE **/
+.wrapper{
+  padding-bottom :6%;
+}
+
+
+/** STYLING FOR FORM **/
+.form-control{
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+/** STYLING FOR FOOTER **/
 .footer {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 50px;
+  position: absolute;
   background-color: #000;
 }
-h2{
-	font-family: bebasBold;
-	font-size: 26pt;
-	letter-spacing: 3px;
+
+.footer {
+  /*bottom: 0;*/
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #000;
+  padding: 11px 0;
+  z-index: 11;
+  bottom:0;
+  position: absolute;
 }
-#namaku{
-	font-size: 32pt;
-	color: #0188D1;
-}
-.jumbotron p {
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 200;
-}
-.btn-success {
-	font-family: 'Open Sans', sans-serif;
-    color: #fff;
-    background-color: #004BFF;
-    border-color: #B3E5FC;
-    background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
-}
-.footer{
-    background: #000000;
-    padding: 10px 0;
-}
+
 .footer a {
     color: #70726F;
     font-size: 20px;
@@ -66,11 +144,90 @@ h2{
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
 }
+
 .footer a:first-child {
     border-left: 1px solid #70726F;
 }
+
 .footer a:hover {
     color: white;
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
+}
+
+
+/** STYLING FOR HOMEPAGE **/
+#main-heading{
+  font-size: 32pt;
+  color: #0188D1;
+}
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #004BFF;
+  border-color: #B3E5FC;
+  background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
+}
+
+.headline{
+  text-align: center;
+  padding-bottom: 100px;
+  height: 350px;
+}
+
+.feature{
+  width:100%;
+  padding:0px 5% 100px 5%;
+}
+
+.list-features{
+  text-align:center;
+}
+
+
+/** STYLING FOR ABOUT PAGE **/
+.teamku{
+  height: 265px;
+  font-size: large;
+  text-align:left;
+  padding-bottom:50px;
+}
+
+#team{
+  background-color: #f0fff0;
+  height: 444px;
+}
+
+.foto{
+  position: absolute;
+
+}
+#desc{
+  padding-top: 20px;
+}
+
+.desc{
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.img{
+  max-width: 100%;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+
+/** STYLING FOR EMBBEDED DOCUMENTATION**/
+.embbed{
+  width: 100%;
+  height: 85vh;
 }

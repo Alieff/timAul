@@ -7,6 +7,7 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
+import java.util.ArrayList;
 
 /**
  * Class ini adalah class untuk memulai crawlernya dan melakukan setting
@@ -19,11 +20,14 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 public class CrawlerController {
 
     /**
-     * Memulai crawler dengan aturan yang sudah ditentukan.
-     * @param argv parameter config, file, dll
+     * Quote filter digunakan dari class InspireCrawler
      */
     public static QuoteFilter quoteFilter;
 
+    /**
+     * Memulai crawler dengan aturan yang sudah ditentukan.
+     * @param argv parameter config, file, dll
+     */
     public static void main(String argv[]) throws Exception {
         String crawlStorageFolder = "data/crawl/root";
         int numberOfCrawlers = 4;
@@ -52,6 +56,7 @@ public class CrawlerController {
             controller.addSeed(listWeb.get(i));
         }
 
+        //Set Resumable
         config.setResumableCrawling(configReader.isResumable());
 
         quoteFilter = new QuoteFilter();
@@ -61,7 +66,5 @@ public class CrawlerController {
          */
         controller.start(InspireCrawler.class, numberOfCrawlers);
 
-        //TESTING
-        //controller.start(TestCrawler.class, numberOfCrawlers);
     }
 }

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,34 +47,49 @@ return [
     'connections' => [
 
         'sqlite' => [
-            'driver'   => 'sqlite',
-            'database' => database_path('database.sqlite'),
-            'prefix'   => '',
+            'driver' => 'sqlite',
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix' => '',
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-            'engine'    => null,
-        ],
-
-        'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'localhost'),
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
         ],
+			/*
+		'mongodb' => [
+			'driver'   => 'mongodb',
+			'host'     => env('DB_HOST', 'localhost'),
+			'port'     => env('DB_PORT', 27017),
+			'database' => env('DB_DATABASE','InspireCrawler'),
+			'username' => env('DB_USERNAME'),
+			'password' => env('DB_PASSWORD'),
+			'options' => [
+				'db' => 'admin' // sets the authentication database required by mongo 3
+			]
+		],
+		*/
+
+		'mongodb' => [
+			'driver'   => 'mongodb',
+			'host'     => env('DB_HOST', 'ds023520.mlab.com'),
+			'port'     => env('DB_PORT', 23520),
+			'database' => env('DB_DATABASE','inspirecrawlerdb'),
+			'username' => env('DB_USERNAME','admin'),
+			'password' => env('DB_PASSWORD','admin'),
+			'options' => [
+				'db' => 'admin' // sets the authentication database required by mongo 3
+			]
+		],
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
@@ -82,8 +97,9 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset'  => 'utf8',
-            'prefix'   => '',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
         ],
 
     ],
@@ -117,9 +133,9 @@ return [
         'cluster' => false,
 
         'default' => [
-            'host'     => env('REDIS_HOST', 'localhost'),
+            'host' => env('REDIS_HOST', 'localhost'),
             'password' => env('REDIS_PASSWORD', null),
-            'port'     => env('REDIS_PORT', 6379),
+            'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],
 

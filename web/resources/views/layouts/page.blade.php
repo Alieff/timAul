@@ -10,6 +10,7 @@
 
 		<!--CONTENT OF BODY HERE -->
 		@yield('bodycontent')
+		
 	</body>
 
 	<footer class="footer">

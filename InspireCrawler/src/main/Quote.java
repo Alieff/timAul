@@ -145,6 +145,7 @@ public class Quote {
         this.author = author;
     }
 
+
     /**
      * Method setCategory()
      * Method ini digunakan untuk mengubah  kategori dari sebuah quote
@@ -172,6 +173,7 @@ public class Quote {
         isManual = manual;
     }
 
+
     /**
      * Method setID()
      * Method ini digunakan untuk mengubah bahasa dari sebuah quote
@@ -179,5 +181,20 @@ public class Quote {
      */
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        Quote other = (Quote) obj;
+        // For now we assume author , id , source , quote that will be used
+        if(this.isManual == other.isManual
+                && this.getAuthor().equals(other.getAuthor())
+                && this.getID() == other.getID()
+                && this.getSource().equals(other.getSource())
+                && this.getQuote().equals(other.getQuote())){
+            return true;
+        }
+        return false;
     }
 }
