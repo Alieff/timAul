@@ -44,4 +44,8 @@ Route::group(['middleware' => 'web'], function() {
 	 	return view('termofuse');
 	});
 
+	Route::get('admin/dashboard', function () {
+	 return view('admin.dashboard');
+});
+
 });
