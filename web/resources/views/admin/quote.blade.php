@@ -2,7 +2,7 @@
 
 @section('bodycontent')
 <div class="container">
-	<div class ="well well-lg">
+<div class ="well well-lg">
 	<h1>Yg mo lo cari apa?</h1>
 	{!! Form::open(array('route' => 'admin.getquotes', 'class' => 'form-horizontal', 'method' => 'get')) !!}
 

@@ -88,6 +88,10 @@ Route::get('apioverview',function(){
 	return view('apioverview');
 });
 
+Route::get('admin/dashboard', function () {
+	 return view('admin.dashboard');
+});
+
  Route::get('javadocs', function(){
  	return view('pages.javadocs');
  });

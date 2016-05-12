@@ -3,6 +3,7 @@
 'active'
 @endsection
 @section('bodycontent')
+
 <img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
 <div class="jumbotron headline">
 <div class="col-lg-8 col-lg-offset-2" class="jumbotron">
