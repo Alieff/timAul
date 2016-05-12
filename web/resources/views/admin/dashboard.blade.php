@@ -168,6 +168,14 @@
                                 <div class="col-lg-12">
                                     <div class="panel panel-default">
                                         <div class="panel-body log">
+                                            crawling is running....
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <span class="center">Crawler's Log</span>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body log">
                                             crawling....
                                             <br>
                                             Quote : "If there's a will there's a way"
