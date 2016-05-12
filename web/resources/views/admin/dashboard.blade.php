@@ -18,7 +18,7 @@
     <link href="../resources/assets/css/admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../assets/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <link href="../../assets/bower_components/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet">
@@ -159,8 +159,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12 center">
-                                    <a href="#"><i class="fa fa-play-circle fa-fw fa-4x"></i></a>
-                                    <a href="#"><i class="fa fa-stop-circle fa-fw fa-4x"></i></a>
+                                    <button><i class="fa fa-play-circle fa-fw fa-4x"></i></button>
+                                    <button href="#"><i class="fa fa-stop-circle fa-fw fa-4x"></i></button>
                                 </div>
                             </div>
                             <br/>
@@ -202,20 +202,20 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../../assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="../assets/bower_components/raphael/raphael-min.js"></script>
-    <script src="../assets/bower_components/morrisjs/morris.min.js"></script>
-    <script src="../assets/js/morris-data.js"></script>
+    <script src="../../assets/bower_components/raphael/raphael-min.js"></script>
+    <script src="../../assets/bower_components/morrisjs/morris.min.js"></script>
+    <script src="../../assets/js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../../assets/js/sb-admin-2.js"></script>
 </body>
 </html>
