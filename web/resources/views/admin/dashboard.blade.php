@@ -31,6 +31,13 @@
         .log{
             color: white;
             background-color: grey;
+            overflow-y: scroll; 
+            height: 250px;
+        }
+
+        .crawler{
+            color: white;
+            background-color: grey;
         }
     </style>
     
@@ -167,7 +174,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="panel panel-default">
-                                        <div class="panel-body log">
+                                        <div class="panel-body crawler">
                                             crawling is running....
                                         </div>
                                     </div>
@@ -189,7 +196,42 @@
                                             Quote : "If there's a will there's a way"
                                             Author : John Doe
                                             Source : www.getfreequotes.com
-
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
+                                            <br>
+                                            Quote : "If there's a will there's a way"
+                                            Author : John Doe
+                                            Source : www.getfreequotes.com
                                         </div>
                                         <!-- /.panel-body -->
                                     </div>
