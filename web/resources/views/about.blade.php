@@ -10,7 +10,6 @@
 		<p>
 			Inspire Crawler adalah sebuah API yang bisa anda gunakan ketika membutuhkan data-data berupa quote. Produk ini dibuat karena kebutuhan orang-orang untuk mencari quote baik itu sebagai motivasi diri maupun sisipan dalam sebuah publikasi. Oleh karena itu, Inspire Crawler hadir agar orang-orang yang membutuhkan ini dapat mendapatkan hasil yang maksimal sesuai harapan (quote yang tepat sesuai kategori pilihan, dsb).
 		</p>
-
 	</div>
 </div>
 
@@ -19,7 +18,6 @@
 		<div class="col-lg-10 col-lg-offset-1">
 			<h2>Developer Team</h2>
 			<div>
-
 				<div class="foto">
 					<a target="_blank" href="auliachair.tumblr.com">
 						<img class="img" src="aul.jpg">
@@ -29,8 +27,7 @@
 						<div>Scrum Master</div>
 					</div>
 				</div>
-
-				<div class="foto" style="margin-left: 229px">
+				<div class="fotop">
 					<a target="_blank" href="#">
 						<img class="img" src="puti.jpg">
 					</a>
@@ -38,9 +35,8 @@
 						<div>Puti</div>
 						<div>Designer</div>
 					</div>
-				</div>
-				
-				<div class="foto"style="margin-left: 458px">
+				</div>		
+				<div class="fotoe">
 					<a target="_blank" href="#">
 						<img class="img" src="ega.jpg">
 					</a>
@@ -48,10 +44,8 @@
 						<div>Ega</div>
 						<div>Designer</div>
 					</div>
-
-				</div>
-			
-				<div class="foto" style="margin-left: 687px">
+				</div>			
+				<div class="fotoh">
 					<a target="_blank" href="#">
 						<img class="img" src="haryo.jpg">
 					</a>
@@ -59,9 +53,8 @@
 						<div>Haryo</div>
 						<div>Hacker</div>
 					</div>				
-				</div>
-				
-				<div class="foto" style="margin-left: 916px">
+				</div>				
+				<div class="fotoa">
 					<a target="_blank" href="#">
 						<img class="img" src="alief.jpg">
 					</a>
@@ -70,7 +63,6 @@
 						<div>Hacker</div>
 					</div>
 				</div>
-
 			</div>
 		</div>	
 	</div>

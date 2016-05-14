@@ -231,3 +231,20 @@ h2{
   width: 100%;
   height: 85vh;
 }
+.styledoc{		
+	text-align: left;		
+	padding-left: 20px;		
+	padding-right: 20px;		
+}		
+.fotop{		
+	margin-left: 229px;		
+}		
+.fotoe{		
+	margin-left: 458px;		
+}		
+.fotoh{		
+	margin-left: 687px;		
+}		
+.fotoa{		
+	margin-left: 916px;		
+}
