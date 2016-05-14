@@ -1,13 +1,60 @@
-.wrapper{
-  padding-bottom :6%;
+/** EXTRA FONT **/
+@font-face {
+    font-family: bebasReg;
+    src: url(../fonts/BebasNeueRegular.ttf);
+}
+@font-face{
+  font-family: bebasBold;
+  src: url(../fonts/BebasNeueBold.ttf);
 }
 #faq-wrapper{
   padding: 5%;
 }
-.panel-title, .panel-body{
-  font-family: 'Open Sans';
-  color: black;
+@font-face {
+    font-family: pacifico;
+    src: url(../fonts/Pacifico.ttf);
 }
+@font-face{
+  font-family: 'Open Sans';
+}
+/** BASIC STYLING **/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-top: 50px;
+  margin-bottom: 60px;
+  font-family: 'Open Sans';
+}
+h2{
+  font-family: bebasBold;
+  font-size: 26pt;
+  letter-spacing: 3px;
+}
+/** STYLING FOR NAVBAR **/
+#logo{
+  font-family: pacifico;
+  font-size: 24px;
+  color: #02A9F4;
+}
+#logo:hover{
+  color: #b3e5ff;
+}
+#navbar-text{
+  font-family: bebasReg;
+  letter-spacing: 5px;
+}
+/** STYLING FOR HEADER IMAGE **/
+.header-image{
+  width:100%;
+}
+/** STYLING FOR TERM OF USE PAGE **/
+.wrapper{
+  padding-bottom :6%;
+}
+/** STYLING FOR FORM **/
 .form-control{
   width: 100%;
   margin-top: 3%;
@@ -17,16 +64,17 @@
     font-family: bebasReg;
     src: url(../fonts/BebasNeueRegular.ttf);
 }
-@font-face{
-	font-family: bebasBold;
-	src: url(../fonts/BebasNeueBold.ttf);
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
-@font-face {
-    font-family: pacifico;
-	src: url(../fonts/Pacifico.ttf);
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
 }
-@font-face{
-	font-family: 'Open Sans';
+.form-signin .checkbox {
+  font-weight: normal;
 }
 html {
   position: relative;
@@ -42,14 +90,31 @@ body {
 	font-family: bebasReg;
 	letter-spacing: 5px;
 }
-#logo{
-	font-family: pacifico;
-	font-size: 24px;
-	color: #02A9F4;
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
 }
-#logo:hover{
-	color: #b3e5ff;
+.form-signin .form-control:focus {
+  z-index: 2;
 }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/** STYLING FOR FOOTER **/
 .footer {
   bottom: 0;
   width: 100%;
@@ -81,6 +146,17 @@ h2{
     background-color: #004BFF;
     border-color: #B3E5FC;
     background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
+}
+.footer {
+  /*bottom: 0;*/
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #000;
+  padding: 11px 0;
+  z-index: 11;
+  bottom:0;
+  position: absolute;
 }
 .footer a {
     color: #70726F;
@@ -152,4 +228,70 @@ h2{
 .img{
   max-width: 100%;
   border-radius: 50%;
+}
+/** STYLING FOR HOMEPAGE **/
+#main-heading{
+  font-size: 32pt;
+  color: #0188D1;
+}
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 200;
+}
+.btn-success {
+  color: #fff;
+  background-color: #004BFF;
+  border-color: #B3E5FC;
+  background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
+}
+.headline{
+  text-align: center;
+  padding-bottom: 100px;
+  height: 350px;
+}
+.feature{
+  width:100%;
+  padding:0px 5% 100px 5%;
+}
+.list-features{
+  text-align:center;
+}
+/** STYLING FOR ABOUT PAGE **/
+.teamku{
+  height: 265px;
+  font-size: large;
+  text-align:left;
+  padding-bottom:50px;
+}
+#team{
+  background-color: #fff;
+  height: 444px;
+}
+.foto{
+  position: absolute;
+}
+#desc{
+  padding-top: 20px;
+}
+.desc{
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+.img{
+  max-width: 100%;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+/** STYLING FOR EMBBEDED DOCUMENTATION**/
+.embbed{
+  width: 100%;
+  height: 85vh;
+}
+/** STYLING FOR CONTACT PAGE **/
+.error{
+  color : red;
+  font-style: bold;
 }

@@ -19,13 +19,13 @@ Route::get('/', function () {
 });
 
 
-	Route::get('contact', 
+	Route::get('contact',
 	  ['as' => 'contact', 'uses' => 'ContactController@create']
 	);
 
 	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
 
-	Route::post('contact', 
+	Route::post('contact',
 	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
 	);
 
@@ -82,6 +82,10 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('apidoc',function(){
 	return view('apidoc.apidocs');
+});
+
+Route::get('admin/dashboard', function () {
+		return view('admin.dashboard');
 });
 
 Route::get('apioverview',function(){
