@@ -113,7 +113,6 @@ h2{
   border-top-right-radius: 0;
 }
 
-
 /** STYLING FOR FOOTER **/
 .footer {
   bottom: 0;
@@ -122,18 +121,8 @@ h2{
   height: 50px;
   position: absolute;
   background-color: #000;
-}
-
-.footer {
-  /*bottom: 0;*/
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  background-color: #000;
   padding: 11px 0;
   z-index: 11;
-  bottom:0;
-  position: absolute;
 }
 
 .footer a {
@@ -231,20 +220,23 @@ h2{
   width: 100%;
   height: 85vh;
 }
-.styledoc{
-	text-align: left;
-	padding-left: 20px;
-	padding-right: 20px;
+.styledoc{		
+	text-align: left;		
+	padding-left: 20px;		
+	padding-right: 20px;		
+}		
+.fotop{		
+	margin-left: 229px;		
+}		
+.fotoe{		
+	margin-left: 458px;		
+}		
+.fotoh{		
+	margin-left: 687px;		
+}		
+.fotoa{		
+	margin-left: 916px;		
 }
-.fotop{
-	margin-left: 229px;
-}
-.fotoe{
-	margin-left: 458px;
-}
-.fotoh{
-	margin-left: 687px;
-}
-.fotoa{
-	margin-left: 916px;
+.line{
+	padding-top: 25px;
 }
