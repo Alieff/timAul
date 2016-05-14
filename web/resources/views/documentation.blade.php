@@ -1,5 +1,7 @@
 @extends('layouts.page')
-@section('docact')
+
+@section('documentationact')
+
 'active'
 @endsection
 @section('bodycontent')
@@ -25,22 +27,22 @@
             </ul>
         </div>
         <div id="page-content-wrapper">
-          <!--img style="width:100%" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image"-->
-          <div class="col-lg-12" style="text-align: left;padding-left: 20px;padding-right: 20px">
+          
+          <div class="col-lg-12 styledoc">
                 <h2 id="namaku">DOCUMENTATION</h2>
                 <p>
                 Inilah dokumentasi yang dapat membantu Anda untuk menggunakan API kami. Terdapat beberapa penjelasan dari tiap bagian yang ada.
                 </p>
           </div>
-		  <div class="col-lg-12" style="text-align: left;padding-left: 20px;padding-right: 20px">
+		  <div class="col-lg-12 styledoc">
                 <h2 id="namaku">QUOTE</h2>
                 <p>
                 Anda dapat mencari berbagai macam kategori dari quote sesuai kebutuhan. Jika ingin mendapatkan quote secara acak berdasarkan jumlah yang diinginkan, Anda dapat melihat halaman Mendapatkan Quote <a href="apidocjs/#api-Quote-getQuoteBySource
 ">acak</a> . Begitu juga jika Anda ingin mencari quote berdasarkan <a href="apidocjs/#api-Quote
-apidocjs/#api-Quote-GetQuoteByAuthor">penulis</a> dan sumber 
+apidocjs/#api-Quote-GetQuoteByAuthor">penulis</a> dan sumber
                 </p>
           </div>
-		  <div class="col-lg-12" style="text-align: left;padding-left: 20px;padding-right: 20px">
+		  <div class="col-lg-12 styledoc">
                 <h2 id="namaku">SOURCE CODE</h2>
                 <p>
                 Source Code dari program crawler kami dapat Anda nikmati dengan lisensi gratis. Produk <i> open source </i>ini dapat anda gunakan atau distribusikan kepada siapa saja. Pada halaman <i> source code </i> Anda dapat menemukan kode sumber dari program <i> crawler </i> melalui tombol <i> source code </i> dan dokumentasi dari tiap kelas yang digunakan melalui tombol <strong> javadoc </strong>.

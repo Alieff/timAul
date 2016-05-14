@@ -11,7 +11,6 @@ use App\Quotes;
 |
 */
 
-
 Route::get('/', function () {
 
 	return view('home');
@@ -25,13 +24,19 @@ Route::get('faq', function () {
   return view('faq');
 });
 
+	Route::get('contact', 
+	  ['as' => 'contact', 'uses' => 'ContactController@create']
+	);
+
+	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
+
+	Route::post('contact', 
+	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
+	);
+
 Route::get('mail', function () {
   return view('test');
 });
-
-// Route::get('/hello',function(){
-//     return 'Hello World!';
-// });
 
 Route::get('login', function(){
  return view('login');
@@ -91,7 +96,14 @@ Route::get('apioverview',function(){
  	return view('pages.javadocs');
  });
  
- 
  Route::get('documentation', function(){
  	return view('documentation');
  });
+
+ Route::get('documentation',function(){
+ 	return view('documentation');
+ });
+
+Route::resource('admin/quote', 'QuoteController', ['except' => [
+    'show', 'edit'
+]]);

@@ -31,6 +31,7 @@ public class TreeNode {
      * @param parseTree given parse tree with JSON format
      */
 	public void construct(String parseTree) {
+		// contoh input (ROOT\n  (NP (NNP Privacy) (NNP Policy)))
 		String tag = "";
 		TreeNode head = this;
 
@@ -52,13 +53,14 @@ public class TreeNode {
 				tag = "";
 			} else if (currentChar == ')') {
 				if(head.value == null){
-					head.value = tag;	
+					head.value = tag;
 				}
 				head = head.parent;
 			} else if(currentChar != ' '){
 				tag += currentChar;
 			}
 		}
+
 	}
 
     /**
@@ -72,7 +74,7 @@ public class TreeNode {
 			for (TreeNode node : thisNode.childs) {
 				queue.add(node);
 			}
-			System.out.println(thisNode);
+//			System.out.println(thisNode);
 		}
 	}
 
@@ -87,8 +89,18 @@ public class TreeNode {
 		while(!queue.isEmpty()){
 			TreeNode thisNode = (TreeNode) queue.poll();
 			for (TreeNode node : thisNode.childs) {
-				if(node.level == 2){
-					result += "{" + node.getLeaves(node) + "}/"+node.label+" ";
+				if(node.level==2){
+					result += "{";
+					String nodeVal = node.getLeaves(node);
+
+					if(nodeVal.contains("/PERSON")){
+						nodeVal = nodeVal.replace("/PERSON", "");
+						result += nodeVal;
+						result += "}/PERSON ";
+					}else{
+						result += nodeVal;
+						result += "}/"+node.label+" ";
+					}
 				}
 				queue.add(node);
 			}
@@ -99,10 +111,13 @@ public class TreeNode {
 		return result;
 	}
 
-    /**
-     * Get the leafs on the tree (means the word that is parsed)
-     * @param startNode root
-     * @return word/phrase that is parsed
+	/**
+     * Method ini akan mendapatkan semua leaf dari sebuah tree.
+     *
+     * @param startNode Root node yang akan dicari nilai-nilai leafnya
+     * @return          <code>String</code> dari nilai-nilai leaf yang di append
+     * @see             SentenceTagger
+     * @since           1.0
      */
 	public String getLeaves(TreeNode startNode){
 		String result = "";
@@ -120,7 +135,7 @@ public class TreeNode {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
         return "label:" + this.label + ", value:" + this.value+", level:" + this.level;

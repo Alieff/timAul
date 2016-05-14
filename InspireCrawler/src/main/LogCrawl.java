@@ -1,9 +1,4 @@
-<<<<<<< HEAD:InspireCrawler/src/LogCrawl.java
-/**
- * Class LogCrawl yang akan digunakan untuk men-generate log crawler
- * Created by pflarasati on 3/19/16.
- */
-
+package main; 
 /**
  * @author pflarasati
  * Created on 3/19/16.
@@ -14,10 +9,6 @@
  * Class ini bertujuan untuk mengenerate log dari hasil kerja crawler
  *
  */
-=======
-package main;
-
->>>>>>> 42f9d5207099581abd2372ddf3dce7a88b0c5270:InspireCrawler/src/main/LogCrawl.java
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -34,15 +25,12 @@ import java.util.Calendar;
 public class LogCrawl {
 
     /**
-<<<<<<< HEAD:InspireCrawler/src/LogCrawl.java
      * Constructor dari class LogCrawls
      */
     public LogCrawl() {}
 
     /**
      * Methof getLogFile()
-=======
->>>>>>> 42f9d5207099581abd2372ddf3dce7a88b0c5270:InspireCrawler/src/main/LogCrawl.java
      * Method ini digunakan untuk membuat log_results.txt berisi log aktivitas crawler
      * @param hasilCrawler quote yang akan dimasukan ke database
      */

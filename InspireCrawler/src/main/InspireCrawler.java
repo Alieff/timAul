@@ -36,6 +36,7 @@ public class InspireCrawler extends WebCrawler {
         this.dbConnect = new DBConnect();
         this.configReader = new ConfigReader();
     }
+
     /**
      * Method shouldVisit
      * Method ini berisi batasan apakah crawler boleh meng-crawl sebuah website atau tidak
@@ -46,6 +47,10 @@ public class InspireCrawler extends WebCrawler {
      */
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
+        //TODO: Buat Aturannya
+        //Class yang ega buat akan ada banyak list website
+
+
 
         //arraylist daftar web yang boleh di crawl
         ArrayList<String> daftarWeb = configReader.getWebAddress();
@@ -70,7 +75,6 @@ public class InspireCrawler extends WebCrawler {
 
     /**
      * Method ini akan memproses halaman yang sedang dijelajahi
-     *
      * @param page halaman dari website yang sedang dijelajahi
      */
     @Override
