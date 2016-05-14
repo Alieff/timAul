@@ -4,7 +4,7 @@
 @endsection
 @section('bodycontent')
 <img src="landing.jpg" class="img-responsive header-image" alt="Responsive image">
-<div class="row">
+<div class="row line">
 	<div class="col-lg-10 col-lg-offset-1">
 		<h2>ABOUT API</h2>
 		<p>
@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row line">
 	<div id="team">
 		<div class="col-lg-10 col-lg-offset-1">
 			<h2>Developer Team</h2>
@@ -27,7 +27,7 @@
 						<div>Scrum Master</div>
 					</div>
 				</div>
-				<div class="fotop">
+				<div class="foto fotop">
 					<a target="_blank" href="#">
 						<img class="img" src="puti.jpg">
 					</a>
@@ -36,7 +36,7 @@
 						<div>Designer</div>
 					</div>
 				</div>		
-				<div class="fotoe">
+				<div class="foto fotoe">
 					<a target="_blank" href="#">
 						<img class="img" src="ega.jpg">
 					</a>
@@ -45,7 +45,7 @@
 						<div>Designer</div>
 					</div>
 				</div>			
-				<div class="fotoh">
+				<div class="foto fotoh">
 					<a target="_blank" href="#">
 						<img class="img" src="haryo.jpg">
 					</a>
@@ -54,7 +54,7 @@
 						<div>Hacker</div>
 					</div>				
 				</div>				
-				<div class="fotoa">
+				<div class="foto fotoa">
 					<a target="_blank" href="#">
 						<img class="img" src="alief.jpg">
 					</a>

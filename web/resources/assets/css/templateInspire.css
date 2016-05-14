@@ -113,7 +113,6 @@ h2{
   border-top-right-radius: 0;
 }
 
-
 /** STYLING FOR FOOTER **/
 .footer {
   bottom: 0;
@@ -122,18 +121,8 @@ h2{
   height: 50px;
   position: absolute;
   background-color: #000;
-}
-
-.footer {
-  /*bottom: 0;*/
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  background-color: #000;
   padding: 11px 0;
   z-index: 11;
-  bottom:0;
-  position: absolute;
 }
 
 .footer a {
@@ -247,4 +236,7 @@ h2{
 }		
 .fotoa{		
 	margin-left: 916px;		
+}
+.line{
+	padding-top: 25px;
 }
