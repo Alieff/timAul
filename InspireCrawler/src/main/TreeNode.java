@@ -12,13 +12,53 @@ import java.util.Queue;
  * @version 19-04-2016
  */
 public class TreeNode {
-  private String label;
-  private String value;
+  private String label = "";
+  private String value = "";
   private TreeNode parent;
   private ArrayList<TreeNode> childs = new ArrayList<>();
   private int level = -1;
 
-  /**
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public TreeNode getParent() {
+        return parent;
+    }
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
+    }
+
+    public ArrayList<TreeNode> getChilds() {
+        return childs;
+    }
+
+    public void setChilds(ArrayList<TreeNode> childs) {
+        this.childs = childs;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    /**
    * add new node to the tree
    * @return node that was just added
    */
@@ -32,7 +72,7 @@ public class TreeNode {
    * Construct the tree with the given Parse Tree
    * @param parseTree given parse tree with JSON format
    */
-  public void construct(String parseTree) {
+  public TreeNode construct(String parseTree) {
     // contoh input (ROOT\n  (NP (NNP Privacy) (NNP Policy)))
     String tag = "";
     TreeNode head = this;
@@ -42,6 +82,7 @@ public class TreeNode {
 
       if (currentChar == '(') { 
         TreeNode node = head.addNode();
+        head.value = "";
         node.parent = head;
         head = node;
         head.level = node.parent.level+1;
@@ -61,6 +102,7 @@ public class TreeNode {
         tag += currentChar;
       }
     }
+      return this;
   }
 
   /**
@@ -75,7 +117,7 @@ public class TreeNode {
       for (TreeNode node : thisNode.childs) {
         queue.add(node);
       }
-//      System.out.println(thisNode);
+      System.out.println(thisNode);
     }
   }
 
@@ -137,8 +179,28 @@ public class TreeNode {
   }
 
   @Override
+  public boolean equals(Object obj) {
+      TreeNode other = (TreeNode) obj;
+      if(this.level==-1 || other.level == -1){
+          return this.level == other.level;
+      }
+      return this.label == other.label &&
+              this.value == other.value &&
+              this.parent.equals(other.parent) &&
+              this.childs.equals(other.childs) &&
+              this.level == other.level;
+  }
+
+    @Override
   public String toString() {
     return "label:" + this.label + ", value:" + this.value+", level:" + this.level;
   }
+
+    public static void main(String[] args) {
+        TreeNode tree = new TreeNode();
+        tree.construct("(ROOT\\n  (NP (NNP Privacy) (NNP Policy)))");
+//        System.out.println(tree);
+        tree.getLevelOrder();
+    }
 
 }

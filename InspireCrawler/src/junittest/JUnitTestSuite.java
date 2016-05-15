@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
-            QuoteFilterTest.class
+            QuoteFilterTest.class,
+            TreeNodeTest.class
     })
     public class JUnitTestSuite {
 
