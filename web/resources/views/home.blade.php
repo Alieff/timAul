@@ -8,8 +8,8 @@
       lorem ipsum dolor sitameet mamet tamet wawkakwa tamet malsaosnma ajwknsalndlksna alsndlknqwilan lknlanslkdn aksdnlkandlnaslkdn anlk nslkadnlkanlkns sndalksndlkasn constectur polodong talamat padasak lololo woqwq lamet tamet sitamet mawalam tollllleemad dadadak lamkadah
       </p>
       <div class="row" style="padding-top: 25px">
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="#" class="btn btn-success">Use Our API</a></div>
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="#" class="btn btn-success">Find Out More</a></div>
+      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
+      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div>
       </div>
 </div>
 </div>
