@@ -4,11 +4,6 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-     "repositories":  [  
-    {
-      "type": "git",
-      "url": "git@github.com:mvpasarel/swagger-laravel.git"
-    } ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
@@ -17,7 +12,6 @@
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "teepluss/explore": "dev-master",
-        "jlapp/swaggervel": "dev-laravel5",
         "guzzlehttp/guzzle": "~4.0"
     },
     "require-dev": {
