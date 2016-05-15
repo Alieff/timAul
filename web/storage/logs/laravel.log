@@ -7,3 +7,131 @@ Stack trace:
 [2016-04-24 00:41:56] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '?>'' in /opt/lampp/htdocs/cobaaa/web/storage/framework/views/a76f448b2d3b6bd2484bfa9db4517adbc8ed61e4.php:24
 Stack trace:
 #0 {main}  
+[2016-05-13 09:32:31] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 09:33:20] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 09:33:21] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 09:33:23] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 09:41:37] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 09:41:38] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Collective\Html\HtmlServiceProvider' not found' in /var/www/html/timAul/web/bootstrap/cache/compiled.php:7591
+Stack trace:
+#0 {main}  
+[2016-05-13 15:51:47] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:45
+Stack trace:
+#0 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(25): Illuminate\Encryption\EncryptionServiceProvider->getEncrypterForKeyAndCipher(NULL, 'AES-256-CBC')
+#1 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(735): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('Illuminate\Cont...')
+#5 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(779): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('App\Http\Middle...', Array)
+#8 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('App\Http\Middle...', Array)
+#9 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(126): Illuminate\Foundation\Application->make('App\Http\Middle...')
+#10 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#12 [internal function]: Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(726): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#15 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(699): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#16 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(675): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#17 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(246): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 [internal function]: Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#19 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(52): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#20 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(44): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(136): call_user_func_array(Array, Array)
+#23 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#25 [internal function]: Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#27 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#28 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#29 /var/www/html/timAul/web/public/index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#30 {main}  
+[2016-05-13 15:51:47] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:45
+Stack trace:
+#0 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(25): Illuminate\Encryption\EncryptionServiceProvider->getEncrypterForKeyAndCipher(NULL, 'AES-256-CBC')
+#1 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(735): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('Illuminate\Cont...')
+#5 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(779): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('App\Http\Middle...', Array)
+#8 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('App\Http\Middle...', Array)
+#9 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(152): Illuminate\Foundation\Application->make('App\Http\Middle...')
+#10 /var/www/html/timAul/web/public/index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#11 {main}  
+[2016-05-13 15:51:52] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:45
+Stack trace:
+#0 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(25): Illuminate\Encryption\EncryptionServiceProvider->getEncrypterForKeyAndCipher(NULL, 'AES-256-CBC')
+#1 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(735): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('Illuminate\Cont...')
+#5 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(779): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('App\Http\Middle...', Array)
+#8 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('App\Http\Middle...', Array)
+#9 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(126): Illuminate\Foundation\Application->make('App\Http\Middle...')
+#10 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#12 [internal function]: Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(726): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#15 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(699): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#16 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Router.php(675): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#17 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(246): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 [internal function]: Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#19 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(52): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#20 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(44): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(136): call_user_func_array(Array, Array)
+#23 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#25 [internal function]: Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#27 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(132): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#28 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#29 /var/www/html/timAul/web/public/index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#30 {main}  
+[2016-05-13 15:51:52] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php:45
+Stack trace:
+#0 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php(25): Illuminate\Encryption\EncryptionServiceProvider->getEncrypterForKeyAndCipher(NULL, 'AES-256-CBC')
+#1 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(735): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#2 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build(Object(Closure), Array)
+#3 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('encrypter', Array)
+#4 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(853): Illuminate\Foundation\Application->make('Illuminate\Cont...')
+#5 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(808): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#6 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(779): Illuminate\Container\Container->getDependencies(Array, Array)
+#7 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(633): Illuminate\Container\Container->build('App\Http\Middle...', Array)
+#8 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(697): Illuminate\Container\Container->make('App\Http\Middle...', Array)
+#9 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(152): Illuminate\Foundation\Application->make('App\Http\Middle...')
+#10 /var/www/html/timAul/web/public/index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#11 {main}  
+[2016-05-13 15:53:17] production.ERROR: exception 'ErrorException' with message 'file_get_contents(/var/www/html/timAul/web/.env): failed to open stream: No such file or directory' in /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php:57
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_get_conten...', '/var/www/html/t...', 57, Array)
+#1 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(57): file_get_contents('/var/www/html/t...')
+#2 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(39): Illuminate\Foundation\Console\KeyGenerateCommand->setKeyInEnvironmentFile('base64:dQa4KHL7...')
+#3 [internal function]: Illuminate\Foundation\Console\KeyGenerateCommand->fire()
+#4 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#5 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#6 /var/www/html/timAul/web/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/html/timAul/web/vendor/symfony/console/Application.php(791): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/html/timAul/web/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Foundation\Console\KeyGenerateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/html/timAul/web/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/html/timAul/web/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/html/timAul/web/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main}  
