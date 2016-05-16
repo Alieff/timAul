@@ -189,7 +189,7 @@ h2{
 }
 
 #team{
-  background-color: #f0fff0;
+  background-color: #fff;
   height: 444px;
 }
 
@@ -239,4 +239,9 @@ h2{
 }
 .line{
 	padding-top: 25px;
+}
+/** STYLING FOR CONTACT PAGE **/
+.error{
+  color : red;
+  font-style: bold;
 }
