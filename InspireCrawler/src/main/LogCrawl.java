@@ -38,7 +38,7 @@ public class LogCrawl {
 
         try {
             File file = new File("../log_results.txt");
-
+            File file2 = new File("../temporary_log.txt");
             if(!file.exists()) {
                 file.createNewFile();
             }
@@ -47,16 +47,23 @@ public class LogCrawl {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 
+            FileWriter fw2 = new FileWriter(file2,true);
+            BufferedWriter bw2 = new BufferedWriter(fw2);
+            PrintWriter pw2 = new PrintWriter(bw2);
             //This will add a new line to the file content
-            pw.println("");
+
+            pw2.println();
+            pw.println();
 
             // Add text to log results
             Calendar cal = Calendar.getInstance();
 
             printToTextLog(pw,hasilCrawler, cal);
+            printToTextLog(pw2,hasilCrawler, cal);
             printToTerminalLog(hasilCrawler,cal);
 
             pw.close();
+            pw2.close();
 
         } catch(IOException ioe) {
             System.out.println("Exception occurred:");

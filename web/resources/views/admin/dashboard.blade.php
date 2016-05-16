@@ -46,6 +46,105 @@
 
     <script type="text/javascript">
     $(document).ready(function(){
+        var isRunning = false;
+        var interval = null;
+        var dots = 0;
+        var intervalLog = null;
+
+        function dotAddition() {
+            console.log(dots);
+            if(dots < 10) {
+                $('#dots').append('.');
+                console.log("masok");
+                dots++;
+            } else {
+                $('#dots').html('');
+                dots = 0;
+            }
+        }
+
+        function getLog() { 
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                })
+                var type = "POST";
+                var formData = {
+                    request: "log"
+                };
+
+                var my_url = 'http://localhost/timAul/web/public/admin/getLog';
+
+                $.ajax({
+                    type: type,
+                    url: my_url,
+                    data: formData,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log("BERHASILLL");
+                        
+                        console.log(data);
+                        $('.log').append(data["isi"]);
+
+                        var logScroll    = $('#log');
+                        var height = logScroll[0].scrollHeight;
+                        logScroll.scrollTop(height);
+                    },
+                    error: function(data) {
+                        console.log('Error!!!')
+                    }
+                });
+        }
+
+        function autoLoad() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                })
+                var type = "POST";
+                var formData = {
+                    request: "status"
+                };
+
+                var my_url = 'http://localhost/timAul/web/public/admin/getCrawlerStatus';
+
+                $.ajax({
+                    type: type,
+                    url: my_url,
+                    data: formData,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log("BERHASILLL");
+                        
+                        console.log(data);
+                        console.log(data);
+                        console.log(data["status"]);
+                        if(data["status"] == "OK"){
+                            if(!isRunning) {
+                                interval = setInterval(dotAddition,1000);
+                                console.log("masuk");
+                                $('#statusLog').html('Crawler is Running');
+                                isRunning = true;
+                            }
+                        } else {
+                            if (interval != null) {
+                                clearInterval(interval);
+                                $('#statusLog').html('Crawler is Stopped!');
+                                $('#dots').html('');
+                            }
+                        }
+                    },
+                    error: function(data) {
+                        console.log('Error!!!')
+                    }
+                });
+        }
+
+        setInterval(function(){
+            autoLoad() // this will run after every 5 seconds
+        }, 5000);   
 
         $('#playCrawler').click(function(e){
              $.ajaxSetup({
@@ -67,6 +166,8 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log("BERHASILLL");
+                    console.log(isRunning);
+                    intervalLog = setInterval(getLog, 6000);
                 },
                 error: function(data) {
                     console.log('Error!!!')
@@ -94,6 +195,10 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log("BERHASILLL");
+                     isRunning = false;
+                     $('#statusLog').html('Crawler will be stopped');
+                     console.log(isRunning);
+                     clearInterval(intervalLog);
                 },
                 error: function(data) {
                     console.log('Error!!!')
@@ -238,64 +343,16 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="panel panel-default">
-                                        <div class="panel-body crawler">
-                                            crawling is running....
+                                        <div id="statusCrawl" class="panel-body crawler">
+                                            <span id="statusLog">Crawler is Stopped!</span><span id="dots"></span>
                                         </div>
                                     </div>
                                     <br>
 
                                     <span class="center">Crawler's Log</span>
                                     <div class="panel panel-default">
-                                        <div class="panel-body log">
-                                            crawling....
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
+                                        <div id="log" class="panel-body log">
+
                                         </div>
                                         <!-- /.panel-body -->
                                     </div>
@@ -315,21 +372,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../../assets/bower_components/jquery/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../../assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../../assets/bower_components/raphael/raphael-min.js"></script>
-    <script src="../../assets/bower_components/morrisjs/morris.min.js"></script>
-    <script src="../../assets/js/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../../assets/js/sb-admin-2.js"></script>
 </body>
 </html>

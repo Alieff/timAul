@@ -14,7 +14,7 @@
       </p>
       <div class="row" style="padding-top: 25px">
       <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div>
+      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div> 
       </div>
 </div>
 </div>

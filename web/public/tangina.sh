@@ -1,4 +1,4 @@
 #!/bin/bash
 
-a="$(pgrep -f 'java test')"
+a="$(pgrep -f 'InspireCrawler')"
 echo $a
