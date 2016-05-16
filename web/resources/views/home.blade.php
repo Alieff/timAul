@@ -13,8 +13,8 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed sem augue. Sed eleifend diam eget lorem dictum varius. Morbi id nisi eu erat congue tempor. Nulla urna ipsum, lacinia in vestibulum at, laoreet eget mauris. Nam viverra convallis odio, nec egestas nisi vestibulum eu.
       </p>
       <div class="row" style="padding-top: 25px">
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-1"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="http://google.com" class="btn btn-success">Find Out More</a></div>
+      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
+      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div>
       </div>
 </div>
 </div>
