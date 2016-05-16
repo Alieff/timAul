@@ -1,5 +1,7 @@
 <?php
 use App\Quotes;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,8 +12,6 @@ use App\Quotes;
 | and give it the controller to call when that URI is requested.
 |
 */
-
-
 
 Route::get('/', function () {
 
@@ -121,4 +121,17 @@ Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteContro
 
 Route::get('admin/testing', function(){
 	return view('admin.refresh');
+});
+
+Route::post('admin/playCrawler', function(Request $request){
+
+		exec('bash -c "exec nohup setsid java test > /dev/null 2>&1 &"');
+	 return Response::json("Hehe");
+});
+
+Route::post('admin/stopCrawler', function(Request $request){
+	$pidJava = exec('./tangina.sh');
+
+	shell_exec('bash -c "kill ' . $pidJava . '"');
+	 return Response::json($pidJava);
 });

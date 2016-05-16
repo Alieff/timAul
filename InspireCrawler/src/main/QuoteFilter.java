@@ -12,7 +12,7 @@ public class QuoteFilter {
     private SentenceTagger sentenceTagger;
 
     /**
-     * Set the sentence tagger
+     * Set the sentence doTag
      */
     public QuoteFilter(){
         this.sentenceTagger = new SentenceTagger();
@@ -43,7 +43,7 @@ public class QuoteFilter {
         Pattern p = Pattern.compile(pattern4);
 
         //REAL
-        String hasilTag = tagger(textDariWebsite);
+        String hasilTag = sentenceTagger.doTag(textDariWebsite);
         // akan memberikan tag VP NP ke textDariWebsite
         String result = sentenceTagger.partialIdentify(hasilTag);
 
@@ -51,48 +51,34 @@ public class QuoteFilter {
 
         //TODO : make regex for NP VP
 
-        while(m.find()){
+        while(m.find()) {
             String quote = m.group(1);
             String author;
-            if(m.group(6) != null)
+            if (m.group(6) != null) {
                 author = m.group(6);
-            else
+            }
+            else {
                 author = m.group(9);
+            }
             System.out.println(author);
             quote = quote.replace("/PERSON","");
-            author = author.replace("/PERSON","");
+            quote = quote.replace("\"","");
 
+            author = author.replace("/PERSON","");
 
             //Avoid blank
             quote = quote.trim();
             author = author.trim();
-            if(!quote.isEmpty() && !author.isEmpty()) {
+
+            boolean isRequiredNotEmpty = !quote.isEmpty() && !author.isEmpty();
+
+            if (isRequiredNotEmpty) {
                 Quote quoteModel = new Quote(quote, author, sourceWebsite);
                 hasilFilter.add(quoteModel);
             }
         }
-        System.out.println(hasilFilter.size());
+       // System.out.println(hasilFilter.size());
         return hasilFilter;
     }
 
-
-    /**
-     * Tag the text with structural Tag and PERSON.
-     *
-     * @param textDariWebsite teks yang berasal dari website
-     * @return teks yang sudah di tag
-     */
-    public String tagger(String textDariWebsite){
-        String[] splitter = textDariWebsite.split("\n");
-
-
-        String textWithTag = "";
-        for(int i = 0; i < splitter.length; i++){
-            String hasilNer = sentenceTagger.addNer(splitter[i]);
-            textWithTag += hasilNer;
-            textWithTag += "\n";
-        }
-
-        return textWithTag;
-    }
 }

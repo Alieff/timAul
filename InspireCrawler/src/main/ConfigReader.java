@@ -20,7 +20,7 @@ public class ConfigReader {
     /**
      * Constructor for config reader
 	 */
-	public ConfigReader(){
+	public ConfigReader() {
         String line;
         ArrayList<String> result = new ArrayList<>();
         final String CONFIG = "config.txt";
@@ -32,7 +32,7 @@ public class ConfigReader {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             //with buffered reader read each line and add to ArrayList result
-            while((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 result.add(line);
             }
 
@@ -51,12 +51,11 @@ public class ConfigReader {
             }
             bufferedReader.close();     
 
-        }catch(FileNotFoundException ex) {
+        } catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" +
                         CONFIG + "'");
-        }
-        catch(IOException ex) {
+        } catch(IOException ex) {
             System.out.println(
                 "Error reading file '" 
                 + CONFIG + "'");                  

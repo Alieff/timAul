@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,14 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <title>Admin Inspire Crawler</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link href="../resources/assets/css/admin.css" rel="stylesheet">
+    <link href="../resources/assets/css/    .css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="../assets/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -34,6 +35,69 @@
         }
     </style>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#playCrawler').click(function(e){
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+            var type = "POST";
+            var formData = {
+                play: "Yeah"
+            };
+
+            var my_url = 'http://localhost/timAul/web/public/admin/playCrawler';
+
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("BERHASILLL");
+                },
+                error: function(data) {
+                    console.log('Error!!!')
+                }
+            });
+        });
+
+        $('#stopCrawler').click(function(e){
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+            var type = "POST";
+            var formData = {
+                stop: "Yeah"
+            };
+
+            var my_url = 'http://localhost/timAul/web/public/admin/stopCrawler';
+
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("BERHASILLL");
+                },
+                error: function(data) {
+                    console.log('Error!!!')
+                }
+            });
+        });
+
+    });
+    </script>
+    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -88,7 +152,7 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i>CRUD Quote</a>
                         </li>
                     </ul>
                 </div>
@@ -159,8 +223,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12 center">
-                                    <a href="#"><i class="fa fa-play-circle fa-fw fa-4x"></i></a>
-                                    <a href="#"><i class="fa fa-stop-circle fa-fw fa-4x"></i></a>
+                                    <button id = "playCrawler"><i class="fa fa-play-circle fa-fw fa-4x"></i></button>
+                                    <button id = "stopCrawler"><i class="fa fa-stop-circle fa-fw fa-4x"></i></button>
                                 </div>
                             </div>
                             <br/>

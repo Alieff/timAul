@@ -22,7 +22,7 @@ public class TreeNode {
      */
     public TreeNode addNode() {
 		TreeNode node = new TreeNode();
-		childs.add(node);
+		getChilds().add(node);
 		return node;
 	}
 
@@ -40,22 +40,22 @@ public class TreeNode {
 
 			if (currentChar == '(') {
 				TreeNode node = head.addNode();
-				node.parent = head;
+				node.setParent(head);
 				head = node;
-				head.level = node.parent.level+1;
+				head.setLevel(node.getParent().getLevel() +1);
 
 			} else if (currentChar == ' ' && tag.length()>0 ) {
-				if(head.label == null){
-					head.label = tag;
-				}else{
-					head.value = tag;
+				if (head.getLabel() == null){
+					head.setLabel(tag);
+				} else{
+					head.setValue(tag);
 				}
 				tag = "";
 			} else if (currentChar == ')') {
-				if(head.value == null){
-					head.value = tag;
+				if(head.getValue() == null){
+					head.setValue(tag);
 				}
-				head = head.parent;
+				head = head.getParent();
 			} else if(currentChar != ' '){
 				tag += currentChar;
 			}
@@ -66,12 +66,12 @@ public class TreeNode {
     /**
      * Do level order and print the result
      */
-	public void levelOrder(){
+	public void doLevelOrder() {
 		Queue queue = new LinkedList<TreeNode>();
 		queue.add(this);
-		while(!queue.isEmpty()){
+		while (!queue.isEmpty()){
 			TreeNode thisNode = (TreeNode) queue.poll();
-			for (TreeNode node : thisNode.childs) {
+			for (TreeNode node : thisNode.getChilds()) {
 				queue.add(node);
 			}
 //			System.out.println(thisNode);
@@ -82,34 +82,34 @@ public class TreeNode {
      * Get the node on level 2 tree
      * @return the value of node on lv 2.
      */
-	public String getChildrenOfLv2(){
-		String result = "";
-		Queue queue = new LinkedList<TreeNode>();
-		queue.add(this);
-		while(!queue.isEmpty()){
-			TreeNode thisNode = (TreeNode) queue.poll();
-			for (TreeNode node : thisNode.childs) {
-				if(node.level==2){
-					result += "{";
-					String nodeVal = node.getLeaves(node);
+		public String getChildrenOfLv2() {
+			String result = "";
+			Queue queue = new LinkedList<TreeNode>();
+			queue.add(this);
+			while (!queue.isEmpty()){
+				TreeNode thisNode = (TreeNode) queue.poll();
+				for (TreeNode node : thisNode.getChilds()) {
+					if (node.getLevel() ==2){
+						result += "{";
+						String nodeVal = node.getLeaves(node);
 
-					if(nodeVal.contains("/PERSON")){
-						nodeVal = nodeVal.replace("/PERSON", "");
-						result += nodeVal;
-						result += "}/PERSON ";
-					}else{
-						result += nodeVal;
-						result += "}/"+node.label+" ";
+						if (nodeVal.contains("/PERSON")){
+							nodeVal = nodeVal.replace("/PERSON", "");
+							result += nodeVal;
+							result += "}/PERSON ";
+						} else {
+							result += nodeVal;
+							result += "}/"+ node.getLabel() +" ";
+						}
 					}
+					queue.add(node);
 				}
-				queue.add(node);
+				if (thisNode.getLevel() > 2) {
+					return result;
+				}
 			}
-			if(thisNode.level>2){
-				return result;
-			}
+			return result;
 		}
-		return result;
-	}
 
 	/**
      * Method ini akan mendapatkan semua leaf dari sebuah tree.
@@ -119,18 +119,18 @@ public class TreeNode {
      * @see             SentenceTagger
      * @since           1.0
      */
-	public String getLeaves(TreeNode startNode){
+	private String getLeaves(TreeNode startNode) {
 		String result = "";
 		Queue queue = new LinkedList<TreeNode>();
 		queue.add(startNode);
 
-		while(!queue.isEmpty()){
+		while (!queue.isEmpty()){
 			TreeNode thisNode = (TreeNode) queue.poll();
-			for (TreeNode node : thisNode.childs) {
+			for (TreeNode node : thisNode.getChilds()) {
 				queue.add(node);
 			}
-			if(thisNode.childs.size() == 0){
-				result += thisNode.value +" ";
+			if (thisNode.getChilds().size() == 0) {
+				result += thisNode.getValue() +" ";
 			}
 		}
 		return result;
@@ -138,7 +138,50 @@ public class TreeNode {
 
 	@Override
 	public String toString() {
-        return "label:" + this.label + ", value:" + this.value+", level:" + this.level;
+        return "label:" + this.getLabel()
+				+ ", value:"
+				+ this.getValue()
+				+", level:"
+				+ this.getLevel();
 	}
 
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public TreeNode getParent() {
+		return parent;
+	}
+
+	public void setParent(TreeNode parent) {
+		this.parent = parent;
+	}
+
+	public ArrayList<TreeNode> getChilds() {
+		return childs;
+	}
+
+	public void setChilds(ArrayList<TreeNode> childs) {
+		this.childs = childs;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
 }

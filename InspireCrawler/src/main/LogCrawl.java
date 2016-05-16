@@ -30,16 +30,16 @@ public class LogCrawl {
     public LogCrawl() {}
 
     /**
-     * Methof getLogFile()
+     * Methof printLog()
      * Method ini digunakan untuk membuat log_results.txt berisi log aktivitas crawler
      * @param hasilCrawler quote yang akan dimasukan ke database
      */
-    public void getLogFile(Quote hasilCrawler){
+    public void printLog(Quote hasilCrawler) {
 
-        try{
+        try {
             File file = new File("../log_results.txt");
 
-            if(!file.exists()){
+            if(!file.exists()) {
                 file.createNewFile();
             }
 
@@ -53,23 +53,41 @@ public class LogCrawl {
             // Add text to log results
             Calendar cal = Calendar.getInstance();
 
-            pw.println(cal.getTime()); //2014/08/06 16:00:22
-            pw.println("Quotes : " + hasilCrawler.getQuote());
-            pw.println("Author : " + hasilCrawler.getAuthor());
-            pw.println("Source : " + hasilCrawler.getSource());
-
-            System.out.println(cal.getTime()); //2014/08/06 16:00:22
-            System.out.println("Quotes : " + hasilCrawler.getQuote());
-            System.out.println("Author : " + hasilCrawler.getAuthor());
-            System.out.println("Source : " + hasilCrawler.getSource());
-
-            System.out.println();
+            printToTextLog(pw,hasilCrawler, cal);
+            printToTerminalLog(hasilCrawler,cal);
 
             pw.close();
 
-        } catch(IOException ioe){
+        } catch(IOException ioe) {
             System.out.println("Exception occurred:");
             ioe.printStackTrace();
         }
+    }
+
+    /**
+     * Print ke file log_result
+     * @param pw
+     * @param hasilCrawler
+     * @param cal
+     */
+    private void printToTextLog(PrintWriter pw, Quote hasilCrawler, Calendar cal) {
+        pw.println(cal.getTime()); //2014/08/06 16:00:22
+        pw.println("Quotes : " + hasilCrawler.getQuote());
+        pw.println("Author : " + hasilCrawler.getAuthor());
+        pw.println("Source : " + hasilCrawler.getSource());
+    }
+
+    /**
+     * Print ke standard output
+     * @param hasilCrawler
+     * @param cal
+     */
+    private void printToTerminalLog(Quote hasilCrawler, Calendar cal) {
+        System.out.println(cal.getTime()); //2014/08/06 16:00:22
+        System.out.println("Quotes : " + hasilCrawler.getQuote());
+        System.out.println("Author : " + hasilCrawler.getAuthor());
+        System.out.println("Source : " + hasilCrawler.getSource());
+
+        System.out.println();
     }
 }
