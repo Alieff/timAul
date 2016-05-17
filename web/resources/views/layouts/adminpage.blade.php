@@ -3,10 +3,11 @@
 	<head>
     	@include('layouts.adminhead')
 	</head>
-	
-	<body>
+	<body>	
 		<!--NAVBAR CODE HERE -->
 		@include('layouts.navbaradmin')
+		<br>
+		<br>
 		<!--CONTENT OF BODY HERE -->
 		@yield('bodycontent')
 	</body>

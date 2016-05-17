@@ -3,7 +3,7 @@
 'active'
 @endsection
 @section('bodycontent')
-<img style="width:100%;padding-top:50px;" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
+<img style="width:100%" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
 <div style="text-align:center;padding-bottom:50px;height: 350px" class="jumbotron">
 <div class="col-lg-8 col-lg-offset-2">
       <h2 id="main-heading">INSPIRE CRAWLER</h2>
