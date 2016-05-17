@@ -100,6 +100,8 @@ Route::get('faq', function () {
 	 return view('faq');
 });
 
-Route::resource('admin/quote', 'QuoteController', ['except' => [
-    'show', 'edit'
-]]);
+Route::get('admin/tt', function () {
+	  echo 'pop';
+});
+
+Route::resource('admin/quote', 'QuoteController');

@@ -18,12 +18,14 @@ class QuoteController extends Controller
     public function index()
     {
         $quotes =  Quotes::paginate(15);
+
        // echo $test;
         $i = 1;
   //      foreach($test as $kucing){
     //    	echo $i++ . " " . $kucing->_id;
       //  }
-        
+        echo "hehehe";
+        // die('kj');
         return view('admin.quote',[
                 'quotes' => $quotes
             ]);
@@ -69,7 +71,10 @@ class QuoteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::first();
+$user->email = 'john@foo.com';
+$user->save();
+        echo "$id";
     }
 
     /**
@@ -81,7 +86,7 @@ class QuoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
