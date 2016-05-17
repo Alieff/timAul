@@ -8,18 +8,25 @@ use App\Http\Requests;
 
 use App\Quotes;
 
-class QuoteController extends Controller
+class CRUDController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-        return view('admin.quote');
+        $quotes =  Quotes::paginate(15);
+
+        return view('admin.CRUD',[
+                'quotes' => $quotes
+        ]);
     }
 
+    /**
+    *   BUAT REFERENSI AUL
+    */
     public function testing(Request $request){
 
         $sortSearch = $request->sort;
@@ -111,7 +118,6 @@ class QuoteController extends Controller
                 'quotes' => $quotes
         ]);
    
-
     }
 
     /**

@@ -77,15 +77,8 @@ Route::get('apidoc',function(){
 Route::get('apioverview',function(){
 	return view('apioverview');
 });
-<<<<<<< HEAD
 
-Route::get('admin/dashboard', function () {
-	 return view('admin.dashboard');
-});
-
-=======
->>>>>>> development
- Route::get('javadocs', function(){
+Route::get('javadocs', function(){
  	return view('pages.javadocs');
  });
 
@@ -95,7 +88,7 @@ Route::get('documentation',function(){
 Route::get('faq', function () {
 	 return view('faq');
 });
-<<<<<<< HEAD
+
 
 Route::get('runjava', function () {
 	echo shell_exec('cat tees.txt');
@@ -154,14 +147,12 @@ Route::post('admin/getLog', function(Request $request){
 
 	return Response::json(["isi" => "$log"]);
 });
-=======
-Route::get('home', function () {
-	 return view('home');
-});
-Route::resource('admin/quote', 'QuoteController', ['except' => [
-    'show', 'edit'
+
+Route::resource('admin/CRUD', 'CRUDController', ['except' => [
+    'show'
 ]]);
 
 Route::auth();
+
 Route::get('admin/dashboard', 'DashboardController@index');
->>>>>>> development
+

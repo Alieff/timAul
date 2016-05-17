@@ -281,7 +281,7 @@
                             <a href="dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> CRUD</a>
+                            <a href="CRUD"><i class="fa fa-table fa-fw"></i> CRUD</a>
                         </li>
                     </ul>
                 </div>
