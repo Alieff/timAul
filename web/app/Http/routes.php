@@ -93,5 +93,6 @@ Route::get('home', function () {
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
 ]]);
+
 Route::auth();
 Route::get('admin/dashboard', 'DashboardController@index');
