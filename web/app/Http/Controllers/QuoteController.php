@@ -17,8 +17,8 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes =  Quotes::paginate(15);
-
+        // $quotes =  Quotes::paginate(15);
+        // die('hoea, at quote controller, method index')
        // echo $test;
         $i = 1;
   //      foreach($test as $kucing){
@@ -69,12 +69,27 @@ class QuoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$author,$category,$language,$source)
     {
-        $user = User::first();
-$user->email = 'john@foo.com';
-$user->save();
-        echo "$id";
+        //http://localhost/timAul/web/public/admin/quote/5716472abe1b0517794090e5/author/sldkjf/category/22/language/22/source/22/edit
+        var_dump($id);
+        echo "<br>---------<br>"; 
+        echo $id."<br>";
+        echo $author."<br>";
+        echo $category."<br>";
+        echo $language."<br>";
+        echo $source."<br>";
+        echo "<br>---------<br>";  
+        die();
+
+        $user = Quotes::find($id);
+        $user->quote = '" In order to succeed, you must first be willing to fail."';
+        $user->author = 'not Anonymous';
+        $user->category = '';
+        $user->language = '';
+        $user->source = '';
+        $user->save();
+        echo "$id, success";
     }
 
     /**

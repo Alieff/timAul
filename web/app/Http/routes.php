@@ -104,4 +104,5 @@ Route::get('admin/tt', function () {
 	  echo 'pop';
 });
 
-Route::resource('admin/quote', 'QuoteController');
+// Route::get('admin/quote/{id}/{author}/edit', array('as' => 'editQuote', 'uses' => 'QuoteController@edit'));
+Route::resource('admin/quote.author.category.language.source', 'QuoteController');
