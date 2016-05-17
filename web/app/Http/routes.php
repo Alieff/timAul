@@ -100,10 +100,6 @@ Route::get('apioverview',function(){
  	return view('documentation');
  });
 
- Route::get('documentation',function(){
- 	return view('documentation');
- });
-
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
 ]]);
