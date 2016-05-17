@@ -19,13 +19,13 @@ Route::get('/', function () {
 });
 
 
-	Route::get('contact', 
+	Route::get('contact',
 	  ['as' => 'contact', 'uses' => 'ContactController@create']
 	);
 
 	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
 
-	Route::post('contact', 
+	Route::post('contact',
 	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
 	);
 
@@ -37,10 +37,6 @@ Route::get('mail', function () {
 // Route::get('/hello',function(){
 //     return 'Hello World!';
 // });
-
-Route::get('login', function(){
- return view('login');
-});
 
 Route::get('api/getQuote/{jumlah}', 'JsonController@getQuote');
 Route::get('api/getQuoteByAuthor/{jumlah}/{author}', 'JsonController@getQuoteByAuthor');
@@ -55,11 +51,6 @@ Route::get('api/getQuoteBySource/{jumlah}/{source}', 'JsonController@getQuoteByS
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
-Route::group(['middleware' => ['web']], function () {
-
-});
-
  Route::get('termofuse', function(){
  	return view('termofuse');
  });
@@ -83,23 +74,24 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('apidoc',function(){
 	return view('apidoc.apidocs');
 });
-
 Route::get('apioverview',function(){
 	return view('apioverview');
 });
-
  Route::get('javadocs', function(){
  	return view('pages.javadocs');
  });
 
- Route::get('documentation',function(){
+Route::get('documentation',function(){
  	return view('documentation');
  });
-
 Route::get('faq', function () {
 	 return view('faq');
 });
-
+Route::get('home', function () {
+	 return view('home');
+});
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
 ]]);
+Route::auth();
+Route::get('admin/dashboard', 'DashboardController@index');
