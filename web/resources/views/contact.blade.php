@@ -1,11 +1,15 @@
 @extends('layouts.page')
+@section('contact_storetact')
+'active'
+@endsection
 @section('bodycontent')
-<img style="width:100%;padding-top:50px;" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
-<br />
+<img src="../resources/assets/images/landing.jpg" class="img-responsive header-img" alt="Responsive image">
+<br>
 <div class="container">
   <div class="row">
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
+
 
       @if(Session::has('message'))
         <div class="alert alert-info">
@@ -18,6 +22,7 @@
               <li>{{ $error }}</li>
           @endforeach
       </ul>
+
 
       {!! Form::open(array('route' => 'contact_store', 'class' => 'form')) !!}
 
@@ -35,6 +40,7 @@
                     'placeholder'=>'Your e-mail address')) !!}
       </div>
 
+
       <div class="form-group">
           {!! Form::textarea('message', null, 
               array('required', 
@@ -46,7 +52,9 @@
           {!! Form::submit('Submit', 
             array('class'=>'btn btn-primary')) !!}
       </div>
+
       {!! Form::close() !!}
+
     </div>
 
     <div class="col-md-6 .col-xs-6">

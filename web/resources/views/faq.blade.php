@@ -1,7 +1,11 @@
 @extends('layouts.page')
+
+@section('faqact')
+'active'
+@endsection
 @section('bodycontent')
 <div>
-  <img style="width:100%;padding-top:50px;" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
+  <img src="../resources/assets/images/landing.jpg" class="img-responsive header-image" alt="Responsive image">
 </div>
 
 

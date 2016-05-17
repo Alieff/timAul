@@ -1,0 +1,251 @@
+
+
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Inspire Crawler Doc",
+    "version": "0.0.0",
+    "description": "API to extract quotes form web"
+  },
+  "paths": {
+    "/timAul/timAul/web/public/api/getQuote\/{jumlah}": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "consumes": [
+          "application\/json"
+        ],
+        "produces": [
+          "application\/json"
+        ],
+        "parameters": [
+          {
+            "name": "jumlah",
+            "in": "path",
+            "required": true,
+            "type": "jumlah",
+            "description": "Banyak quote yang ingin didapatkan "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "String",
+              "items": {
+                "$ref": "#\/definitions\/GetQuote"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/timAul/timAul/web/public\/api/getQuoteByAuthor\/{jumlah}\/{author}": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "consumes": [
+          "application\/json"
+        ],
+        "produces": [
+          "application\/json"
+        ],
+        "parameters": [
+          {
+            "name": "jumlah",
+            "in": "path",
+            "required": true,
+            "type": "jumlah",
+            "description": "Banyak quote yang ingin didapatkan "
+          },
+          {
+            "name": "author",
+            "in": "path",
+            "required": true,
+            "type": "author",
+            "description": "Quote yang dicari akan berdasarkan author yang dicantumkan. Note: Tidak harus full nama authornya, yang akan dicari nantinya adalah author yang mengandung kata tersebut "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "String",
+              "items": {
+                "$ref": "#\/definitions\/GetQuoteByAuthor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/timAul/timAul/web/public/api/getQuoteBySource\/{jumlah}\/{source}": {
+      "get": {
+        "tags": [
+          "Quote"
+        ],
+        "consumes": [
+          "application\/json"
+        ],
+        "produces": [
+          "application\/json"
+        ],
+        "parameters": [
+          {
+            "name": "jumlah",
+            "in": "path",
+            "required": true,
+            "type": "jumlah",
+            "description": "Banyak quote yang ingin didapatkan "
+          },
+          {
+            "name": "source",
+            "in": "path",
+            "required": true,
+            "type": "source",
+            "description": "quotes yang diinginkan "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "String",
+              "items": {
+                "$ref": "#\/definitions\/getQuoteBySource"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GetQuote": {
+      "properties": {
+        "jumlah": {
+          "type": "jumlah",
+          "description": "Banyak quote yang ingin didapatkan "
+        },
+        "_id": {
+          "type": "string",
+          "description": "id dari quotenya "
+        },
+        "quote": {
+          "type": "string",
+          "description": "Isi dari quotenya "
+        },
+        "author": {
+          "type": "string",
+          "description": "Pencetus quotenya "
+        },
+        "category": {
+          "type": "string",
+          "description": "Kategori dari authornya, jika belum dikategorisasi, maka null "
+        },
+        "language": {
+          "type": "string",
+          "description": "Bahasa dari quote tersebut "
+        },
+        "source": {
+          "type": "string",
+          "description": "Sumber website quote tersebut "
+        }
+      },
+      "required": [
+        "jumlah",
+        "_id",
+        "quote",
+        "author",
+        "category",
+        "language",
+        "source"
+      ]
+    },
+    "GetQuoteByAuthor": {
+      "properties": {
+        "jumlah": {
+          "type": "jumlah",
+          "description": "Banyak quote yang ingin didapatkan "
+        },
+        "author": {
+          "type": "string",
+          "description": "Pencetus quotenya "
+        },
+        "_id": {
+          "type": "string",
+          "description": "id dari quotenya "
+        },
+        "quote": {
+          "type": "string",
+          "description": "Isi dari quotenya "
+        },
+        "category": {
+          "type": "string",
+          "description": "Kategori dari authornya, jika belum dikategorisasi, maka null "
+        },
+        "language": {
+          "type": "string",
+          "description": "Bahasa dari quote tersebut "
+        },
+        "source": {
+          "type": "string",
+          "description": "Sumber website quote tersebut "
+        }
+      },
+      "required": [
+        "jumlah",
+        "author",
+        "_id",
+        "quote",
+        "category",
+        "language",
+        "source"
+      ]
+    },
+    "getQuoteBySource": {
+      "properties": {
+        "jumlah": {
+          "type": "jumlah",
+          "description": "Banyak quote yang ingin didapatkan "
+        },
+        "source": {
+          "type": "string",
+          "description": "Sumber website quote tersebut "
+        },
+        "_id": {
+          "type": "string",
+          "description": "id dari quotenya "
+        },
+        "quote": {
+          "type": "string",
+          "description": "Isi dari quotenya "
+        },
+        "author": {
+          "type": "string",
+          "description": "Pencetus quotenya "
+        },
+        "category": {
+          "type": "string",
+          "description": "Kategori dari authornya, jika belum dikategorisasi, maka null "
+        },
+        "language": {
+          "type": "string",
+          "description": "Bahasa dari quote tersebut "
+        }
+      },
+      "required": [
+        "jumlah",
+        "source",
+        "_id",
+        "quote",
+        "author",
+        "category",
+        "language"
+      ]
+    }
+  }
+}
+

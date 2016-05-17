@@ -22,5 +22,23 @@ Message: <?php echo ($message);?><br>
 Date: <?php echo($date_time);?><br>
 User IP address: <?php echo($userIpAddress);?><br>
 
-</p>
-?>
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class Hello extends Controller
+{
+	public function index()
+	{
+	    return 'hello world from controller : )';
+	}
+
+	public function show($name)
+	{
+		// die($name);
+	    // return view('hello',array('name' => $name));
+	    return View::make('hello');
+	}
+
+
+    //
+}
