@@ -95,3 +95,11 @@ Route::resource('admin/quote', 'QuoteController', ['except' => [
 ]]);
 Route::auth();
 Route::get('admin/dashboard', 'DashboardController@index');
+
+Route::get('setting', 
+  ['as' => 'admin.setting', 'uses' => 'SettingController@create']
+);
+
+Route::post('setting', 
+  ['as' => 'setting_store', 'uses' => 'SettingController@store']
+);
