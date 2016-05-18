@@ -7,7 +7,6 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
-import java.util.ArrayList;
 
 /**
  * Class ini adalah class untuk memulai crawlernya dan melakukan setting
@@ -30,7 +29,7 @@ public class CrawlerController {
      */
     public static void main(String argv[]) throws Exception {
         String crawlStorageFolder = "data/crawl/root";
-        int numberOfCrawlers = 4;
+        int numberOfCrawlers = 1;
 
         CrawlConfig config = new CrawlConfig();
         config.setCrawlStorageFolder(crawlStorageFolder);
@@ -52,7 +51,7 @@ public class CrawlerController {
         ConfigReader configReader = new ConfigReader();
         ArrayList<String> listWeb = configReader.getWebAddress();
 
-        for(int i = 0; i < listWeb.size(); i++){
+        for(int i = 0; i < listWeb.size(); i++) {
             controller.addSeed(listWeb.get(i));
         }
 

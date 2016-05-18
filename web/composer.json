@@ -8,11 +8,10 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
 	    "philo/laravel-blade":"3.*",
-        "jenssegers/mongodb": "^3.0",
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "teepluss/explore": "dev-master",
-        "guzzlehttp/guzzle": "~4.0"
+        "jenssegers/mongodb": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
