@@ -4,7 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-     "repositories":  [  
+     "repositories":  [
     {
       "type": "git",
       "url": "git@github.com:mvpasarel/swagger-laravel.git"
@@ -13,12 +13,17 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
 	    "philo/laravel-blade":"3.*",
-        "jenssegers/mongodb": "^3.0",
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "teepluss/explore": "dev-master",
+<<<<<<< HEAD
         "jlapp/swaggervel": "dev-laravel5"
     },
+=======
+        "jlapp/swaggervel": "dev-laravel5",
+        "jenssegers/mongodb": "^3.0"
+       },
+>>>>>>> c5144c80a5d555a61c77fcfbbf6a06848cdce4bf
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
