@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Quotes;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class CRUDController extends Controller
 {
@@ -159,17 +162,18 @@ class CRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,$author,$category,$language,$source)
+    // public function edit($id,$author,$category,$language,$source)
+    public function edit($id)
     {
-        //http://localhost/timAul/web/public/admin/quote/5716472abe1b0517794090e5/author/sldkjf/category/22/language/22/source/22/edit
+        // localhost/timAul/web/public/admin/CRUD/5716472abe1b0517794090e5/author/sldkjf/category/22/language/22/source/22/edit
         var_dump($id);
-        echo "<br>---------<br>"; 
-        echo $id."<br>";
-        echo $author."<br>";
-        echo $category."<br>";
-        echo $language."<br>";
-        echo $source."<br>";
-        echo "<br>---------<br>";  
+        // echo "<br>---------<br>"; 
+        // echo "id : ".$id."<br>";
+        // echo "author : ".$author."<br>";
+        // echo "category : ".$category."<br>";
+        // echo "language : ".$language."<br>";
+        // echo "source : ".$source."<br>";
+        // echo "<br>---------<br>";  
         die();
 
         $user = Quotes::find($id);
@@ -180,6 +184,15 @@ class CRUDController extends Controller
         $user->source = '';
         $user->save();
         echo "$id, success";
+    }
+
+    public function updatePage($id){
+        // dummy id : 5716472abe1b0517794090e5
+        $quotes =  Quotes::find($id);
+
+        return view('admin.update',[
+                'quote' => $quotes
+        ]);
     }
 
 
@@ -193,6 +206,32 @@ class CRUDController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $rules = array(
+            'quote'      => 'required',
+            'author'     => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('admin/CRUD/update/' . $id)
+                ->withErrors($validator)
+                ->withInput(Input::all());
+                
+        } else if(false) {
+
+            // store
+            $nerd = Nerd::find($id);
+            $nerd->name       = Input::get('name');
+            $nerd->email      = Input::get('email');
+            $nerd->nerd_level = Input::get('nerd_level');
+            $nerd->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated nerd!');
+            return Redirect::to('nerds');
+        }
+        die('peacful boy');
     }
 
     /**

@@ -152,11 +152,17 @@ Route::post('admin/getLog', function(Request $request){
 	return Response::json(["isi" => "$log"]);
 });
 
-Route::resource('admin/CRUD.author.category.language.source', 'CRUDController', ['except' => [
-    'show'
+// Route::resource('admin/CRUD.author.category.language.source', 'CRUDController', ['except' => [
+//     'show'
+// ]]);
+Route::get('admin/CRUD/update/{id}', 'CRUDController@updatePage');
+// Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteController@testing']);
+Route::resource('admin', 'CRUDController', ['except' => [
+    ''
 ]]);
+
 Route::resource('admin/CRUD', 'CRUDController', ['except' => [
-    'show'
+    ''
 ]]);
 
 // Route::get('admin/quote/{id}/{author}/edit', array('as' => 'editQuote', 'uses' => 'QuoteController@edit'));
