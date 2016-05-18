@@ -50,30 +50,21 @@ class SettingController extends Controller
     public function store(SettingFormRequest $request){
         $file = fopen(public_path('config.txt'),"w");
 
-        $data = array(
-            'page_number' => $request->get('page_number'),
-            'crawl_depth' => $request->get('crawl_depth'),
-            'proxy' => $request->get('proxy'),
-            'resumable' => $request->get('resumable'),
-            'web_address' => $request->get('web')
-        );
-
-
-        $txt = "pageNumber=" . $data['page_number'] . "\n";
+        $txt = "pageNumber=" . $request->get('page_number') . "\n";
         fwrite($file, $txt);
-        $txt = "crawlDepth=" . $data['crawl_depth'] . "\n";
+        $txt = "crawlDepth=" . $request->get('crawl_depth') . "\n";
         fwrite($file, $txt);
-        $txt = "proxy=" . $data['proxy'] . "\n";
+        $txt = "proxy=" . $request->get('proxy') . "\n";
         fwrite($file, $txt);
-        $txt = "isResumable=" . $data['resumable'] . "\n";
+        $txt = "isResumable=" . $request->get('resumable') . "\n";
         fwrite($file, $txt);
         $txt = "webAddress:" . "\n";
         fwrite($file, $txt);    
-        $txt = $data['web_address'] . "\n";
+        $txt = $request->get('web') . "\n";
         fwrite($file, $txt);
         fclose($file); 
         
-        return \Redirect::route('setting')
+        return View('admin.dashboard')
            ->with('message', 'Configuration Saved!');
     }
 
