@@ -19,9 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-
     <link href="../../resources/assets/css/admin.css" rel="stylesheet">
-
 
     <!-- Morris Charts CSS -->
     <link href="../../resources/assets/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -218,7 +216,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           <i class="fa fa-bar-chart-o fa-fw"></i> List of Quotes
+                           <i class="fa fa-search" aria-hidden="true"></i> Searched Quotes
                                 <div class="pull-right">
 
                                 </div>

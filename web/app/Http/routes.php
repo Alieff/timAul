@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-
 	return view('home');
 });
 
@@ -150,6 +149,10 @@ Route::post('admin/getLog', function(Request $request){
 });
 
 Route::resource('admin/CRUD', 'CRUDController', ['except' => [
+    'show'
+]]);
+
+Route::resource('admin/search', 'CRUDController', ['except' => [
     'show'
 ]]);
 
