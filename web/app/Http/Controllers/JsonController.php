@@ -63,7 +63,6 @@ class JsonController extends Controller
 		 }
 		 catch (Exception $e){
 			 $statusCode = 404;
-			 echo "ttt";
 			 $response = "error coy";
 		 }
 		 finally{

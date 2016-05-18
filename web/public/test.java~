@@ -1,0 +1,8 @@
+public class test{
+	public static void main(String argv[])
+	{
+		System.out.println("Hehe berhasil");
+		Thread.sleep(5000);
+		System.out.println("Woi");
+	}	
+}
