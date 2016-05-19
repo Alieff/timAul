@@ -142,7 +142,15 @@
 
                             </div>
                         </div>
-                        {{ HTML::ul($errors->all()) }}
+                        @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
                         <div class="panel-body">
                             <div class="row">
@@ -165,9 +173,8 @@
                                     <div class="col-lg-12">
                                       {!! Form::label('Quote',null,array('class' => 'col-sm-2 col-lg-2 control-label')) !!}
                                       <div class="col-sm-10 col-lg-10">
-                                          {!! Form::text('quote', null, 
-                                              array('class'=>'form-control', 
-                                                    'placeholder'=>$quote->quote)) !!}
+                                          {!! Form::text('quote', $quote->quote, 
+                                              array('class'=>'form-control')) !!}
                                        </div>
                                        </div>
                                        </div>
@@ -176,9 +183,8 @@
                                   <div class="form-group">
                                       {!! Form::label('Author',null,array('class' => 'col-sm-2 control-label')) !!}
                                       <div class="col-sm-10">
-                                      {!! Form::text('author', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>$quote->author)) !!}
+                                      {!! Form::text('author', $quote->author, 
+                                          array('class'=>'form-control')) !!}
                                       </div>
 
                                   </div>
@@ -188,9 +194,8 @@
                                       {!! Form::label('source',null,array('class' => 'col-sm-2 control-label')) !!}
                                                <div class="col-sm-10">
 
-                                      {!! Form::text('source', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>$quote->source)) !!}
+                                      {!! Form::text('source', $quote->source, 
+                                          array('class'=>'form-control')) !!}
                                      </div>
 
                                   </div>
@@ -199,9 +204,8 @@
                                       {!! Form::label('Language',null,array('class' => 'col-sm-2 control-label')) !!}
                                                <div class="col-sm-10">
 
-                                      {!! Form::text('language', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>$quote->language)) !!}
+                                      {!! Form::text('language', $quote->language, 
+                                          array('class'=>'form-control')) !!}
                                      </div>
 
                                   </div>
@@ -210,9 +214,8 @@
                                       {!! Form::label('Category',null,array('class' => 'col-sm-2 control-label')) !!}
                                                <div class="col-sm-10">
 
-                                      {!! Form::text('category', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>$quote->category)) !!}
+                                      {!! Form::text('category', $quote->category, 
+                                          array('class'=>'form-control')) !!}
                                      </div>
 
                                   </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Session;
 use App\Quotes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -166,7 +166,7 @@ class CRUDController extends Controller
     public function edit($id)
     {
         // localhost/timAul/web/public/admin/CRUD/5716472abe1b0517794090e5/author/sldkjf/category/22/language/22/source/22/edit
-        var_dump($id);
+        // var_dump($id);
         // echo "<br>---------<br>"; 
         // echo "id : ".$id."<br>";
         // echo "author : ".$author."<br>";
@@ -174,16 +174,20 @@ class CRUDController extends Controller
         // echo "language : ".$language."<br>";
         // echo "source : ".$source."<br>";
         // echo "<br>---------<br>";  
-        die();
+        // die();
 
-        $user = Quotes::find($id);
-        $user->quote = '" In order to succeed, you must first be willing to fail."';
-        $user->author = 'not Anonymous';
-        $user->category = '';
-        $user->language = '';
-        $user->source = '';
-        $user->save();
-        echo "$id, success";
+        $quote = Quotes::find($id);
+        // show the edit form and pass the quote
+        return view('admin.update',[
+                'quote' => $quote
+        ]);
+        // $user->quote = '" In order to succeed, you must first be willing to fail."';
+        // $user->author = 'not Anonymous';
+        // $user->category = '';
+        // $user->language = '';
+        // $user->source = '';
+        // $user->save();
+        // echo "$id, success";
     }
 
     public function updatePage($id){
@@ -214,24 +218,26 @@ class CRUDController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('admin/CRUD/update/' . $id)
+            return Redirect::to('admin/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput(Input::all());
                 
-        } else if(false) {
+        } else {
 
             // store
-            $nerd = Nerd::find($id);
-            $nerd->name       = Input::get('name');
-            $nerd->email      = Input::get('email');
-            $nerd->nerd_level = Input::get('nerd_level');
+            $nerd = Quotes::find($id);
+            $nerd->quote       = Input::get('quote');
+            $nerd->author      = Input::get('author');
+            $nerd->source = Input::get('source');
+            $nerd->language = Input::get('language');
+            $nerd->category = Input::get('category');
             $nerd->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated nerd!');
-            return Redirect::to('nerds');
+            Session::flash('message', 'Successfully updated quote!');
+            return Redirect::to('admin');
         }
-        die('peacful boy');
+        // die('peaceful boy');
     }
 
     /**

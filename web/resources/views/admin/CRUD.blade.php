@@ -132,6 +132,11 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            @if (Session::has('flash'))
+              <div class="flash alert">
+                <p>{{ Session::get('message') }}</p>
+              </div>
+            @endif
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
