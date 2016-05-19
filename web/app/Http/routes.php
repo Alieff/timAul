@@ -103,7 +103,9 @@ Route::resource('admin/quote', 'QuoteController', ['except' => [
 ]
 ]);
 
-Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteController@testing']);
+Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'CRUDController@testing']);
+
+Route::get('admin/addQuotes', ['as' => 'admin.addquotes', 'uses' => 'CRUDController@create']);
 
 Route::get('admin/testing', function(){
 	return view('admin.refresh');
@@ -151,6 +153,8 @@ Route::post('admin/getLog', function(Request $request){
 Route::resource('admin/CRUD', 'CRUDController', ['except' => [
     'show'
 ]]);
+
+Route::get('admin/AddQuote', 'CRUDController@indexAdd');
 
 Route::auth();
 

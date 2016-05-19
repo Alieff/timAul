@@ -24,6 +24,12 @@ class CRUDController extends Controller
         ]);
     }
 
+     public function indexAdd(Request $request)
+    {   
+        return view('admin.addQuote',[]);
+    }
+
+
     /**
     *   BUAT REFERENSI AUL
     */
@@ -113,8 +119,8 @@ class CRUDController extends Controller
 
         $quotes->appends(\Input::except('page'))->links();
 
-       
-        return view('admin.quote',[
+            
+        return view('admin.CRUD',[
                 'quotes' => $quotes
         ]);
    
@@ -125,11 +131,18 @@ class CRUDController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $quote = new Quotes;
+        $quote->quote = $request->quote;
+        $quote->author = $request->author;
+        $quote->category = $request->category;
+        $quote->language = $request->language;
+        $quote->source = $request->source;
+        $quote->save();
+        \Session::flash('flash_message','Quote successfully added.');
+        return redirect('AddQuote');
     }
-
     /**
      * Store a newly created resource in storage.
      *
