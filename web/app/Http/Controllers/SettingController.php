@@ -10,7 +10,22 @@ use App\Http\Requests\SettingFormRequest;
 
 class SettingController extends Controller
 {
-    public function create()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $data = [];
         $file = fopen(public_path('config.txt'),"r");
