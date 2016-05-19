@@ -16,14 +16,9 @@
         "laravelcollective/html": "^5.2",
         "guzzlehttp/guzzle": "~4.0",
         "teepluss/explore": "dev-master",
-<<<<<<< HEAD
-        "jlapp/swaggervel": "dev-laravel5"
-    },
-=======
         "jlapp/swaggervel": "dev-laravel5",
         "jenssegers/mongodb": "^3.0"
        },
->>>>>>> c5144c80a5d555a61c77fcfbbf6a06848cdce4bf
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",

@@ -26,6 +26,7 @@ class CRUDController extends Controller
 
     /**
     *   BUAT REFERENSI AUL
+	* Mongodb Aul belum konek
     */
     public function testing(Request $request){
 
@@ -58,7 +59,6 @@ class CRUDController extends Controller
             //$whereQuery['author'] = $request->author;
         }
 
-
         if ($request->has('quote')) {
             $ternyataKosong = FALSE;
 
@@ -66,7 +66,6 @@ class CRUDController extends Controller
             $quote = $request->quote;
            // $whereQuery['quote'] = $request->quote;
         }
-
 
         if ($request->has('source')) {
             $ternyataKosong = FALSE;
@@ -89,7 +88,6 @@ class CRUDController extends Controller
                 if($quoteThere){
                     $quotes = $quotes->where('quote', 'like', "%$quote%");
                 }
-
                 if($sourceThere){
                     $quotes = $quotes->where('source', 'like' , "$source%");
                 }
@@ -112,9 +110,8 @@ class CRUDController extends Controller
         }
 
         $quotes->appends(\Input::except('page'))->links();
-
        
-        return view('admin.quote',[
+        return view('admin.CRUD',[
                 'quotes' => $quotes
         ]);
    
@@ -163,6 +160,10 @@ class CRUDController extends Controller
     {
         //
     }
+	
+	public function search(){
+		return view('admin.search');
+	}
 
     /**
      * Update the specified resource in storage.
@@ -182,8 +183,11 @@ class CRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $quotes = Quotes::findOrFail($request->_id);
+		$quotes->delete();
+		
+		return redirect()->route('admin.CRUD');
     }
 }

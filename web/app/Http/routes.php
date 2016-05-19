@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
+
 	return view('home');
 });
 
@@ -89,12 +90,11 @@ Route::get('faq', function () {
 	 return view('faq');
 });
 
-
 Route::get('runjava', function () {
 	echo shell_exec('cat tees.txt');
 	//exec('bash -c "exec nohup setsid java test > /dev/null 2>&1 &"');
 });
-
+ 
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
 ],
@@ -103,7 +103,8 @@ Route::resource('admin/quote', 'QuoteController', ['except' => [
 ]
 ]);
 
-Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteController@testing']);
+Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'CRUDController@testing']);
+Route::get('admin/deleteQuotes', ['as' => 'admin.deletequotes', 'uses' => 'CRUDController@destroy']);
 
 Route::get('admin/testing', function(){
 	return view('admin.refresh');
@@ -152,11 +153,8 @@ Route::resource('admin/CRUD', 'CRUDController', ['except' => [
     'show'
 ]]);
 
-Route::resource('admin/search', 'CRUDController', ['except' => [
-    'show'
-]]);
-
 Route::auth();
 
 Route::get('admin/dashboard', 'DashboardController@index');
 
+Route::resource('admin/search', 'CRUDController@search');
