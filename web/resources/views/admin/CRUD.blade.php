@@ -130,7 +130,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">CRUD Quote</h1>
+                    <h1 class="page-header">Quotes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -213,7 +213,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> List of Quotes
+                            <i class="fa fa-list-alt" aria-hidden="true"></i> Quotes
                             <div class="pull-right">
 
                             </div>
@@ -245,43 +245,29 @@
                                                 <?php $isManual=$quote->isManual; if($isManual == null) { echo 'No'; } else { echo $quote->isManual; } ?>
                                             </td>
                                             <td>
-                                                <div class="col-lg-12 center">
-                                                    <!--  HOW TO GET QUOTE ID: $quote->_id -->
-                                                    <a href="#" id="update"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                    <a href="CRUD" id="delete"><span class="glyphicon glyphicon-trash" </span>
-                                                    </a>
-                                                </div>
-												
-												<script>
+                                                <!--  HOW TO GET QUOTE ID: $quote->_id -->
 
-													function ConfirmDelete()
-													{
-													
-													var x = confirm("Are you sure you want to delete?");
-													
-													if (x)
-														return true;
-													else
-														return false;
-													}
+                                                {!! Form::button('<i class="glyphicon glyphicon-pencil"></i>', array('type' => 'submit')) !!}
 
-												</script>												
-												
-												{!! Form::open(array('route' => 'admin.deletequotes', 'class' => 'form-horizontal', 'method' => 'get', 'onsubmit' => 'return ConfirmDelete()')) !!}
-												
-												{!! Form::hidden('_id', $quote->_id, ['class' => 'form-control']) !!}
-												
-												{!! Form::button('<i class="glyphicon glyphicon-trash"></i>', array('type' => 'submit')) !!}
-												
-												{!! Form::close() !!}
-												
+                                                <script>
+                                                    function ConfirmDelete() {
+                                                        var x = confirm("Are you sure you want to delete?");
+                                                        if (x)
+                                                            return true;
+                                                        else
+                                                            return false;
+                                                    }
+                                                </script>
+
+                                                {!! Form::open(array('route' => 'admin.deletequotes', 'class' => 'form-horizontal', 'method' => 'get', 'onsubmit' => 'return ConfirmDelete()')) !!} {!! Form::hidden('_id', $quote->_id, ['class' => 'form-control']) !!} {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', array('type' => 'submit')) !!} {!! Form::close() !!}
+
                                             </td>
                                         </tr>
                                         @endforeach
                                     </table>
 
                                     {!! $quotes->render() !!} @else
-                                    <h1><i>Quote is empty</i></h1> @endif
+                                    <h1><i>No Such Quote</i></h1> @endif
                                 </div>
                             </div>
                         </div>

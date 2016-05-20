@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -44,23 +44,21 @@
     <script src="../../resources/assets/js/sb-admin-2.js"></script>
 
     <style type="text/css">
-        .center{
+        .center {
             text-align: center;
         }
-
-        .log{
+        .log {
             color: white;
             background-color: grey;
-            overflow-y: scroll; 
+            overflow-y: scroll;
             height: 250px;
         }
-
-        .crawler{
+        .crawler {
             color: white;
             background-color: grey;
         }
     </style>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -78,35 +76,39 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation" style="">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a id="logo" class="navbar-brand" href="#">InspireCrawler</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul id="test" class="nav navbar-nav navbar-right">
-                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/help') }}">Help</a></li>
-                    @else
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="logo" class="navbar-brand" href="#">InspireCrawler</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul id="test" class="nav navbar-nav navbar-right">
+                        @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a>
+                        </li>
+                        <li><a href="{{ url('/help') }}">Help</a>
+                        </li>
+                        @else
                         <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                                </ul>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                                </li>
+                            </ul>
                         </li>
-                    @endif
-                </ul>
+                        @endif
+                    </ul>
+                </div>
             </div>
-        </div>            <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -137,7 +139,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw">Search</i> 
+                            <i class="fa fa-bar-chart-o fa-fw">Search</i>
                             <div class="pull-right">
 
                             </div>
@@ -145,80 +147,70 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                        {!! Form::open(array('route' => 'admin.addquotes', 'class' => 'form-horizontal', 'method' => 'get')) !!}
+                                    {!! Form::open(array('route' => 'admin.addquotes', 'class' => 'form-horizontal', 'method' => 'get')) !!}
 
-                                  <div class="form-group">
-                                    <div class ="row">
-                                    <div class="col-lg-12">
-                                      {!! Form::label('Quote',null,array('class' => 'col-sm-2 col-lg-2 control-label')) !!}
-                                      <div class="col-sm-10 col-lg-10">
-                                          {!! Form::text('quote', null, 
-                                              array('class'=>'form-control', 
-                                                    'placeholder'=>'Quotes you want to add')) !!}
-                                       </div>
-                                       </div>
-                                       </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('Author',null,array('class' => 'col-sm-2 control-label')) !!}
-                                      <div class="col-sm-10">
-                                      {!! Form::text('author', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Author you want to add')) !!}
-                                      </div>
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('Category',null,array('class' => 'col-sm-2 control-label')) !!}
-                                      <div class="col-sm-10">
-                                      {!! Form::text('category', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Category of the quote you want to add')) !!}
-                                      </div>
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('Language',null,array('class' => 'col-sm-2 control-label')) !!}
-                                      <div class="col-sm-10">
-                                      {!! Form::text('language', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Language of the quote you want to add')) !!}
-                                      </div>
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('source',null,array('class' => 'col-sm-2 control-label')) !!}
-                                               <div class="col-sm-10">
-
-                                      {!! Form::text('source', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Source of the quote you want to add')) !!}
-                                     </div>
-
-                                  </div>
-                                  <div class="form-group">
-                                  <div class="col-sm-offset-2 col-sm-10">
-                                      {!! Form::submit('Add', 
-                                        array('class'=>'btn btn-primary')) !!}
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                {!! Form::label('Quote',null,array('class' => 'col-sm-2 col-lg-2 control-label')) !!}
+                                                <div class="col-sm-10 col-lg-10">
+                                                    {!! Form::text('quote', null, array('class'=>'form-control', 'placeholder'=>'Quotes you want to add')) !!}
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('Author',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+                                            {!! Form::text('author', null, array('class'=>'form-control', 'placeholder'=>'Author you want to add')) !!}
                                         </div>
-                                  </div>
-                                  {!! Form::close() !!}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('Category',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+                                            {!! Form::text('category', null, array('class'=>'form-control', 'placeholder'=>'Category of the quote you want to add')) !!}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('Language',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+                                            {!! Form::text('language', null, array('class'=>'form-control', 'placeholder'=>'Language of the quote you want to add')) !!}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('source',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+
+                                            {!! Form::text('source', null, array('class'=>'form-control', 'placeholder'=>'Source of the quote you want to add')) !!}
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            {!! Form::submit('Add', array('class'=>'btn btn-primary')) !!}
+                                        </div>
+                                    </div>
                                 </div>
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
 </body>
-</html>         
+
+</html>

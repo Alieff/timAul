@@ -24,11 +24,15 @@ class CRUDController extends Controller
         ]);
     }
 
+	 public function indexAdd(Request $request)
+	{   
+		return view('admin.addQuote',[]);
+	}
+	
     /**
     *   BUAT REFERENSI AUL
-	* Mongodb Aul belum konek
     */
-    public function testing(Request $request){
+    public function search(Request $request){
 
         $sortSearch = $request->sort;
         $sortBySearch = $request->sortby;
@@ -77,13 +81,13 @@ class CRUDController extends Controller
 
         $quotes = [];
         if($ternyataKosong){
-            echo "masuk ga aaasa ini?";   
+            //echo "masuk ga aaasa ini?";   
             $quotes =  Quotes::orderBy("$sortSearch","$sortBySearch")->paginate(15);
         }
 
         else{
             if($authorThere){
-                echo "masuk ga ini?";   
+                //echo "masuk ga ini?";   
                 $quotes = Quotes::where('author', 'like', "%$author%");
                 if($quoteThere){
                     $quotes = $quotes->where('quote', 'like', "%$quote%");
@@ -94,7 +98,7 @@ class CRUDController extends Controller
             }
             
             else if ($quoteThere) {
-                echo "masuk quote";
+                //echo "masuk quote";
                 $quotes = Quotes::where('quote', 'like', "%$quote%");
                    if($sourceThere){
                         $quotes = $quotes->where('source', 'like' , "$source%");
@@ -102,7 +106,7 @@ class CRUDController extends Controller
                 }
 
             else {
-                    echo "masa ini ga masuk?";
+                    //echo "masa ini ga masuk?";
                     $quotes = Quotes::where('source', 'like' , "$source%");
                 }
             $quotes->orderBy("$sortSearch","$sortBySearch");
@@ -122,9 +126,17 @@ class CRUDController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $quote = new Quotes;
+		$quote->quote = $request->quote;
+		$quote->author = $request->author;
+		$quote->category = $request->category;
+		$quote->language = $request->language;
+		$quote->source = $request->source;
+		$quote->save();
+		\Session::flash('flash_message','Quote successfully added.');
+		return redirect('admin/AddQuote');
     }
 
     /**
@@ -160,10 +172,6 @@ class CRUDController extends Controller
     {
         //
     }
-	
-	public function search(){
-		return view('admin.search');
-	}
 
     /**
      * Update the specified resource in storage.
@@ -188,6 +196,6 @@ class CRUDController extends Controller
         $quotes = Quotes::findOrFail($request->_id);
 		$quotes->delete();
 		
-		return redirect()->route('admin.CRUD');
+		return redirect('admin/CRUD');
     }
 }
