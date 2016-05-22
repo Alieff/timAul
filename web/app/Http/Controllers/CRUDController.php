@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Quotes;
+use App\Statistic;
+use Carbon\Carbon;
 
 class CRUDController extends Controller
 {
@@ -118,14 +120,21 @@ class CRUDController extends Controller
         }
 
         $quotes->appends(\Input::except('page'))->links();
-
-            
         return view('admin.CRUD',[
                 'quotes' => $quotes
         ]);
-   
     }
+      public function updateTotalQuotes(){
 
+        $totalQuote = Quotes::count();
+        $stat = new Statistic;
+        $stat->total = $totalQuote;
+        $current_time = Carbon::now()->toDayDateTimeString();
+        $stat->time =  $current_time;
+        $stat->save(); 
+        
+        return redirect('admin/AddQuote');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -140,8 +149,8 @@ class CRUDController extends Controller
         $quote->language = $request->language;
         $quote->source = $request->source;
         $quote->save();
-        \Session::flash('flash_message','Quote successfully added.');
-        return redirect('AddQuote');
+  //\Session::flash('flash_message','Quote successfully added.');
+        return redirect('admin/updateStat');
     }
     /**
      * Store a newly created resource in storage.
@@ -154,7 +163,6 @@ class CRUDController extends Controller
 
 
     }
-
     /**
      * Display the specified resource.
      *
@@ -199,4 +207,6 @@ class CRUDController extends Controller
     {
         //
     }
+
+  
 }

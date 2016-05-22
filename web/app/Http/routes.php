@@ -157,6 +157,7 @@ Route::resource('admin/CRUD', 'CRUDController', ['except' => [
 Route::get('admin/AddQuote', 'CRUDController@indexAdd');
 
 Route::auth();
-
+Route::get('admin/updateStat', 'CRUDController@updateTotalQuotes');
 Route::get('admin/dashboard', 'DashboardController@index');
+
 
