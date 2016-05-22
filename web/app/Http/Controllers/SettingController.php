@@ -25,9 +25,9 @@ class SettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function readConfig()
     {
-        $data = [];
+        $data = new CrawlerConfig("","","","","");
         $file = fopen(public_path('config.txt'),"r");
         $index=0;
 
@@ -35,28 +35,29 @@ class SettingController extends Controller
         {
             $field = explode("=", fgets($file));
             if($index==0){
-                $data['page_number'] = $field[1];
+                $data->setPageNumber($field[1]);
             }
             if($index==1){
-                $data['crawl_depth'] = $field[1];
+                $data->setCrawlDepth($field[1]);
             }
             if ($index==2) {
-                $data['proxy'] = $field[1];
+                $data->setProxy($field[1]);
             }
             if ($index==3) {
-                $data['resumable'] = $field[1];;
+                $data->setIsResumable($field[1]);
             }
             $index++;
         }
         //read webAddress :
         fgets($file);
-        $data['web_address'] = '';
+        $web_address = '';
 
         while(!feof($file))
         {
-            $data['web_address'] .= fgets($file);
+            $web_address .= fgets($file);
         }
 
+        $data->setWeb($web_address);
         fclose($file);
 
         return View('admin.setting')->with('data', $data);
@@ -79,7 +80,7 @@ class SettingController extends Controller
         fwrite($file, $txt);
         fclose($file); 
         
-        return View('admin.dashboard')
+        return View('admin.setting')
            ->with('message', 'Configuration Saved!');
     }
 

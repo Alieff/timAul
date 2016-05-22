@@ -97,7 +97,7 @@ Route::auth();
 Route::get('admin/dashboard', 'DashboardController@index');
 
 Route::get('setting', 
-  ['as' => 'admin.setting', 'uses' => 'SettingController@index']
+  ['as' => 'admin.setting', 'uses' => 'SettingController@readConfig']
 );
 
 Route::post('setting', 

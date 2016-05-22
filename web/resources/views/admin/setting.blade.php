@@ -123,34 +123,40 @@
             <!-- /.row -->
             <div class="row">
               <div class="col-lg-8">
+                @if(Session::has('message'))
+                    <div class="alert alert-info">
+                    {{Session::get('message')}}
+                    </div>
+                @endif
+
                 {!! Form::open(array('route' => 'setting_store', 'class' => 'form')) !!}
                         <div class="form-group {!! $errors->has('page_number') ? 'has-error' : '' !!}">
                           <label for="page_number">Page Number</label>
-                          <input type="text" class="form-control" id="page_number" name="page_number" value= {!!$data['page_number']!!} >
+                          <input type="text" class="form-control" id="page_number" name="page_number" value= {!!$data->getPageNumber()!!} >
                           {!! $errors->first('page_number', '<p class="help-block">:message</p>') !!}
                         </div>
 
                         <div class="form-group {!! $errors->has('crawl_depth') ? 'has-error' : '' !!}">
                           <label for="crawl_depth">Crawl Depth</label>
-                          <input type="text" class="form-control" id="crawl_depth" name="crawl_depth" value= {!!$data['crawl_depth']!!}>
+                          <input type="text" class="form-control" id="crawl_depth" name="crawl_depth" value= {!!$data->getCrawlDepth()!!}>
                           {!! $errors->first('crawl_depth', '<p class="help-block">:message</p>') !!}
                         </div>
 
                         <div class="form-group {!! $errors->has('proxy') ? 'has-error' : '' !!}">
                           <label for="proxy">Proxy</label>
-                          <input type="text" class="form-control" id="proxy" name="proxy" value= {!!$data['proxy']!!}>
+                          <input type="text" class="form-control" id="proxy" name="proxy" value= {!!$data->getProxy()!!}>
                           {!! $errors->first('proxy', '<p class="help-block">:message</p>') !!}
                         </div>
 
                         <div class="form-group {!! $errors->has('resumable') ? 'has-error' : '' !!}">
                           <label for="resumable">isResumable (true or false)</label><br>
-                          <input type="text" class='form-control' id="resumable" name="resumable" value= {!!$data['resumable']!!}>
+                          <input type="text" class='form-control' id="resumable" name="resumable" value= {!!$data->getIsResumable()!!}>
                           {!! $errors->first('resumable', '<p class="help-block">:message</p>') !!}
                         </div>
 
                         <div class="form-group {!! $errors->has('web') ? 'has-error' : '' !!}">
                           <label for="web">Web</label>
-                          <textarea type="text" class="form-control" name="web" id="web">{!!$data['web_address']!!}
+                          <textarea type="text" class="form-control" name="web" id="web">{!!$data->getWeb()!!}
                           </textarea>
                           {!! $errors->first('web', '<p class="help-block">:message</p>') !!}
                         </div>
