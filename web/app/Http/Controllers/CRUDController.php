@@ -166,28 +166,12 @@ class CRUDController extends Controller
     public function edit($id)
     {
         // localhost/timAul/web/public/admin/CRUD/5716472abe1b0517794090e5/author/sldkjf/category/22/language/22/source/22/edit
-        // var_dump($id);
-        // echo "<br>---------<br>"; 
-        // echo "id : ".$id."<br>";
-        // echo "author : ".$author."<br>";
-        // echo "category : ".$category."<br>";
-        // echo "language : ".$language."<br>";
-        // echo "source : ".$source."<br>";
-        // echo "<br>---------<br>";  
-        // die();
 
         $quote = Quotes::find($id);
         // show the edit form and pass the quote
         return view('admin.update',[
                 'quote' => $quote
         ]);
-        // $user->quote = '" In order to succeed, you must first be willing to fail."';
-        // $user->author = 'not Anonymous';
-        // $user->category = '';
-        // $user->language = '';
-        // $user->source = '';
-        // $user->save();
-        // echo "$id, success";
     }
 
     public function updatePage($id){
@@ -210,6 +194,7 @@ class CRUDController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // die('fine');
         $rules = array(
             'quote'      => 'required',
             'author'     => 'required'
@@ -235,7 +220,7 @@ class CRUDController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully updated quote!');
-            return Redirect::to('admin');
+            return Redirect::to('admin/CRUD');
         }
         // die('peaceful boy');
     }
