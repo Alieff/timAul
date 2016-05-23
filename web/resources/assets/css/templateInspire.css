@@ -18,7 +18,6 @@
   font-family: 'Open Sans';
 }
 
-
 /** BASIC STYLING **/
 html {
   position: relative;
@@ -48,7 +47,7 @@ h2{
 #logo:hover{
   color: #b3e5ff;
 }
-<<<<<<< HEAD
+
 #navbar-text{
   font-family: bebasReg;
   letter-spacing: 5px;
@@ -76,10 +75,12 @@ h2{
   padding: 15px;
   margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
+
 .form-signin .checkbox {
   font-weight: normal;
 }
@@ -97,6 +98,7 @@ body {
 	font-family: bebasReg;
 	letter-spacing: 5px;
 }
+
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -132,6 +134,7 @@ body {
   padding: 11px 0;
   z-index: 11;
 }
+
 h2{
 	font-family: bebasBold;
 	font-size: 26pt;
@@ -154,6 +157,7 @@ h2{
     border-color: #B3E5FC;
     background-image: linear-gradient(to bottom,#02A9F4 0,#0188D1 100%);
 }
+
 .footer {
   /*bottom: 0;*/
   width: 100%;
@@ -181,13 +185,11 @@ h2{
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
 }
-=======
 
 #navbar-text{
   font-family: bebasReg;
   letter-spacing: 5px;
 }
-
 
 /** STYLING FOR HEADER IMAGE **/
 .header-image{
@@ -208,7 +210,6 @@ h2{
   margin-bottom: 3%;
 }
 
->>>>>>> development
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -249,7 +250,7 @@ h2{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-<<<<<<< HEAD
+
 .h{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 40px;
@@ -388,6 +389,27 @@ h2{
 .embbed{
   width: 100%;
   height: 85vh;
+}
+
+.styledoc{		
+	text-align: left;		
+	padding-left: 20px;		
+	padding-right: 20px;		
+}		
+.fotop{		
+	margin-left: 229px;		
+}		
+.fotoe{		
+	margin-left: 458px;		
+}		
+.fotoh{		
+	margin-left: 687px;		
+}		
+.fotoa{		
+	margin-left: 916px;		
+}
+.line{
+	padding-top: 25px;
 }
 
 /** STYLING FOR CONTACT PAGE **/
