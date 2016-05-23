@@ -25,8 +25,8 @@
 						<img class="img" src="aul.jpg">
 					</a>
 					<div class="desc">
-						<div class="desc">Aulia</div>
-						<div class="desc">Scrum Master</div>
+						<div>Aulia</div>
+						<div>Scrum Master</div>
 					</div>
 				</div>
 
@@ -35,8 +35,8 @@
 						<img class="img" src="puti.jpg">
 					</a>
 					<div class="desc">
-						<div class="desc">Puti</div>
-						<div class="desc">Designer</div>
+						<div>Puti</div>
+						<div>Designer</div>
 					</div>
 				</div>
 				
@@ -45,8 +45,8 @@
 						<img class="img" src="ega.jpg">
 					</a>
 					<div class="desc">
-						<div class="desc">Ega</div>
-						<div class="desc">Designer</div>
+						<div>Ega</div>
+						<div>Designer</div>
 					</div>
 
 				</div>
@@ -56,8 +56,8 @@
 						<img class="img" src="haryo.jpg">
 					</a>
 					<div class="desc">
-						<div class="desc">Haryo</div>
-						<div class="desc">Hacker</div>
+						<div>Haryo</div>
+						<div>Hacker</div>
 					</div>				
 				</div>
 				
@@ -66,8 +66,8 @@
 						<img class="img" src="alief.jpg">
 					</a>
 					<div class="desc">
-						<div class="desc">Alief</div>
-						<div class="desc">Hacker</div>
+						<div>Alief</div>
+						<div>Hacker</div>
 					</div>
 				</div>
 

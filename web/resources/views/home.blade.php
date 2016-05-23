@@ -3,9 +3,10 @@
 'active'
 @endsection
 @section('bodycontent')
-<img style="width:100%" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image">
-<div style="text-align:center;padding-bottom:50px;height: 350px" class="jumbotron">
-<div class="col-lg-8 col-lg-offset-2">
+
+<img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
+<div class="jumbotron headline">
+<div class="col-lg-8 col-lg-offset-2" class="jumbotron">
       <h2 id="main-heading">INSPIRE CRAWLER</h2>
       <p>
       <?php echo public_path();  ?>
