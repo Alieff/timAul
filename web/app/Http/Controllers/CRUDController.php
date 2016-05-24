@@ -124,6 +124,9 @@ class CRUDController extends Controller
                 'quotes' => $quotes
         ]);
     }
+    /**
+     * Function to create statistic data in database
+     */
       public function updateTotalQuotes(){
 
         $totalQuote = Quotes::count();
@@ -136,9 +139,7 @@ class CRUDController extends Controller
         return redirect('admin/AddQuote');
     }
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Function for creating a new Quote and add it to the database.
      */
     public function create(Request $request)
     {
@@ -149,7 +150,6 @@ class CRUDController extends Controller
         $quote->language = $request->language;
         $quote->source = $request->source;
         $quote->save();
-  //\Session::flash('flash_message','Quote successfully added.');
         return redirect('admin/updateStat');
     }
     /**
