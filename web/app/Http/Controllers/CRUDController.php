@@ -30,7 +30,7 @@ class CRUDController extends Controller
 	}
 	
     /**
-    *   BUAT REFERENSI AUL
+    *   Fungsi untuk Search
     */
     public function search(Request $request){
 
