@@ -159,8 +159,6 @@ Route::get('admin/updateStat', 'CRUDController@updateTotalQuotes');
 Route::get('admin/dashboard', 'DashboardController@index');
 
 
-<<<<<<< HEAD
-=======
 Route::get('setting', 
   ['as' => 'admin.setting', 'uses' => 'SettingController@readConfig']
 );
@@ -168,4 +166,3 @@ Route::get('setting',
 Route::post('setting', 
   ['as' => 'setting_store', 'uses' => 'SettingController@store']
 );
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915

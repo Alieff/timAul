@@ -52,18 +52,13 @@ class ExampleTest extends TestCase
               ->see('You have Questions');
      }    
 
-<<<<<<< HEAD
-     public function testNotAuthenticatedAccess()
-=======
     public function testContactFormSuccess()
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
     {
         $this->visit('admin/dashboard')
              ->see('login')
              ->dontSee('statistic');
     }
 
-<<<<<<< HEAD
     public function testAuthenticatedAccess()
     {  
         $user = factory(App\User::class)->create();
@@ -72,7 +67,6 @@ class ExampleTest extends TestCase
              ->visit('admin/dashboard')
              ->see($user->name)
              ->see('Dashboard');
-=======
     public function testContactFormJustName()
     {
         $this->visit('contact')
@@ -156,12 +150,10 @@ class ExampleTest extends TestCase
 
     public function testAddQuotePage()
     {
-<<<<<<< HEAD
         $this->visit('admin/AddQuote')
              ->see('Add Quote');
     }
 
-=======
         $this->visit('faq')
              ->see('You have Questions');
     }   

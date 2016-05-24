@@ -116,10 +116,7 @@ class CRUDController extends Controller
         }
 
         $quotes->appends(\Input::except('page'))->links();
-<<<<<<< HEAD
-=======
-       
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
+
         return view('admin.CRUD',[
                 'quotes' => $quotes
         ]);
@@ -144,7 +141,6 @@ class CRUDController extends Controller
     public function create(Request $request)
     {
         $quote = new Quotes;
-<<<<<<< HEAD
         $quote->quote = $request->quote;
         $quote->author = $request->author;
         $quote->category = $request->category;
@@ -152,17 +148,7 @@ class CRUDController extends Controller
         $quote->source = $request->source;
         $quote->save();
         return redirect('admin/updateStat');
-=======
-		$quote->quote = $request->quote;
-		$quote->author = $request->author;
-		$quote->category = $request->category;
-		$quote->language = $request->language;
-		$quote->source = $request->source;
-		$quote->save();
-		\Session::flash('flash_message','Quote successfully added.');
-		return redirect('admin/AddQuote');
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
-    }
+   }
 
     /**
      * Store a newly created resource in storage.
