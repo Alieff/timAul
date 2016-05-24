@@ -4,8 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+=======
     "hash": "451896cf71ffb42e4e5805c7c5aead93",
     "content-hash": "e39fcfa1d2a512b3849ec6940c8d227b",
+>>>>>>> c5144c80a5d555a61c77fcfbbf6a06848cdce4bf
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -643,6 +646,16 @@
         },
         {
             "name": "laravel/framework",
+            "version": "v5.2.30",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "ecfbbfbf96105439cc9a40bc78277bdb0268e34d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ecfbbfbf96105439cc9a40bc78277bdb0268e34d",
+                "reference": "ecfbbfbf96105439cc9a40bc78277bdb0268e34d",
             "version": "v5.2.31",
             "source": {
                 "type": "git",
@@ -767,7 +780,7 @@
             "keywords": [
                 "framework",
                 "laravel"
-            ],
+            ],            
             "time": "2016-04-27 13:02:09"
         },
         {
@@ -826,6 +839,16 @@
         },
         {
             "name": "league/flysystem",
+            "version": "1.0.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
+                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
             "version": "1.0.22",
             "source": {
                 "type": "git",
@@ -904,7 +927,7 @@
                 "s3",
                 "sftp",
                 "storage"
-            ],
+            ],            
             "time": "2016-04-28 06:53:12"
         },
         {
@@ -2212,6 +2235,59 @@
                 "dump"
             ],
             "time": "2016-04-25 11:17:47"
+        },
+        {
+            "name": "teepluss/explore",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teepluss/laravel-explore.git",
+                "reference": "f02b4f054a3f5c1d6668453e034b40cb1215d7d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teepluss/laravel-explore/zipball/f02b4f054a3f5c1d6668453e034b40cb1215d7d3",
+                "reference": "f02b4f054a3f5c1d6668453e034b40cb1215d7d3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/controllers",
+                    "src/Exceptions.php"
+                ],
+                "psr-4": {
+                    "Teepluss\\Explore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Teepluss",
+                    "email": "teepluss@gmail.com",
+                    "homepage": "https://github.com/teepluss",
+                    "role": "Developer"
+                }
+            ],
+            "description": "apidocjs explorer for Laravel",
+            "homepage": "https://github.com/teepluss/laravel-explore",
+            "keywords": [
+                "apidoc",
+                "apidocjs",
+                "console",
+                "explorer",
+                "laravel",
+                "restful"
+            ],
+            "time": "2016-02-24 07:52:31"
         },
         {
             "name": "teepluss/explore",

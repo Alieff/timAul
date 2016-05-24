@@ -18,6 +18,9 @@ Route::get('/', function () {
 	return view('home');
 });
 
+Route::get('contact', 'ContactController@getContact');
+
+Route::post('contact_request','ContactController@getContactUsForm');
 
 	Route::get('contact',
 	  ['as' => 'contact', 'uses' => 'ContactController@create']
@@ -29,14 +32,9 @@ Route::get('/', function () {
 	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
 	);
 
-
 Route::get('mail', function () {
   return view('test');
 });
-
-// Route::get('/hello',function(){
-//     return 'Hello World!';
-// });
 
 Route::get('api/getQuote/{jumlah}', 'JsonController@getQuote');
 Route::get('api/getQuoteByAuthor/{jumlah}/{author}', 'JsonController@getQuoteByAuthor');
@@ -71,6 +69,10 @@ Route::get('api/getQuoteBySource/{jumlah}/{source}', 'JsonController@getQuoteByS
     return view('about');
  });
 
+ Route::get('contact', function () {
+    return view('contact');
+ });
+
 Route::get('apidoc',function(){
 	return view('apidoc.apidocs');
 });
@@ -81,7 +83,6 @@ Route::get('apioverview',function(){
 Route::get('javadocs', function(){
  	return view('pages.javadocs');
  });
-
 Route::get('documentation',function(){
  	return view('documentation');
  });
@@ -89,12 +90,11 @@ Route::get('faq', function () {
 	 return view('faq');
 });
 
-
 Route::get('runjava', function () {
 	echo shell_exec('cat tees.txt');
 	//exec('bash -c "exec nohup setsid java test > /dev/null 2>&1 &"');
 });
-
+ 
 Route::resource('admin/quote', 'QuoteController', ['except' => [
     'show', 'edit'
 ],
@@ -103,7 +103,9 @@ Route::resource('admin/quote', 'QuoteController', ['except' => [
 ]
 ]);
 
-Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'QuoteController@testing']);
+Route::get('admin/getQuotes', ['as' => 'admin.getquotes', 'uses' => 'CRUDController@search']);
+Route::get('admin/addQuotes', ['as' => 'admin.addquotes', 'uses' => 'CRUDController@create']);
+Route::get('admin/deleteQuotes', ['as' => 'admin.deletequotes', 'uses' => 'CRUDController@destroy']);
 
 Route::get('admin/testing', function(){
 	return view('admin.refresh');
@@ -153,7 +155,7 @@ Route::resource('admin/CRUD', 'CRUDController', ['except' => [
 ]]);
 
 Route::auth();
-
+Route::get('admin/updateStat', 'CRUDController@updateTotalQuotes');
 Route::get('admin/dashboard', 'DashboardController@index');
 
 

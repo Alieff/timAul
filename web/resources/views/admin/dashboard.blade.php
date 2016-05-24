@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,14 +47,12 @@
         .center{
             text-align: center;
         }
-
         .log{
             color: white;
             background-color: grey;
             overflow-y: scroll; 
             height: 250px;
         }
-
         .crawler{
             color: white;
             background-color: grey;
@@ -69,7 +67,6 @@
         var interval = null;
         var dots = 0;
         var intervalLog = null;
-
         function dotAddition() {
             console.log(dots);
             if(dots < 10) {
@@ -81,7 +78,6 @@
                 dots = 0;
             }
         }
-
         function getLog() { 
             $.ajaxSetup({
                     headers: {
@@ -92,9 +88,7 @@
                 var formData = {
                     request: "log"
                 };
-
                 var my_url = 'http://localhost/timAul/web/public/admin/getLog';
-
                 $.ajax({
                     type: type,
                     url: my_url,
@@ -105,7 +99,6 @@
                         
                         console.log(data);
                         $('.log').append(data["isi"]);
-
                         var logScroll    = $('#log');
                         var height = logScroll[0].scrollHeight;
                         logScroll.scrollTop(height);
@@ -115,7 +108,6 @@
                     }
                 });
         }
-
         function autoLoad() {
                 $.ajaxSetup({
                     headers: {
@@ -126,9 +118,7 @@
                 var formData = {
                     request: "status"
                 };
-
                 var my_url = 'http://localhost/timAul/web/public/admin/getCrawlerStatus';
-
                 $.ajax({
                     type: type,
                     url: my_url,
@@ -160,11 +150,9 @@
                     }
                 });
         }
-
         setInterval(function(){
             autoLoad() // this will run after every 5 seconds
         }, 5000);   
-
         $('#playCrawler').click(function(e){
              $.ajaxSetup({
                 headers: {
@@ -175,9 +163,7 @@
             var formData = {
                 play: "Yeah"
             };
-
             var my_url = 'http://localhost/timAul/web/public/admin/playCrawler';
-
             $.ajax({
                 type: type,
                 url: my_url,
@@ -193,7 +179,6 @@
                 }
             });
         });
-
         $('#stopCrawler').click(function(e){
              $.ajaxSetup({
                 headers: {
@@ -204,9 +189,7 @@
             var formData = {
                 stop: "Yeah"
             };
-
             var my_url = 'http://localhost/timAul/web/public/admin/stopCrawler';
-
             $.ajax({
                 type: type,
                 url: my_url,
@@ -224,7 +207,6 @@
                 }
             });
         });
-
     });
     </script>
     

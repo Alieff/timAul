@@ -17,8 +17,16 @@ Route::get('/', function () {
 
 Route::auth();
 
+<<<<<<< HEAD:InspWeb/app/Http/routes.php
+Route::get('documentation', function () {
+    return view('documentation');
+});
+Route::get('api', function () {
+    return view('api');
+=======
 Route::get('/home', 'HomeController@index');
 Route::get('admin/dashboard', 'DashboardController@index');
 Route::get('admin/admindash', function () {
 		return view('admin.admindash');
+>>>>>>> c5144c80a5d555a61c77fcfbbf6a06848cdce4bf:authen/app/Http/routes.php
 });
