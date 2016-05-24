@@ -8,14 +8,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="logo" class="navbar-brand" href="#">InspireCrawler</a>
+            <a id="logo" class="navbar-brand" href="home">InspireCrawler</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul id="test" class="nav navbar-nav navbar-right">
                 <li class=@yield('homeact')><a href="home">Home</a></li>
                 <li class=@yield('aboutact')><a href="about">About</a></li>
-                <li class=@yield('documentationact')><a href="documentation">API</a></li> 
+                <li class=@yield('docact')><a href="documentation">API</a></li> 
                 <li class=@yield('contactact') ><a href="contact">Contact</a></li>
                 <li class=@yield('faqact') ><a href="faq">FAQ</a></li>
             </ul>

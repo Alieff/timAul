@@ -26,16 +26,15 @@ class CRUDController extends Controller
         ]);
     }
 
-     public function indexAdd(Request $request)
-    {   
-        return view('admin.addQuote',[]);
-    }
-
-
+	 public function indexAdd(Request $request)
+	{   
+		return view('admin.addQuote',[]);
+	}
+	
     /**
-    *   BUAT REFERENSI AUL
+    *   Fungsi untuk Search
     */
-    public function testing(Request $request){
+    public function search(Request $request){
 
         $sortSearch = $request->sort;
         $sortBySearch = $request->sortby;
@@ -66,7 +65,6 @@ class CRUDController extends Controller
             //$whereQuery['author'] = $request->author;
         }
 
-
         if ($request->has('quote')) {
             $ternyataKosong = FALSE;
 
@@ -74,7 +72,6 @@ class CRUDController extends Controller
             $quote = $request->quote;
            // $whereQuery['quote'] = $request->quote;
         }
-
 
         if ($request->has('source')) {
             $ternyataKosong = FALSE;
@@ -86,25 +83,24 @@ class CRUDController extends Controller
 
         $quotes = [];
         if($ternyataKosong){
-            echo "masuk ga aaasa ini?";   
+            //echo "masuk ga aaasa ini?";   
             $quotes =  Quotes::orderBy("$sortSearch","$sortBySearch")->paginate(15);
         }
 
         else{
             if($authorThere){
-                echo "masuk ga ini?";   
+                //echo "masuk ga ini?";   
                 $quotes = Quotes::where('author', 'like', "%$author%");
                 if($quoteThere){
                     $quotes = $quotes->where('quote', 'like', "%$quote%");
                 }
-
                 if($sourceThere){
                     $quotes = $quotes->where('source', 'like' , "$source%");
                 }
             }
             
             else if ($quoteThere) {
-                echo "masuk quote";
+                //echo "masuk quote";
                 $quotes = Quotes::where('quote', 'like', "%$quote%");
                    if($sourceThere){
                         $quotes = $quotes->where('source', 'like' , "$source%");
@@ -112,7 +108,7 @@ class CRUDController extends Controller
                 }
 
             else {
-                    echo "masa ini ga masuk?";
+                    //echo "masa ini ga masuk?";
                     $quotes = Quotes::where('source', 'like' , "$source%");
                 }
             $quotes->orderBy("$sortSearch","$sortBySearch");
@@ -120,6 +116,10 @@ class CRUDController extends Controller
         }
 
         $quotes->appends(\Input::except('page'))->links();
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
         return view('admin.CRUD',[
                 'quotes' => $quotes
         ]);
@@ -144,6 +144,7 @@ class CRUDController extends Controller
     public function create(Request $request)
     {
         $quote = new Quotes;
+<<<<<<< HEAD
         $quote->quote = $request->quote;
         $quote->author = $request->author;
         $quote->category = $request->category;
@@ -151,7 +152,18 @@ class CRUDController extends Controller
         $quote->source = $request->source;
         $quote->save();
         return redirect('admin/updateStat');
+=======
+		$quote->quote = $request->quote;
+		$quote->author = $request->author;
+		$quote->category = $request->category;
+		$quote->language = $request->language;
+		$quote->source = $request->source;
+		$quote->save();
+		\Session::flash('flash_message','Quote successfully added.');
+		return redirect('admin/AddQuote');
+>>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -203,9 +215,12 @@ class CRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $quotes = Quotes::findOrFail($request->_id);
+		$quotes->delete();
+		
+		return redirect('admin/CRUD');
     }
 
   

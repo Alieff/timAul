@@ -5,16 +5,17 @@
 @section('bodycontent')
 
 <img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
-<div style="text-align:center;padding-bottom:50px;height: 350px" class="jumbotron headline">
-<div class="col-lg-8 col-lg-offset-2">
+<div class="jumbotron headline">
+<div class="col-lg-8 col-lg-offset-2" class="jumbotron">
       <h2 id="main-heading">INSPIRE CRAWLER</h2>
       <p>
       <?php echo public_path();  ?>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed sem augue. Sed eleifend diam eget lorem dictum varius. Morbi id nisi eu erat congue tempor. Nulla urna ipsum, lacinia in vestibulum at, laoreet eget mauris. Nam viverra convallis odio, nec egestas nisi vestibulum eu.
       </p>
       <div class="row" style="padding-top: 25px">
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
-      <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div> 
+
+        <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="apioverview" class="btn btn-success">Use Our API</a></div>
+        <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2"><a href="documentation" class="btn btn-success">Find Out More</a></div>
       </div>
 </div>
 </div>

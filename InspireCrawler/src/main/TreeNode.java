@@ -1,3 +1,4 @@
+/** License not specified yet**/
 package main;
 
 import java.util.ArrayList;
@@ -5,16 +6,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * TreeNode is used to visualize the tree on the Parse Tree. It's used to find the 2nd constituent (NP,VP or other thing)
+ * <p>TreeNode is used to visualize the tree on the Parse Tree. 
+ *     It's used to find the 2nd constituent (NP,VP or other thing)</p>
  * @author alief refactored by haryoaw
  * @version 19-04-2016
  */
 public class TreeNode {
-	private String label;
-	private String value;
-	private TreeNode parent;
-	private ArrayList<TreeNode> childs = new ArrayList<>();
-	private int level = -1;
+  private String label;
+  private String value;
+  private TreeNode parent;
+  private ArrayList<TreeNode> childs = new ArrayList<>();
+  private int level = -1;
 
     /**
      * add new node to the tree
@@ -26,17 +28,17 @@ public class TreeNode {
 		return node;
 	}
 
-    /**
-     * Construct the tree with the given Parse Tree
-     * @param parseTree given parse tree with JSON format
-     */
-	public void construct(String parseTree) {
-		// contoh input (ROOT\n  (NP (NNP Privacy) (NNP Policy)))
-		String tag = "";
-		TreeNode head = this;
+  /**
+   * Construct the tree with the given Parse Tree
+   * @param parseTree given parse tree with JSON format
+   */
+  public void construct(String parseTree) {
+    // contoh input (ROOT\n  (NP (NNP Privacy) (NNP Policy)))
+    String tag = "";
+    TreeNode head = this;
 
-		for (int i = 0; i < parseTree.length(); i++) {
-			char currentChar = parseTree.charAt(i);
+    for (int i = 0; i < parseTree.length(); i++) {
+      char currentChar = parseTree.charAt(i);
 
 			if (currentChar == '(') {
 				TreeNode node = head.addNode();
@@ -61,10 +63,10 @@ public class TreeNode {
 			}
 		}
 
-	}
 
     /**
      * Do level order and print the result
+     * @deprecated
      */
 	public void doLevelOrder() {
 		Queue queue = new LinkedList<TreeNode>();
@@ -77,7 +79,7 @@ public class TreeNode {
 //			System.out.println(thisNode);
 		}
 	}
-
+	
     /**
      * Get the node on level 2 tree
      * @return the value of node on lv 2.
