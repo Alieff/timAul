@@ -157,3 +157,12 @@ Route::resource('admin/CRUD', 'CRUDController', ['except' => [
 Route::auth();
 
 Route::get('admin/dashboard', 'DashboardController@index');
+
+
+Route::get('setting', 
+  ['as' => 'admin.setting', 'uses' => 'SettingController@readConfig']
+);
+
+Route::post('setting', 
+  ['as' => 'setting_store', 'uses' => 'SettingController@store']
+);

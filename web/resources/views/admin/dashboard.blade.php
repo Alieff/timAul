@@ -364,9 +364,9 @@
                             <i class="fa fa-cogs fa-fw"></i> Crawler Controller
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs">
+                                    <a href="setting" class="btn btn-default btn-xs">
                                         Settings
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
