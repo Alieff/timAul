@@ -157,10 +157,10 @@ Route::auth();
 Route::get('admin/dashboard', 'DashboardController@index');
 
 
-Route::get('setting', 
+Route::get('admin/setting', 
   ['as' => 'admin.setting', 'uses' => 'SettingController@readConfig']
 );
 
-Route::post('setting', 
+Route::post('admin/setting', 
   ['as' => 'setting_store', 'uses' => 'SettingController@store']
 );
