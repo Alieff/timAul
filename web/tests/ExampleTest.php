@@ -145,7 +145,6 @@ class ExampleTest extends TestCase
              ->see('The name field is required.')
              ->dontSee('The email field is required.')
              ->dontSee('The message field is required.');
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
     }
 
     public function testAddQuotePage()
@@ -220,7 +219,6 @@ class ExampleTest extends TestCase
              ->see($user->name)
              ->see('Settings Crawler');
     }
->>>>>>> 6429b31c04b6b367d384251945e7fa1d66faa915
 
     // public function testUseOurAPILink()
     // {

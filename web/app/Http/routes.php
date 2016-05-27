@@ -18,19 +18,13 @@ Route::get('/', function () {
 	return view('home');
 });
 
-Route::get('contact', 'ContactController@getContact');
+Route::get('contact',
+  ['as' => 'contact', 'uses' => 'ContactController@create']
+);
 
-Route::post('contact_request','ContactController@getContactUsForm');
-
-	Route::get('contact',
-	  ['as' => 'contact', 'uses' => 'ContactController@create']
-	);
-
-	Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@create'));
-
-	Route::post('contact',
-	  ['as' => 'contact_store', 'uses' => 'ContactController@store']
-	);
+Route::post('contact',
+  ['as' => 'contact_store', 'uses' => 'ContactController@store']
+);
 
 Route::get('mail', function () {
   return view('test');
