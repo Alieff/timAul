@@ -1,4 +1,9 @@
 @extends('layouts.page')
+@section('contactact')
+'active'
+@endsection
+@section('bodycontent')
+<img style="width:100%" src="../resources/assets/images/landing.jpg" class="img-responsive" alt="Responsive image">
 @section('contact_storetact')
 'active'
 @endsection
@@ -9,8 +14,22 @@
   <div class="row">
     <div class="col-md-6 .col-xs-6">
       <h2>Ask Us Anything</h2>
+		
+		{!! Form:: open(array('url' => 'contact_request')) !!}
 
+		  <label for="name" class="sr-only">Name</label>
+		  <input type="text" id="name" class="form-control" placeholder="Name" required autofocus>
 
+		  <label for="email" class="sr-only">Email address</label>
+		  <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+
+		  <label for="message" class="sr-only">Message</label>
+		  <textarea id="message" class="form-control" placeholder="Message" required></textarea>
+
+		  <button class="btn btn-primary" type="submit">Submit</button>
+
+		{!! Form::close() !!} 
+		
       @if(Session::has('message'))
         <div class="alert alert-info">
           {{Session::get('message')}}

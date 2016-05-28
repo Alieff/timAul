@@ -4,7 +4,7 @@
         &copy; Copyright - TimAul 2016
         </span>
     </div>
-    <span style="float: right" >
+	<span style="float: right" >
         <a href="#"><i class="fa fa-facebook"></i></a>
         <a href="#"><i class="fa fa-twitter"></i></a>
         <a href="#"><i class="fa fa-linkedin"></i></a>

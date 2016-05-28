@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Quotes;
+use App\Statistic;
 use Illuminate\Http\Request;
 use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class JsonController extends Controller
 {
@@ -231,4 +233,13 @@ class JsonController extends Controller
 			 return Response::json($response, $statusCode);
 		 }
 	 }
+
+	 public function updateTotalQuotes(){
+	 	$totalQuote = Quotes::count();
+
+	 	$stat = new Statistic;
+	 	$stat->total = $totalQuote;
+
+	 }
+
 }

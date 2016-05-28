@@ -1,5 +1,5 @@
 @extends('layouts.page')
-@section('termact')
+@section('docact')
 'active'
 @endsection
 @section('bodycontent')
