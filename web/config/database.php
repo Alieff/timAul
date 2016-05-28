@@ -27,7 +27,7 @@ return [
     */
 
     //'default' => env('DB_CONNECTION', 'mongodb'),
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql2'),
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -62,6 +62,19 @@ return [
                 'charset' => 'utf8',
                 'prefix' => '',
         ],
+
+                'mysql2' => [
+                'driver' => 'mysql',
+                'host' => env('DB_HOST', 'sandbox.badr.co.id'),
+                'database' => env('DB_DATABASE', 'ppl1_auth'),
+                'username' => env('DB_USERNAME', 'ppl1'),
+                'password' => env('DB_PASSWORD', 'password123'),
+                'collation' => 'utf8_unicode_ci',
+                'charset' => 'utf8',
+                'prefix' => '',
+        ],
+
+
 			/*
 		'mongodb' => [
 			'driver'   => 'mongodb',
