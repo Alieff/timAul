@@ -8,43 +8,18 @@ class ExampleTest extends TestCase
 {
     use DatabaseTransactions;
 
-    // HOMEPAGE
+    //HOMEPAGE
     public function testDisplayHome()
     {
         $this->visit('/')
              ->see('INSPIRE CRAWLER');
     }
-
-    public function testUseOurAPILink()
-    {
-        $this->visit('/')
-             ->click('Use Our API')
-             ->seePageIs('apioverview');
-    }
-
-    public function testFindOutMoreLink()
-    {
-        $this->visit('/')
-             ->click('Find Out More')
-             ->seePageIs('documentation');
-    }
-
-
-    // ABOUT PAGE
-    public function testDisplayAbout()
-    {
-        $this->visit('about')
-             ->see('About API');
-    }
-
-
-    // DOCUMENTATION
-    public function testDisplayDocumentation()
-    {
-        $this->visit('documentation')
-             ->see('Inilah dokumentasi yang dapat membantu Anda untuk menggunakan API kami. Terdapat beberapa penjelasan dari tiap bagian yang ada.');
-    }
-
+     // ABOUT PAGE
+     public function testDisplayAbout()
+     {
+         $this->visit('about')
+              ->see('About API');
+     }
 
     // API OVERVIEW
     public function testDisplayAPIOverview()
@@ -70,24 +45,28 @@ class ExampleTest extends TestCase
     }
 
 
-    // CONTACT
-    public function testDisplayContact()
-    {
-        $this->visit('contact')
-             ->see('Ask us Anything');
-    }
+    // // FAQ
+    public function testDisplayFAQ()
+     {
+         $this->visit('faq')
+              ->see('You have Questions');
+     }    
 
     public function testContactFormSuccess()
     {
-        $this->visit('contact')
-             ->type('Taylor', 'name')
-             ->type('Taylor@gmail.com', 'email')
-             ->type('I am testing you', 'message')
-             ->press('Submit')
-             ->seePageIs('contact')
-             ->see('Thanks for contacting us!');
+        $this->visit('admin/dashboard')
+             ->see('login')
+             ->dontSee('statistic');
     }
 
+    public function testAuthenticatedAccess()
+    {  
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user)
+             ->withSession(['name' => 'ADMIN'])
+             ->visit('admin/dashboard')
+             ->see($user->name)
+             ->see('Dashboard');
     public function testContactFormJustName()
     {
         $this->visit('contact')
@@ -168,9 +147,12 @@ class ExampleTest extends TestCase
              ->dontSee('The message field is required.');
     }
 
-    // FAQ
-    public function testDisplayFAQ()
+    public function testAddQuotePage()
     {
+        $this->visit('admin/AddQuote')
+             ->see('Add Quote');
+    }
+
         $this->visit('faq')
              ->see('You have Questions');
     }   
@@ -238,4 +220,42 @@ class ExampleTest extends TestCase
              ->see('Settings Crawler');
     }
 
+    // public function testUseOurAPILink()
+    // {
+    //     $this->visit('/')
+    //          ->click('Use Our API')
+    //          ->seePageIs('apioverview');
+    // }
+    // public function testFindOutMoreLink()
+    // {
+    //     $this->visit('/')
+    //          ->click('Find Out More')
+    //          ->seePageIs('documentation');
+    // }
+
+      // // CONTACT
+    // public function testDisplayContact()
+    // {
+    //     $this->visit('contact')
+    //          ->see('Ask us Anything');
+    // }
+
+    // public function testContactForm()
+    // {
+    //     $this->visit('contact')
+    //          ->type('Taylor', 'name')
+    //          ->type('Taylor@gmail.com', 'email')
+    //          ->type('I am testing you', 'message')
+    //          ->press('Submit')
+    //          ->seePageIs('contact')
+    //          ->see('Thanks for contacting us!');
+    // }
+
+       // DOCUMENTATION
+    // public function testDisplayDocumentation()
+    // {
+    //     $this->visit('documentation')
+    //          ->see('Inilah dokumentasi yang dapat membantu Anda untuk menggunakan API kami. Terdapat beberapa penjelasan dari tiap bagian yang ada.');
+    // }
 }
+

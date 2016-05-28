@@ -40,7 +40,7 @@ public class SentenceTagger {
     /**
      *  Set several model and properties for parsing the data and do NER
      */
-    public SentenceTagger(){
+    public SentenceTagger() {
         classifier = CRFClassifier.getClassifierNoExceptions(serializedClassifier);
         this.props =  new Properties();
         loadModels();
@@ -53,20 +53,20 @@ public class SentenceTagger {
      * @param sentences beberapa kalimat yang ingin ditag
      * @return kata sudah tertag
      */
-    public String addNer(String sentences){
+    public String addNer(String sentences) {
         List<List<CoreLabel>> out = classifier.classify(sentences);
         String wordReturned = "";
         final Pattern FILTERS = Pattern.compile("(}|\\\\|n't|'re|’re|n’t|’m|’s|'s|’ve|’ll|'ll|'ve|'m|VP|NP|S|\\.|,)");
 
-        for (List<CoreLabel> sentence : out){
+        for (List<CoreLabel> sentence : out) {
             for(int i = 0; i < sentence.size(); i++) {
                 CoreLabel word = sentence.get(i);
 
                 String tagNer = word.get(CoreAnnotations.AnswerAnnotation.class);
-                if (tagNer.equalsIgnoreCase("PERSON"))
-                    wordReturned += word.originalText() + '/' + tagNer; //Hanya untuk /PERSON
-                else
-                    wordReturned += word.originalText();
+                wordReturned += word.originalText();
+                if (tagNer.equalsIgnoreCase("PERSON")) {
+                    wordReturned += '/' + tagNer; //Hanya untuk /PERSON
+                }
 
                 //Klo berikutnya bukan {, \\ n't, 'm pake spasi
                 if(i < sentence.size()-1) {
@@ -82,14 +82,7 @@ public class SentenceTagger {
     }
 
 
-    /**
-     * Load semua model yang diperlukan
-     */
-    private void loadModels(){
-        this.props.setProperty("ner.useSUTime","0");
-        this.props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
-        this.props.put("pos.model", "model/english-left3words-distsim.tagger");
-    }
+
 
     /**
      * Parse the sentences
@@ -103,7 +96,7 @@ public class SentenceTagger {
         String result = "";
 
         // loop
-        for(int ii = 0 ; ii < partOfSentences.length ; ii++){
+        for(int ii = 0 ; ii < partOfSentences.length ; ii++) {
             sentences = partOfSentences[ii];
             String temp = identify(sentences);
             result += temp;
@@ -113,19 +106,49 @@ public class SentenceTagger {
         return result;
     }
 
+
+    /**
+     * Tag the text with structural Tag and PERSON.
+     *
+     * @param textDariWebsite teks yang berasal dari website
+     * @return teks yang sudah di tag
+     */
+    public String doTag(String textDariWebsite) {
+        String[] splitter = textDariWebsite.split("\n");
+
+
+        String textWithTag = "";
+        for(int i = 0; i < splitter.length; i++) {
+            String hasilNer = addNer(splitter[i]);
+            textWithTag += hasilNer;
+            textWithTag += "\n";
+        }
+
+        return textWithTag;
+    }
+
+    /**
+     * Load semua model yang diperlukan
+     */
+    private void loadModels(){
+        this.props.setProperty("ner.useSUTime","0");
+        this.props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
+        this.props.put("pos.model", "model/english-left3words-distsim.tagger");
+    }
+
     /**
      * Parse the phrase
      * @param sentences the phrase
      * @return phrase that is known by its label
      */
-    private String identify(String sentences){
+    private String identify(String sentences) {
 
         String result = "";
         Annotation annotation = new Annotation(sentences);
 
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
-        try{
+        try {
 
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(TEMPFILENAME));
@@ -142,10 +165,10 @@ public class SentenceTagger {
             }
             result += "\n";
 
-        }catch(IOException e){
+        } catch(IOException e) {
             System.out.println("IO Error");
             e.printStackTrace();
-        }catch(ParseException e){
+        } catch(ParseException e) {
             System.out.println("Error on parse");
             e.printStackTrace();
         }

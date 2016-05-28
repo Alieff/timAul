@@ -1,6 +1,7 @@
 <?php 
 namespace App\Custom;
  
+// Custom made class for Setting Crawler
 class CrawlerConfig{
  
     private $pageNumber, $crawlDepth, $proxy, $isResumable, $web;

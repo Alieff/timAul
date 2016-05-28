@@ -66,4 +66,64 @@ public class QuoteFilterTest {
         //Expected zero
         assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
     }
+
+    @Test
+    public void getListQuoteTC3() throws Exception {
+        String website = "ngaco.com";
+        String tc1Text = "\"See that star\" -John";
+
+        Quote quote = new Quote("See that star", "John", website);
+        List<Quote> listtc1 = new ArrayList<>();
+        listtc1.add(quote);
+
+        assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
+    }
+
+    @Test
+    public void getListQuoteTC4() throws Exception {
+        String website = "ngaco.com";
+        String tc1Text = "\"QuoteQuoteQuoteQuoteQuote\" \n" +
+                "- Haryo/PERSON";
+        Quote quote = new Quote("QuoteQuoteQuoteQuoteQuote", "Haryo", website);
+
+        List<Quote> listtc1 = new ArrayList<>();
+        listtc1.add(quote);
+
+        assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
+    }
+
+    @Test
+    public void getListQuoteTC5() throws Exception {
+        String website = "ngaco.com";
+        String tc1Text = "\"\" - Haryo/PERSON";
+
+        List<Quote> listtc1 = new ArrayList<>();
+
+        //Expected zero
+        assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
+    }
+
+    @Test
+    public void getListQuoteTC6() throws Exception {
+        String website = "ngaco.com";
+        String tc1Text = "\"Anu\" /PERSON";
+
+        List<Quote> listtc1 = new ArrayList<>();
+
+        //Expected zero
+        assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
+    }
+
+    @Test
+    public void getListQuoteTC7() throws Exception {
+        String website = "ngaco.com";
+        String tc1Text = "QuoteQuoteQuoteQuoteQuote \n" +
+                "- Haryo/PERSON";
+        Quote quote = new Quote("QuoteQuoteQuoteQuoteQuote", "Haryo", website);
+
+        List<Quote> listtc1 = new ArrayList<>();
+        listtc1.add(quote);
+
+        assertEquals(listtc1,quoteFilter.getListQuote(tc1Text,website));
+    }
 }

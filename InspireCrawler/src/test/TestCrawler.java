@@ -103,7 +103,7 @@ public class TestCrawler extends WebCrawler {
                 Quote tempQuote = listQuote.get(i);
                 //System.out.println("Masuk " + tempQuote.getAuthor());
                 database.putData(tempQuote);
-                logCrawl.getLogFile(tempQuote);
+                logCrawl.printLog(tempQuote);
 
 
                 System.out.println("The crawler is still running...CTRL + C to STOP");

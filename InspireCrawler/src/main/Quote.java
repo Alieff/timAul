@@ -197,4 +197,14 @@ public class Quote {
         }
         return false;
     }
+
+    public String toString(){
+        return "id = " + this.ID
+                + " quote = " + this.quote
+                + " author = " + this.author
+                + " category = " + this.category
+                + " source = " + this.source
+                + " ismanual = " + this.isManual
+                + " language = " + this.language;
+    }
 }

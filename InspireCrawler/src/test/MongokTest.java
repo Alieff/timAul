@@ -17,12 +17,12 @@ import static java.util.Arrays.asList;
 
 public class MongokTest {
     public static void main(String argv[]) throws Exception{
-        MongoClient mongoClient = new MongoClient("localhost",27017);
-        MongoDatabase db = mongoClient.getDatabase("kucing");
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+            MongoClient mongoClient = new MongoClient("localhost",27017);
+            MongoDatabase db = mongoClient.getDatabase("kucing");
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
 
-        db.getCollection("hehe").insertOne(
-                new Document("address",
+            db.getCollection("hehe").insertOne(
+                    new Document("address",
                         new Document()
                             .append("street","2 Avenue"))
                 .append("nama","gege")

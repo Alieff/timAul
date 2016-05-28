@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="../../node_modules/chart.js/dist/Chart.js"></script>
     <script src="../../node_modules/chart.js/dist/Chart.min.js"></script>
     <title>Admin Inspire Crawler</title>
@@ -18,7 +19,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom CSS -->
+
     <link href="../../resources/assets/css/admin.css" rel="stylesheet">
+
 
     <!-- Morris Charts CSS -->
     <link href="../../resources/assets/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -44,19 +47,177 @@
         .center{
             text-align: center;
         }
-
         .log{
             color: white;
             background-color: grey;
             overflow-y: scroll; 
             height: 250px;
         }
-
         .crawler{
             color: white;
             background-color: grey;
         }
     </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var isRunning = false;
+        var interval = null;
+        var dots = 0;
+        var intervalLog = null;
+        function dotAddition() {
+            console.log(dots);
+            if(dots < 10) {
+                $('#dots').append('.');
+                console.log("masok");
+                dots++;
+            } else {
+                $('#dots').html('');
+                dots = 0;
+            }
+        }
+        function getLog() { 
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                })
+                var type = "POST";
+                var formData = {
+                    request: "log"
+                };
+                var my_url = 'http://localhost/timAul/web/public/admin/getLog';
+                $.ajax({
+                    type: type,
+                    url: my_url,
+                    data: formData,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log("BERHASILLL");
+                        
+                        console.log(data);
+                        $('.log').append(data["isi"]);
+                        var logScroll    = $('#log');
+                        var height = logScroll[0].scrollHeight;
+                        logScroll.scrollTop(height);
+                    },
+                    error: function(data) {
+                        console.log('Error!!!')
+                    }
+                });
+        }
+        function autoLoad() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                })
+                var type = "POST";
+                var formData = {
+                    request: "status"
+                };
+                var my_url = 'http://localhost/timAul/web/public/admin/getCrawlerStatus';
+                $.ajax({
+                    type: type,
+                    url: my_url,
+                    data: formData,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log("BERHASILLL");
+                        
+                        console.log(data);
+                        console.log(data);
+                        console.log(data["status"]);
+                        if(data["status"] == "OK"){
+                            if(!isRunning) {
+                                interval = setInterval(dotAddition,1000);
+                                console.log("masuk");
+                                $('#statusLog').html('Crawler is Running');
+                                isRunning = true;
+                            }
+                        } else {
+                            if (interval != null) {
+                                clearInterval(interval);
+                                $('#statusLog').html('Crawler is Stopped!');
+                                $('#dots').html('');
+                            }
+                        }
+                    },
+                    error: function(data) {
+                        console.log('Error!!!')
+                    }
+                });
+        }
+        setInterval(function(){
+            autoLoad() // this will run after every 5 seconds
+        }, 5000);   
+        $('#playCrawler').click(function(e){
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+            var type = "POST";
+            var formData = {
+                play: "Yeah"
+            };
+            var my_url = 'http://localhost/timAul/web/public/admin/playCrawler';
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("BERHASILLL");
+                    console.log(isRunning);
+                    intervalLog = setInterval(getLog, 6000);
+                },
+                error: function(data) {
+                    console.log('Error!!!')
+                }
+            });
+        });
+        $('#stopCrawler').click(function(e){
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+            var type = "POST";
+            var formData = {
+                stop: "Yeah"
+            };
+            var my_url = 'http://localhost/timAul/web/public/admin/stopCrawler';
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("BERHASILLL");
+                     isRunning = false;
+                     $('#statusLog').html('Crawler will be stopped');
+                     console.log(isRunning);
+                     clearInterval(intervalLog);
+                },
+                error: function(data) {
+                    console.log('Error!!!')
+                }
+            });
+        });
+    });
+    </script>
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
@@ -102,7 +263,7 @@
                             <a href="dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="crud"><i class="fa fa-table fa-fw"></i> CRUD</a>
+                            <a href="CRUD"><i class="fa fa-table fa-fw"></i> CRUD</a>
                         </li>
                     </ul>
                 </div>
@@ -213,72 +374,24 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12 center">
-                                    <button><i class="fa fa-play-circle fa-fw fa-4x"></i></button>
-                                    <button href="#"><i class="fa fa-stop-circle fa-fw fa-4x"></i></button>
+                                    <button id = "playCrawler"><i class="fa fa-play-circle fa-fw fa-4x"></i></button>
+                                    <button id = "stopCrawler"><i class="fa fa-stop-circle fa-fw fa-4x"></i></button>
                                 </div>
                             </div>
                             <br/>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="panel panel-default">
-                                        <div class="panel-body crawler">
-                                            crawling is running....
+                                        <div id="statusCrawl" class="panel-body crawler">
+                                            <span id="statusLog">Crawler is Stopped!</span><span id="dots"></span>
                                         </div>
                                     </div>
                                     <br>
 
                                     <span class="center">Crawler's Log</span>
                                     <div class="panel panel-default">
-                                        <div class="panel-body log">
-                                            crawling....
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
-                                            <br>
-                                            Quote : "If there's a will there's a way"
-                                            Author : John Doe
-                                            Source : www.getfreequotes.com
+                                        <div id="log" class="panel-body log">
+
                                         </div>
                                         <!-- /.panel-body -->
                                     </div>
