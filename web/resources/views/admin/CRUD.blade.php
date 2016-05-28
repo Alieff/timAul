@@ -252,7 +252,11 @@
                                             <td>
                                                 <!--  HOW TO GET QUOTE ID: $quote->_id -->
 
-                                                {!! Form::button('<i class="glyphicon glyphicon-pencil"></i>', array('type' => 'submit')) !!}
+                                                   <!-- <a class="glyphicon glyphicon-pencil" href="{{ URL::to('admin/CRUD/' . $quote->id . '/edit') }}"></a> -->
+
+                                                   {!! Form::open(array('route' => ['admin.edit',$quote->_id], 'class' => 'form-horizontal', 'method' => 'get')) !!} 
+                                                    {!! Form::button('<i class="glyphicon glyphicon-pencil"></i>', array('type' => 'submit')) !!} {!! Form::close() !!}
+
 
                                                 <script>
                                                     function ConfirmDelete() {
