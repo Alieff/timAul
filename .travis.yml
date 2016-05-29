@@ -23,6 +23,7 @@ services:
   - redis-server
 
 before_install:
+  - pwd
   - travis_retry composer self-update
 
 install:
