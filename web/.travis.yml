@@ -1,0 +1,36 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+  - nightly
+
+env:
+  global:
+    - setup=basic
+
+matrix:
+  include:
+    - php: 5.5
+      env: setup=lowest
+    - php: 5.5
+      env: setup=stable
+
+sudo: false
+
+services:
+  - redis-server
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
+  - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
+  - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable; fi
+  - ./bin/ci/install_dependencies.sh
+  - php vendor/vendors.php
+
+script: vendor/bin/phpunit
