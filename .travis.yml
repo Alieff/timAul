@@ -8,7 +8,7 @@ php:
 env:
   global:
     - setup=basic
-    - HOME=/web
+    - HOME=$HOME/web
 
 matrix:
   include:
@@ -23,8 +23,9 @@ services:
   - redis-server
 
 before_install:
+  - pwd
   - echo $HOME
-  - php /home/travis/.phpenv/versions/5.3.26/bin/composer.phar self-update
+  - composer self-update
 
 install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
