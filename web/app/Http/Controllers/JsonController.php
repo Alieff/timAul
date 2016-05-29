@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Quotes;
+use App\Statistic;
 use Illuminate\Http\Request;
 use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class JsonController extends Controller
 {
@@ -47,13 +49,16 @@ class JsonController extends Controller
 				throw Exception;
 			}
 			
+			$anu = Quotes::all();
+
 			for($i=$jumlah; $i > 0; $i=$i-1){
 				$randQuote = rand(1,$totalQuote);
 				while(in_array($randQuote, $doneRandom)){
 					$randQuote = rand(1,$totalQuote);
 				}
 				
-				$quotes = Quotes::find($randQuote);
+				
+				$quotes = $anu[$randQuote];
 				
 				array_push($doneRandom,$randQuote);
 				array_push($response,$quotes);
@@ -63,6 +68,7 @@ class JsonController extends Controller
 		 }
 		 catch (Exception $e){
 			 $statusCode = 404;
+			 echo "ttt";
 			 $response = "error coy";
 		 }
 		 finally{
@@ -227,4 +233,13 @@ class JsonController extends Controller
 			 return Response::json($response, $statusCode);
 		 }
 	 }
+
+	 public function updateTotalQuotes(){
+	 	$totalQuote = Quotes::count();
+
+	 	$stat = new Statistic;
+	 	$stat->total = $totalQuote;
+
+	 }
+
 }
