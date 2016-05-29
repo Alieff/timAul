@@ -25,7 +25,6 @@
             </ul>
         </div>
         <div id="page-content-wrapper">
-          <!--img style="width:100%" src="..\resources\assets\images\landing.jpg" class="img-responsive" alt="Responsive image"-->
           <div class="col-lg-12" style="text-align: left;padding-left: 20px;padding-right: 20px">
                 <h2 id="namaku">TERM OF USE</h2>
                 <p>
