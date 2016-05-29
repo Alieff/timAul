@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -59,7 +59,7 @@
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+   
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -75,35 +75,39 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation" style="">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a id="logo" class="navbar-brand" href="#">InspireCrawler</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul id="test" class="nav navbar-nav navbar-right">
-                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/help') }}">Help</a></li>
-                    @else
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="logo" class="navbar-brand" href="#">InspireCrawler</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul id="test" class="nav navbar-nav navbar-right">
+                        @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a>
+                        </li>
+                        <li><a href="{{ url('/help') }}">Help</a>
+                        </li>
+                        @else
                         <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                                </ul>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                                </li>
+                            </ul>
                         </li>
-                    @endif
-                </ul>
+                        @endif
+                    </ul>
+                </div>
             </div>
-        </div>            <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -112,7 +116,7 @@
                             <a href="dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> CRUD</a>
+                            <a href="CRUD"><i class="fa fa-table fa-fw"></i> CRUD</a>
                         </li>
                     </ul>
                 </div>
@@ -125,7 +129,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">CRUD Quote</h1>
+                    <h1 class="page-header">Quotes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -134,7 +138,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw">Search</i> 
+                            <i class="fa fa-search" aria-hidden="true">Search</i>
                             <div class="pull-right">
 
                             </div>
@@ -142,68 +146,61 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                        {!! Form::open(array('route' => 'admin.getquotes', 'class' => 'form-horizontal', 'method' => 'get')) !!}
+                                    {!! Form::open(array('route' => 'admin.getquotes', 'class' => 'form-horizontal', 'method' => 'get')) !!}
 
-                                  <div class="form-group">
-                                    <div class ="row">
-                                    <div class="col-lg-12">
-                                      {!! Form::label('Quote',null,array('class' => 'col-sm-2 col-lg-2 control-label')) !!}
-                                      <div class="col-sm-10 col-lg-10">
-                                          {!! Form::text('quote', null, 
-                                              array('class'=>'form-control', 
-                                                    'placeholder'=>'Substring of quote you want to find')) !!}
-                                       </div>
-                                       </div>
-                                       </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('Author',null,array('class' => 'col-sm-2 control-label')) !!}
-                                      <div class="col-sm-10">
-                                      {!! Form::text('author', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Substring of author you want to find')) !!}
-                                      </div>
-
-                                  </div>
-
-
-                                  <div class="form-group">
-                                      {!! Form::label('source',null,array('class' => 'col-sm-2 control-label')) !!}
-                                               <div class="col-sm-10">
-
-                                      {!! Form::text('source', null, 
-                                          array('class'=>'form-control', 
-                                                'placeholder'=>'Substring of source you want to find')) !!}
-                                     </div>
-
-                                  </div>
-
-                                  <div class="form-group">
-                                      {!! Form::label('Sort By',null,array('class' => 'col-sm-2 control-label')) !!}
-                                               <div class="col-sm-10">
-
-                                      {!! Form::select('sort', array('_id' => 'Id', 'quote' => 'Quote','author' => 'Author', 'source' => 'Source'), 'id') !!}
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                {!! Form::label('Quote',null,array('class' => 'col-sm-2 col-lg-2 control-label')) !!}
+                                                <div class="col-sm-10 col-lg-10">
+                                                    {!! Form::text('quote', null, array('class'=>'form-control', 'placeholder'=>'Substring of quote you want to find')) !!}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                      {!! Form::label('with',null,array('class' => 'col-sm-2 control-label')) !!}
-                                               <div class="col-sm-10">
+                                        {!! Form::label('Author',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+                                            {!! Form::text('author', null, array('class'=>'form-control', 'placeholder'=>'Substring of author you want to find')) !!}
+                                        </div>
 
-                                      <p>{!! Form::radio('sortby','asc',true) !!} Ascending</p>
-                                       <p>{!! Form::radio('sortby','desc') !!} Descending</p>
                                     </div>
-                                  </div>
 
-                                  <div class="form-group">
-                                  <div class="col-sm-offset-2 col-sm-10">
-                                      {!! Form::submit('Find', 
-                                        array('class'=>'btn btn-primary')) !!}
-                                        </div>
-                                        </div>
-                                  </div>
 
-                                  {!! Form::close() !!}
+                                    <div class="form-group">
+                                        {!! Form::label('source',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+
+                                            {!! Form::text('source', null, array('class'=>'form-control', 'placeholder'=>'Substring of source you want to find')) !!}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::label('Sort By',null,array('class' => 'col-sm-2 control-label')) !!}
+                                        <div class="col-sm-10">
+
+                                            {!! Form::select('sort', array('_id' => 'Id', 'quote' => 'Quote','author' => 'Author', 'source' => 'Source'), 'id') !!}
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label('with',null,array('class' => 'col-sm-2 control-label')) !!}
+                                            <div class="col-sm-2">
+
+                                                <p>{!! Form::radio('sortby','asc',true) !!} Ascending</p>
+                                                <p>{!! Form::radio('sortby','desc') !!} Descending</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                {!! Form::submit('Find', array('class'=>'btn btn-primary')) !!}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -215,13 +212,18 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           <i class="fa fa-bar-chart-o fa-fw"></i> List of Quotes
-                                <div class="pull-right">
-
-                                </div>
+                            <i class="fa fa-list-alt" aria-hidden="true"></i> Quotes 
                         </div>
                         <div class="panel-body">
-                            <div class="row">
+                <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 text-center">
+                     <a href="AddQuote" class="btn btn-primary">Add Quote</a>
+                </div>
+                </div>
+                <div class="row">
+                <br>
+                    </div>
+                <div class="row">
                                 <div class="col-lg-12 center">
                                     @if( !empty($quotes))
                                     <table cellspacing="0" class="table">
@@ -240,41 +242,36 @@
                                             <td> {{ $quote->quote }}</td>
                                             <td> {{ $quote->author }}</td>
                                             <td> {{ $quote->source }}</td>
-                                            <td> 
-                                                <?php
-                                                    $category = $quote->category; 
-                                                    if($category == null) {
-                                                        echo 'Not set';
-                                                    } else {
-                                                        echo $quote->category;
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td> 
-                                                <?php
-                                                    $isManual = $quote->isManual; 
-                                                    if($isManual == null) {
-                                                        echo 'No';
-                                                    } else {
-                                                        echo $quote->isManual;
-                                                    }
-                                                ?>
+                                            <td>
+                                                <?php $category=$quote->category; if($category == null) { echo 'Not set'; } else { echo $quote->category; } ?>
                                             </td>
                                             <td>
-                                                <div class="col-lg-12 center">
+                                                <?php $isManual=$quote->isManual; if($isManual == null) { echo 'No'; } else { echo $quote->isManual; } ?>
+                                            </td>
+                                            <td>
                                                 <!--  HOW TO GET QUOTE ID: $quote->_id -->
-                                                <a href="#" id="update"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                <a href="#" id="delete"><span class="glyphicon glyphicon-trash"</span></a>
-                                                </div>
-                                             </td>
+
+                                                {!! Form::button('<i class="glyphicon glyphicon-pencil"></i>', array('type' => 'submit')) !!}
+
+                                                <script>
+                                                    function ConfirmDelete() {
+                                                        var x = confirm("Are you sure you want to delete?");
+                                                        if (x)
+                                                            return true;
+                                                        else
+                                                            return false;
+                                                    }
+                                                </script>
+
+                                                {!! Form::open(array('route' => 'admin.deletequotes', 'class' => 'form-horizontal', 'method' => 'get', 'onsubmit' => 'return ConfirmDelete()')) !!} {!! Form::hidden('_id', $quote->_id, ['class' => 'form-control']) !!} {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', array('type' => 'submit')) !!} {!! Form::close() !!}
+
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </table>
 
-                                    {!! $quotes->render() !!}
-                                    @else
-                                    <h1><i>Quote is empty</i></h1>
-                                    @endif
+                                    {!! $quotes->render() !!} @else
+                                    <h1><i>No Such Quote</i></h1> @endif
                                 </div>
                             </div>
                         </div>
@@ -282,10 +279,11 @@
                 </div>
             </div>
         </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
 </body>
+
 </html>
