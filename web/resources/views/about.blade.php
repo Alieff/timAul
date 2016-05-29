@@ -35,8 +35,14 @@
 						<div>Puti</div>
 						<div>Designer</div>
 					</div>
-				</div>		
-				<div class="foto fotoe">
+				</div>													
+			</div>				
+		</div>
+	</div>
+	<div id="team2">
+		<div class="col-lg-10 col-lg-offset-1">			
+			<div>
+				<div class="foto">
 					<a target="_blank" href="#">
 						<img class="img" src="ega.jpg">
 					</a>
@@ -44,8 +50,8 @@
 						<div>Ega</div>
 						<div>Designer</div>
 					</div>
-				</div>			
-				<div class="foto fotoh">
+				</div>
+				<div class="foto fotop">
 					<a target="_blank" href="#">
 						<img class="img" src="haryo.jpg">
 					</a>
@@ -54,7 +60,7 @@
 						<div>Hacker</div>
 					</div>				
 				</div>				
-				<div class="foto fotoa">
+				<div class="foto fotoe">
 					<a target="_blank" href="#">
 						<img class="img" src="alief.jpg">
 					</a>
@@ -63,7 +69,7 @@
 						<div>Hacker</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		</div>	
 	</div>
 </div>

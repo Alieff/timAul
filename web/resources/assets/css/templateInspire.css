@@ -213,10 +213,6 @@ h2{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 40px;
 }
-#team{
-  background-color: #f0fff0;
-  height: 444px;
-}
 .foto{
   position: absolute;
 }
@@ -273,12 +269,27 @@ h2{
   padding-bottom:50px;
 }
 #team{
-  background-color: #fff;
-  height: 444px;
+  background-color: #f0fff0;
+  height: 339px;
 }
-
+#team2{
+  background-color: #f0fff0;
+  height: 264px;
+}
 .foto{
   position: absolute;
+}
+.fotop{		
+	margin-left: 229px;		
+}		
+.fotoe{		
+	margin-left: 458px;		
+}		
+.fotoh{		
+	margin-left: 687px;		
+}		
+.fotoa{		
+	margin-left: 916px;		
 }
 #desc{
   padding-top: 20px;
@@ -308,18 +319,6 @@ h2{
 	padding-left: 20px;		
 	padding-right: 20px;		
 }		
-.fotop{		
-	margin-left: 229px;		
-}		
-.fotoe{		
-	margin-left: 458px;		
-}		
-.fotoh{		
-	margin-left: 687px;		
-}		
-.fotoa{		
-	margin-left: 916px;		
-}
 .line{
 	padding-top: 25px;
 }
