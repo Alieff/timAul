@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 5.6
+  - 5.5
 
 env:
   global:
@@ -9,9 +9,9 @@ env:
 
 matrix:
   include:
-    - php: 5.6
+    - php: 5.5
       env: setup=lowest
-    - php: 5.6
+    - php: 5.5
       env: setup=stable
 
 branches:
@@ -24,7 +24,7 @@ services:
   - redis-server
 
 before_install:
-  - travis_retry composer self-update
+  - composer self-update
 
 install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
