@@ -9,7 +9,6 @@
 <div class="col-lg-8 col-lg-offset-2" class="jumbotron">
       <h2 id="main-heading">INSPIRE CRAWLER</h2>
       <p>
-      <?php echo public_path();  ?>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed sem augue. Sed eleifend diam eget lorem dictum varius. Morbi id nisi eu erat congue tempor. Nulla urna ipsum, lacinia in vestibulum at, laoreet eget mauris. Nam viverra convallis odio, nec egestas nisi vestibulum eu.
       </p>
       <div class="row" style="padding-top: 25px">
