@@ -24,6 +24,11 @@ before_install:
   - cd web
   - composer self-update
 
+  before_script:
+ +  - pecl -q install mongo && echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+    - curl -s http://getcomposer.org/installer | php
+    - php composer.phar --dev install
+  
 install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
