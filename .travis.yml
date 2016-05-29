@@ -24,9 +24,7 @@ services:
 
 before_install:
   - echo $HOME
-  - HOME="$HOME/web"
-  - pwd
-  - travis_retry composer self-update
+  - php /home/travis/.phpenv/versions/5.3.26/bin/composer.phar self-update
 
 install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
